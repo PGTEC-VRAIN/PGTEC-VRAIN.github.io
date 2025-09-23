@@ -25,6 +25,11 @@ body {
   transform: translate(0,0); 
 }
 
+/* Título y subtítulo en blanco */
+.pg-hero .pg-hero__title,
+.pg-hero .pg-hero__subtitle {
+  color: #ffffff !important;
+}
 /* Fix Safari SVGs */
 .md-nav__link svg {
   transform: translate(0, 0);
