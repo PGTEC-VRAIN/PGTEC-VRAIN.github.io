@@ -1,53 +1,73 @@
-# Request changes: Pull Request Procedure
+---
+icon: material/source-pull
+title: Request changes: Pull Request Procedure
+---
 
-By default, Citcom.ai Hub is an open portal where anyone can publish changes. However, these changes must be made in a controlled manner through a review process ([*pull-request*](https://docs.github.com/pull-requests)).
+By default, **PGTEC VRAIN** is an open documentation portal where contributors can propose modifications.  
+However, these changes must go through a **review process** using [*pull requests*](https://docs.github.com/pull-requests) to ensure quality and consistency.
 
-## 1. Fork of the Citcom.ai Hub repo
+---
 
-The first step to editing the content of Citcom.ai Hub is to have a copy of it in our personal GitHub account. This is done by creating a **Fork** from the [GitHub repository](https://github.com/CitComAI-Hub/CitComAI-Hub.github.io).
+## 1. Fork of the PGTEC VRAIN repo
 
-1. While logged into GitHub, click on the icon labeled `Fork`.
-    1. (*Optional*) Deselect the checkbox if you want all branches of the repository to be copied.
-2. Create the fork.
+The first step to editing the content of PGTEC VRAIN is to create a copy of the repository in your personal GitHub account.  
+This is done by creating a **Fork** from the official [GitHub repository](https://github.com/pgtec-vrain/pgtec-vrain.github.io).
+
+1. While logged into GitHub, click on the `Fork` button.
+    1. (*Optional*) Deselect the checkbox if you do not need to copy all branches.
+2. Confirm to create the fork.
 
 ![repo_fork](./img/1_fork-2_create_fork.png) 
 
+---
+
 ## 2. Selecting the branch to edit
 
-From our fork of the Citcom.ai Hub repository, if needed, we can switch to any branch.
+From your fork of the PGTEC VRAIN repository, you can switch to the branch that you need to edit.
 
 ![change_branch](./img/3_change_branch.png)
 
 !!! success "Verification of the fork"
 
-    You can verify that you are in the fork by checking that you are in your personal account, and below the repository name, it states that it has been **forked** from citcom.ai.
+    You can verify that you are working in your own fork by checking that you are in **your GitHub account**.  
+    Just below the repository name, it will state that it has been **forked from `pgtec-vrain/pgtec-vrain.github.io`**.
+
+---
 
 ## 3. Editing the content  
 
-Make the necessary changes and commit them.
+Make the necessary modifications in your fork and commit the changes.
 
 ![commit_changes](./img/4_commit_changes.png)
 
+---
+
 ## 4. Publishing the changes for review (Pull Request)
 
-From our forked repository, go to the `Pull requests` tab (1) and select the option to create a `New pull request` (2).
+When you are ready, go to the `Pull requests` tab (1) in your forked repository and click on `New pull request` (2).
 
 ![create_new_pull_request](./img/5_create_new_pull_request.png)
 
 !!! warning "IMPORTANT"
 
-    Select the correct branch to which you want to publish the changes. In this case:
+    Select the correct branches for the pull request:
 
     |                 |            *Repository name*                   |  *Branch name*  |
     |----------------:|:----------------------------------------------:|-----------------|
-    | **Destination** |      `CitComAI-Hub/CitComAI-Hub.github.io`     | `<branch_name>` |
-    |    **Origin**   | `<github_account_name>/CitComAI-Hub.github.io` | `<branch_name>` | 
+    | **Destination** |      `pgtec-vrain/pgtec-vrain.github.io`       | `<branch_name>` |
+    |    **Origin**   | `<your_github_account>/pgtec-vrain.github.io`  | `<branch_name>` | 
 
-    *Verify that the names of the destination branch and the source branch are the same.*
+    Ensure that the **branch names match** between the destination and your fork.
 
     ![comparing_changes](./img/6_comparing_changes.png)
 
-Lastly, verify that the commits containing all the changes you made are visible, then create the pull request. If it has been correctly created, you will see your pull-request appear in the repository `CitComAI-Hub/CitComAI-Hub.github.io` for review and publication on the official Citcom.ai Hub portal.
+---
+
+## 5. Final step
+
+Review that all the commits with your changes appear in the comparison view.  
+Once confirmed, create the pull request.  
+
+If everything is correct, your contribution will appear in the repository `pgtec-vrain/pgtec-vrain.github.io` where it will be reviewed and, if approved, published in the **official PGTEC VRAIN portal**.
 
 ![publish_pull_request](./img/7_publish_pull_request.png)
-

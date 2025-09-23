@@ -2,10 +2,10 @@
 
 {% block htmltitle %}
   {% if page.meta and page.meta.title %}
-    <title>{{ page.meta.title }} - PGTEC · VRAIN</title>
+    <title>{{ page.meta.title }} - PGTEC - VRAIN</title>
   {% elif page.title and not page.is_homepage %}
-    <title>{{ page.title | striptags }} - PGTEC · VRAIN</title>
+    <title>{{ page.title | striptags }} - PGTEC - VRAIN</title>
   {% else %}
-    <title>PGTEC · VRAIN</title>
+    <title>PGTEC - VRAIN</title>
   {% endif %}
 {% endblock %}
