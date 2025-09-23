@@ -1,42 +1,63 @@
-name: ci-check
+name: CI & Deploy
 
 on:
+  push:
+    branches:
+      - main   # se ejecuta en cada push a main
   pull_request:
     branches:
-      - main
+      - main   # también valida PRs contra main
 
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
 
       - name: Set Up Python
         uses: actions/setup-python@v5
         with:
           python-version: 3.x
 
-      - name: Set Cache Identifier
-        run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV
-
-      - name: Restore Cache
+      - name: Cache pip
         uses: actions/cache@v4
         with:
-          key: mkdocs-material-${{ env.cache_id }}
-          path: .cache
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
           restore-keys: |
-            mkdocs-material-
+            ${{ runner.os }}-pip-
 
       - name: Install Dependencies
         run: pip install -r requirements.txt
 
       - name: Build Documentation
-        run: mkdocs build
+        run: mkdocs build --strict
 
-      - name: Deploy to GitHub Pages
+  deploy:
+    if: github.ref == 'refs/heads/main'
+    needs: build
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write   
+      pages: write
+      id-token: write
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set Up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: 3.x
+
+      - name: Install Dependencies
+        run: pip install -r requirements.txt
+
+      - name: Deploy with MkDocs
         run: mkdocs gh-deploy --force --remote-name origin
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
