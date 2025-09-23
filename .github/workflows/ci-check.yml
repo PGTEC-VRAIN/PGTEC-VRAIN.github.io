@@ -36,6 +36,7 @@ jobs:
       - name: Build Documentation
         run: mkdocs build
 
-
-      - name: Build and Deploy
-        run: mkdocs gh-deploy --force
+      - name: Deploy to GitHub Pages
+        run: mkdocs gh-deploy --force --remote-name origin
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
