@@ -6,12 +6,10 @@ hide:
 ---
 
 <style>
-/* Hide title on the home page */
 article > h1 {
     display: none
 }
 
-/* Fix title font-weight */
 body > header > nav > div.md-header__title.md-header__title--active > div > div:nth-child(2){
     font-weight: 700;   
 }
@@ -21,6 +19,21 @@ body > header > nav > div.md-header__title.md-header__title--active > div > div:
 body > div.md-container > main > div > div > article > a{
     display: none
 }
+
+.md-main__inner > .md-content > article {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+}
+
+article h1 {
+    margin-bottom: 0.8rem;
+}
+article p {
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+
 </style>
 
 <div style="text-align: center;">
@@ -30,7 +43,6 @@ body > div.md-container > main > div > div > article > a{
   <p>Work package 3 (WP3) provides the <strong>Minimal Package for PGTEC (Testing and Experimentation Facility) nodes</strong>, which contains comprehensive <strong>guides, toolboxes, and deployment frameworks</strong> to ensure interoperability across the wide range of TEF nodes by defining a <strong>common reference architecture</strong>. Based on this architecture, it also provides support and examples to develop <strong>AI services</strong>.</p> 
 </div>
 
-<br>
 ### Package components
 
 <div class="grid cards cols-3" markdown>
