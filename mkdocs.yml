@@ -36,17 +36,25 @@ extra_javascript:
 # --- Navegación ---
 nav:
   - Welcome: welcome.md 
-  - Getting started:
-      - getting_started/index.md
-      - Interoperability: getting_started/interoperability.md
-      - Data spaces:
-          - getting_started/data_spaces/index.md
-      - Get involved: 
-        - getting_started/get_involved/index.md
-        - Join the Data Space: getting_started/get_involved/join.md
+  # - Getting started:
+  #     - getting_started/index.md
+  #     - Interoperability: getting_started/interoperability.md
+  #     - Data spaces:
+  #         - getting_started/data_spaces/index.md
+  #     - Get involved: 
+  #       - getting_started/get_involved/index.md
+  #       - Join the Data Space: getting_started/get_involved/join.md
   - Data sources:
       - data_sources/index.md
-      - data_sources/instructions.md
+      - data_sources/metadata_datasources/saih_datasource.md
+      - data_sources/metadata_datasources/siar_datasource.md
+      - data_sources/metadata_datasources/aemet_datasource.md
+      - data_sources/metadata_datasources/aemet_rocio_datasource.md
+      - data_sources/metadata_datasources/aemet_spain_datasource.md
+      - data_sources/metadata_datasources/copernicus_datasource.md
+      - data_sources/metadata_datasources/mswep_datasource.md
+      - data_sources/metadata_datasources/cedex_datasource.md
+      - data_sources/metadata_datasources/avsre_datasource.md
   # - Guides:
   #     - documentation/index.md
   #     - Verifiable Credentials:
@@ -73,8 +81,8 @@ nav:
   #         - documentation/mv_data_space/index.md
   - Data pipeline:
       - pipeline/index.md
-  - Documentation:
-      - documentation/index.md
+  # - Documentation:
+  #     - documentation/index.md
   - FAQ:
       - faq/index.md
       - Request changes: faq/pull_request_procedure.md

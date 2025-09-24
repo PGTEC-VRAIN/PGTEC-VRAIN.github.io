@@ -37,22 +37,20 @@ body > div.md-container > main > div > div > article > a{
 
 - :material-rocket-outline: **Introduction**
 
-    Start by learning the basics of PGTEC and its common reference architecture.  
+    Start by learning the basics of PGTEC.
+
     [:octicons-arrow-right-24: Learn more](welcome.md)
 
 - :material-store-search-outline: **Data sources**
 
-    Centralized access to relevant data for climate emergency management.  
-    [:octicons-arrow-right-24: Learn more](tef/index.md)
+    Information on data sources relevant to climate emergency management.   
+
+    [:octicons-arrow-right-24: Learn more](data_sources/index.md)
 
 - :material-tools: **Data pipeline**
 
-    Procesamiento y análisis de datos siguiendo una arquitectura común.  
-    [:octicons-arrow-right-24: Learn more](pipeline.md)
+    Data pipeline to query the APIs every x amount of time
 
-- :material-book-open-variant: **Documentation**
-
-    Reports and deployment guides of different components.  
-    [:octicons-arrow-right-24: Learn more](documentation/index.md)
+    [:octicons-arrow-right-24: Learn more](pipeline/index.md)
 
 </div>
