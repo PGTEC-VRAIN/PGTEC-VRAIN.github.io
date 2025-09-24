@@ -38,6 +38,11 @@ article p {
 
 <div style="text-align: center;">
 
+<img class="package-icon skip-glightbox" src="assets/images/package.png">
+  <h1>Information of PGTEC</h1>
+  
+</div>
+
 ### Package components
 
 <div class="grid cards cols-3" markdown>
