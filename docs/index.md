@@ -38,11 +38,6 @@ article p {
 
 <div style="text-align: center;">
 
-<img class="package-icon skip-glightbox" src="assets/images/package.png">
-  <h1>Minimal Package for TEF nodes</h1>
-  <p>Work package 3 (WP3) provides the <strong>Minimal Package for PGTEC (Testing and Experimentation Facility) nodes</strong>, which contains comprehensive <strong>guides, toolboxes, and deployment frameworks</strong> to ensure interoperability across the wide range of TEF nodes by defining a <strong>common reference architecture</strong>. Based on this architecture, it also provides support and examples to develop <strong>AI services</strong>.</p> 
-</div>
-
 ### Package components
 
 <div class="grid cards cols-3" markdown>
