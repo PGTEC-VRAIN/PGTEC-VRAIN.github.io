@@ -1,5 +1,5 @@
 # --- Configuración del Proyecto ---
-site_name: PGTEC VRAIN 
+site_name: ""
 site_url: https://pgtec-vrain.github.io/
 site_description: Documentación técnica del proyecto PGTEC-VRAIN.
 copyright: "© 2025 - 2026 PGTEC · VRAIN"
@@ -12,8 +12,8 @@ repo_name: pgtec-vrain/pgtec-vrain.github.io
 theme:
   custom_dir: docs/overrides
   name: material
-  logo: assets/images/logo.png
-  favicon: assets/images//favicon.svg
+  logo: assets/images/logo_letters_without_bg.png
+  favicon: assets/images/logo_without_bg.png
   features:
     - navigation.footer
     - navigation.top

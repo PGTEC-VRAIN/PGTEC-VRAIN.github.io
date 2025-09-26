@@ -1,59 +1,43 @@
-
 :root {
-  --md-primary-fg-color:        #0B5D1E;
-  --md-primary-fg-color--light: #2E7D32;
-  --md-primary-fg-color--dark:  #063a12;
-  --md-accent-fg-color:         #FF8F00;
-  --md-default-fg-color:        rgba(28, 30, 33, 0.87);
-  --md-default-fg-color--light: rgba(28, 30, 33, 0.54);
-  --md-default-fg-color--lighter: rgba(28, 30, 33, 0.32);
-  --md-default-bg-color:        #FFFFFF;
-  --md-typeset-a-color:         #0B5D1E;
-  --md-typeset-mark-color:      rgba(255, 143, 0, 0.3);
-  --md-code-bg-color:           #0f172a0d;
-  --md-code-fg-color:           #0B5D1E;
-  --md-primary-bg-color:        #0B5D1E;
-  --md-accent-bg-color:         #FF8F00;
-  --md-typeset-table-color:     rgba(0,0,0,0.08);
+  --md-primary-fg-color:        #00223b;   /* Azul corporativo oscuro y profesional */
+  --md-primary-fg-color--light: #125c92;   /* Azul más claro para hover/énfasis */
+  --md-primary-fg-color--dark:  #072B45;   /* Azul aún más oscuro */
+
+  --md-accent-fg-color:         #e0821e;   /* Ocre/Dorado, extraído del logo */
+  --md-accent-bg-color:         #e8953b;
+
+  --md-default-fg-color:        rgba(28, 30, 33, 0.92); /* Texto principal casi negro */
+  --md-default-bg-color:        #FFFFFF;   /* Fondo blanco puro */
+
+  --md-typeset-a-color:         #e8953b;   /* Enlaces en azul para consistencia */
+  --md-code-bg-color:           #f5f7fa;   /* Fondo de código gris claro */
+  --md-code-fg-color:           #e8953b;   /* Texto de código en el azul primario */
 }
+
 
 [data-md-color-scheme="slate"] {
-  --md-default-bg-color:        #0B0F12;
-  --md-default-fg-color:        rgba(250, 250, 252, 0.92);
+  --md-default-bg-color:        #12181B;   /* Fondo oscuro con un ligero tono azul */
+  --md-default-fg-color:        rgba(235, 235, 245, 0.9); /* Texto principal gris claro */
 
-  --md-primary-fg-color:        #34C759; 
-  --md-primary-fg-color--light: #6FE28B;
-  --md-primary-fg-color--dark:  #1A8F3A;
+  --md-primary-fg-color:        #b1cf65;   /* Azul claro y legible para modo oscuro */
+  --md-primary-fg-color--light: #c7e186;
+  --md-primary-fg-color--dark:  #7A972F;
 
-  --md-accent-fg-color:         #FFC043;  
+  --md-accent-fg-color:         #E8C58A;   /* Ocre/Dorado más brillante y luminoso */
+  --md-accent-bg-color:         #E8C58A;
 
-  --md-typeset-a-color:         #34C759;
-  --md-code-bg-color:           #111827;
-  --md-code-fg-color:           #A7F3D0;
-
-  --md-typeset-table-color:     rgba(255,255,255,0.1);
+  --md-typeset-a-color:         #E8C58A;   /* Enlaces en el color de acento para destacar */
+  --md-code-bg-color:           #1F2937;   /* Fondo de código gris oscuro */
+  --md-code-fg-color:           #FDE68A;   /* Texto de código en un tono amarillo claro */
 }
 
+
+/* ------------------------------
+   Header
+--------------------------------- */
 .md-header, .md-tabs {
   box-shadow: 0 1px 0 rgba(0,0,0,0.06);
-}
-
-:root {
-  --md-admonition-info-color:   #0B5D1E;
-  --md-admonition-warning-color:#FF8F00;
-  --md-admonition-danger-color: #D32F2F;
-}
-
-.md-button--primary {
-  background-color: var(--md-primary-fg-color);
-  border-color:     var(--md-primary-fg-color);
-}
-.md-button--primary:hover {
-  filter: brightness(0.95);
-}
-
-.md-header, .md-tabs {
-  background-color: #0B6623 !important; 
+  background-color: var(--md-primary-fg-color) !important;
   color: #fff !important;
 }
 
@@ -65,6 +49,32 @@
   fill: #fff !important;
 }
 
+/* ------------------------------
+   Botones
+--------------------------------- */
+.md-button--primary {
+  background-color: #e8953b !important;
+  border-color:     #e8953b !important;
+  color: #fff !important;
+}
+
+.md-button--primary:hover {
+  background-color: #6a8529 !important;
+  border-color:     #6a8529 !important;
+}
+
+.md-button--outline {
+    border-color:     #e8953b !important;
+}
+
+.md-content__inner .md-button {
+  margin: 0.5rem;
+  font-weight: 600;
+}
+
+/* ------------------------------
+   Hero centrado
+--------------------------------- */
 .md-content__inner > div[style*="text-align: center"] {
   display: flex;
   flex-direction: column;
@@ -74,9 +84,4 @@
   margin: 0 auto;
   padding: 3rem 1rem;
   max-width: 960px;
-}
-
-.md-content__inner .md-button {
-  margin: 0.5rem;
-  font-weight: 600;
 }
