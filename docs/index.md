@@ -45,21 +45,21 @@ article p {
 
 <div class="grid cards cols-3" markdown>
 
-- :material-rocket-outline: **Introduction**
+- :material-rocket-outline: **Getting started**
 
     Start by learning the basics of PGTEC.
 
     [:octicons-arrow-right-24: Learn more](welcome.md)
 
-- :material-store-search-outline: **Data sources**
+- :material-database: **Data Sources**
 
-    Information on data sources relevant to climate emergency management.   
+    Information of data sources for climate emergency management.   
 
     [:octicons-arrow-right-24: Learn more](data_sources/index.md)
 
-- :material-tools: **Data pipeline**
+- :material-sitemap-outline: **Data Flow**
 
-    Data pipeline to query the APIs every x amount of time
+    The guide of a complete environment for the project.
 
     [:octicons-arrow-right-24: Learn more](pipeline/index.md)
 

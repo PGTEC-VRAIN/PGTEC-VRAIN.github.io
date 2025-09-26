@@ -16,9 +16,10 @@ theme:
   favicon: assets/images/logo_without_bg.png
   features:
     - navigation.footer
-    - navigation.top
     - content.code.copy
     - content.action.edit
+    - navigation.indexes
+    - navigation.sections
   palette:
     - scheme: default
       primary: custom
@@ -35,18 +36,14 @@ extra_javascript:
 
 # --- Navegación ---
 nav:
-  - Welcome: welcome.md 
-  # - Getting started:
-  #     - getting_started/index.md
-  #     - Interoperability: getting_started/interoperability.md
-  #     - Data spaces:
-  #         - getting_started/data_spaces/index.md
-  #     - Get involved: 
-  #       - getting_started/get_involved/index.md
-  #       - Join the Data Space: getting_started/get_involved/join.md
-  - Data sources:
+  - welcome.md 
+  - Getting Started: 
+       - getting_started/index.md
+       - getting_started/interoperability.md
+       - getting_started/data_spaces/data_spaces.md
+  - Data Sources:
       - data_sources/index.md
-      - data_sources/metadata_datasources/saih_datasource.md
+      - data_sources/metadata_datasources/siah_datasource.md
       - data_sources/metadata_datasources/siar_datasource.md
       - data_sources/metadata_datasources/aemet_datasource.md
       - data_sources/metadata_datasources/aemet_rocio_datasource.md
@@ -79,13 +76,13 @@ nav:
   #             - documentation/mv_data_space/fiware/consumer.md
   #             - documentation/mv_data_space/fiware/provider.md
   #         - documentation/mv_data_space/index.md
-  - Data pipeline:
+  - Data Flow:
       - pipeline/index.md
+      - pipeline/requirements.md
+      - pipeline/setup.md
+
   # - Documentation:
   #     - documentation/index.md
-  - FAQ:
-      - faq/index.md
-      - Request changes: faq/pull_request_procedure.md
 
 # --- Extensiones de Markdown ---
 markdown_extensions:

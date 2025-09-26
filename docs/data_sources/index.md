@@ -1,5 +1,5 @@
 ---
-icon: material/store-search-outline
+icon: material/database
 title: Information
 hide:
   - toc
@@ -32,7 +32,7 @@ This section will detail the different data sources available to feed the predic
 
     Public body responsible for water management in the Júcar River Basin District.
 
-    [:octicons-arrow-right-24: Learn more](./metadata_datasources/saih_datasource.md)
+    [:octicons-arrow-right-24: Learn more](./metadata_datasources/siah_datasource.md)
 
 - :material-sprout-outline: **Sistema de Información Agroclimática para el Regadío (SiAR)**
 

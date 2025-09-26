@@ -2,7 +2,7 @@
 
 The **Júcar Hydrographic Confederation (CHJ)** is the public body responsible for water management in the Júcar River Basin District, which covers a large part of the Valencian Community and areas of Castilla La Mancha, Aragon and Cataluña. Its mission is to ensure sustainable water use, prevent risks associated with droughts and floods, and protect river ecosystems. 
 
-![SIAH image](../img/siah_img.png){ width="560" }
+![SIAH image](../images/siah_img.png){ width="560" }
 
 The Júcar Automatic Hydrological Information System (SAIH) is a technological network managed by the CHJ that collects real-time hydrological, hydraulic and meteorological data from across the entire basin. It consists of automatic sensors, measuring stations and a control centre that processes the information. Through the SAIH Júcar, the CHJ offers a comprehensive information system that connects institutional management with real-time monitoring technology. 
 
