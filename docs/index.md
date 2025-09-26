@@ -43,8 +43,6 @@ article p {
   
 </div>
 
-### Package components
-
 <div class="grid cards cols-3" markdown>
 
 - :material-rocket-outline: **Introduction**

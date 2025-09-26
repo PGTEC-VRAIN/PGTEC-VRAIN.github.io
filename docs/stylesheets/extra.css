@@ -211,6 +211,18 @@ sup { font-size: 10px; }
   margin: 0;
 }
 
+.grid.cards a {
+  color: #eda85e !important;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.grid.cards a:hover {
+  color: #c7792a !important;
+  text-decoration: underline;
+}
+
+
 .grid.cards .card {
   border: 1px solid var(--md-default-fg-color--lightest);
   border-radius: .4rem;
