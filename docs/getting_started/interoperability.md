@@ -39,7 +39,3 @@ At Level 2, interoperability is further enhanced by defining a standard interfac
 - **Authorization and Trust Services:** Policies and registries that enforce data usage rules and access control.
 
 This unified interface simplifies plug-and-play integration and ensures that all data transactions are secure, standardized, and governed under a common framework
-
-!!! Tip "Learn more about this"
-
-    Check [Interoperability in Data Spaces](https://docs.internationaldataspaces.org/ids-knowledgebase/idsa-rulebook/idsa-rulebook/3.-functional_requirements/3.11-interoperability_in_data_spaces) section from IDSA. Also check [MIMs Toolkit](./../toolbox/mims_toolkit.md) section or [OASC MIMs 2024](https://mims.oascities.org/NzWXOO1Fttw4wtqv1Wys/) for more details.
