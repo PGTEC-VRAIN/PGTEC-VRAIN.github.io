@@ -40,9 +40,9 @@ The data update times are **not known exactly**. The update time is estimated to
 Regarding temporal resolution, the technical manual explains the different granularities for accessing data according to the required time span (hourly, daily, weekly, monthly, etc.). 
 
 
-??? info "More information"
+<!-- ??? info "More information"
     The SiAR API is **public**, but you must fill out a form on the website with your personal details and the purpose for which you will use the data. SiAR will then decide whether to accept your request and send you the API key. 
 
     To access the SiAR REST API, you must use the **key provided after registering** on their [website](https://servicio.mapa.gob.es/websiar/). Registration requires you to provide your personal details (ID number, first name, surname, email address), the organisation you work for and the intended use of the data. 
 
-    Once registered, you will receive an **email with an API key** that you will need to provide in each query to identify yourself. 
+    Once registered, you will receive an **email with an API key** that you will need to provide in each query to identify yourself.  -->

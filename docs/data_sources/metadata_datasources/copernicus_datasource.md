@@ -35,9 +35,9 @@ Regarding **real-time** data, it should be noted that for the data sets analysed
 
 With regard to **historical data**, ERA 5 and ERA5-Land have records dating back to **1940**, providing data from almost 85 years ago. Figure 12 shows the years of data available for the ERA5 data set. 
 
-??? info "More information"
+<!-- ??? info "More information"
     To access the data, the first step is to register on the [Climate Data Store](https://cds.climate.copernicus.eu/) to obtain the **API Key**. 
 
     Once you have obtained the API Key, the usual way to request data is through the **CDS website** itself. Once you have selected the dataset in CDS, a menu will open with the download option.
 
-    Once we have the script and the API KEY, the data is downloaded using the CDSAPI package available in Python. This package can be easily downloaded with the Python package installer (PIP) or in an Anaconda environment with (conda). 
+    Once we have the script and the API KEY, the data is downloaded using the CDSAPI package available in Python. This package can be easily downloaded with the Python package installer (PIP) or in an Anaconda environment with (conda).  -->

@@ -23,7 +23,7 @@ With regard to **historical data**, there is no fixed start year for the data in
 
 The API is **public**, but registration is required. An API Key must be requested on the official [AEMET OpenData](https://opendata.aemet.es/). It is valid for **three months** and is linked to an **email address**. 
 
-??? info "More information"
+<!-- ??? info "More information"
     The API has a [Swagger](https://opendata.aemet.es/dist/index.html) available, although it depends on **server availability**. There are recurring **instability issues** such as timeouts and intermittent unavailability. This lack of reliability presents a significant risk and requires the implementation of fault-tolerant architectures. 
 
     The data retrieval process takes place in **two steps**:
@@ -33,4 +33,4 @@ The API is **public**, but registration is required. An API Key must be requeste
     - The client must make a **second request** to that URL to finally obtain the **data**. 
 
     The service imposes **rate limits**, HTTP code 429 ‘Too Many Requests’, when the flow per minute is exceeded. For intensive use, it is advisable to coordinate with AEMET to avoid blockages. It has also been detected that when the link is generated and the server fails, when the link is accessed again, it sometimes returns 404 ‘Expired data’ because the link has expired. 
-
+ -->

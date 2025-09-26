@@ -31,7 +31,7 @@ Access to MSWEP data is **public** for research and educational purposes. To acc
 
 - If you do not have a commercial affiliation and intend to use the product for non-commercial purposes, please use the [Apply here form ](https://www.gloh2o.org/mswep/) in the Data licence section. Once you have completed the form, you will receive a link to the shared Google Drive folder once your request has been approved. 
 
-??? info "More information"
+<!-- ??? info "More information"
     Once you have access to the **Google Drive** repository, there are three folders with data for the following date ranges: 
 
     - **Past_nogauge:** contains data from 1 January 1979 at 12:00 to 23 September 2007 at 06:00. 
@@ -46,4 +46,4 @@ Access to MSWEP data is **public** for research and educational purposes. To acc
 
     - **Programmatic download (rclone):** to acquire the complete historical record or automate downloads, the official documentation recommends the use of tools such as rclone, which allows local directories to be synchronised with cloud storage.  
 
-    - **Remote access (OPeNDAP): **data centres, such as the Integrated Climate Data Centre (ICDC) at the University of Hamburg, host replicas of MSWEP and provide access via the OPeNDAP protocol. Access to the data is restricted; you must contact them and request a customer account. 
+    - **Remote access (OPeNDAP): **data centres, such as the Integrated Climate Data Centre (ICDC) at the University of Hamburg, host replicas of MSWEP and provide access via the OPeNDAP protocol. Access to the data is restricted; you must contact them and request a customer account.  -->

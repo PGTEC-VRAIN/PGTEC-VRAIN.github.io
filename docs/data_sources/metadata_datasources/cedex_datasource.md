@@ -39,10 +39,10 @@ It includes hydrological records such as:
 The data files are divided by each basin organisation. Among them is the **Júcar Hydrographic Conference (CHJ)**, which has all the data on the reservoirs and the Júcar River, which is the basin of interest for the project. 
 
 The **update times** are not defined on the website. The time range covered by the data is from the last century to a **few years ago**. Depending on the dataset downloaded, the time span is different. For example, for the CHJ data, specifically the daily data files on reservoirs, canals, rivers and evaporation, the time span is different. 
-
+<!-- 
 ??? info "More information"
     Access to CEDEX data is direct. No API is provided for requesting data. Therefore, data can be downloaded directly from the databases and  [information portals section](https://www.cedex.es/bases-de-datos-y-portales-de-informacion) of the [CEDEX website](https://www.cedex.es/).  
 
     The databases and information portals page contains eight different databases, each covering a different subject area. The database of interest for the project is the [Yearbook of Gauging Stations](https://ceh.cedex.es/anuarioaforos/demarcaciones.asp). It contains different web links depending on the basin organisation of interest. The basin organisations correspond to the different rivers in Spain. 
 
-    Once you have accessed the basin organisation of interest, in this case the Júcar basin, a new window opens with a list of links to different data sets in ‘csv’ format. To understand the different data sets, CEDEX has created a pdf file called [Descripción_Tablas_Júcar](https://ceh.cedex.es/anuarioaforos/anuario-2020-2021/JUCAR/Descripci%C3%B3n_def_Tablas.pdf ) which describes each of them and defines the fields and units. Finally, the data file can be downloaded immediately after clicking on the link.  
+    Once you have accessed the basin organisation of interest, in this case the Júcar basin, a new window opens with a list of links to different data sets in ‘csv’ format. To understand the different data sets, CEDEX has created a pdf file called [Descripción_Tablas_Júcar](https://ceh.cedex.es/anuarioaforos/anuario-2020-2021/JUCAR/Descripci%C3%B3n_def_Tablas.pdf ) which describes each of them and defines the fields and units. Finally, the data file can be downloaded immediately after clicking on the link.   -->

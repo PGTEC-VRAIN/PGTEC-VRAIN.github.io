@@ -268,8 +268,29 @@ sup { font-size: 10px; }
   margin: 0.25rem 0.4rem;
 }
 
+.md-nav__link:hover,
+.md-nav__link:focus {
+  color: #1b5f03 !important;
+}
+
+.md-nav__link--active,
+.md-nav__link--active:focus,
+.md-nav__link--active:hover {
+  color: #2b890a !important;
+  font-weight: 600;
+}
+
+.md-nav__link--active::before {
+  background-color: #2b890a !important;
+}
+
+
+.md-nav__link--active::before {
+  background-color: #2b890a !important;
+}
+
 .pg-prevnext {
-  background: #1A1A1A;  
+  background: #00223b;  
   padding: 0.6rem 1.2rem;
   margin: 0 auto;      
   max-width: 960px;    

@@ -16,7 +16,7 @@ With regard to the **ROCIO_CAN** grid, the precipitation and temperature dataset
 
 ## API
 The ROCIO grid data is available on the **AEMET website** and also from the THREDDS server at the University of Cantabria, displayed using the OpeNDAP protocol. This protocol allows access to variables such as precipitation and temperatures (maximum and minimum) on a 20 km grid, covering mainland Spain and the Balearic Islands. The dataset includes **historical series** since **1950** and is not updated in real time, as it consists of interpolated observational data. Therefore, there is no real-time data from the ROCIO grid. As a result, update times are unknown. 
-
+<!-- 
 ??? info "More information"
     The data is available both on the AEMET website and on the **THREDDS server** maintained by the Santander Climate Data Service. Below are the two ways to access the data:
 
@@ -29,4 +29,4 @@ The ROCIO grid data is available on the **AEMET website** and also from the THRE
     - Available years. 
 
     The file format is **netCDF** or **ASCII**, depending on the variable. The annex shows an image with the directory structure for the Canary Islands grid (ROCIO_CAN), where different versions of the data can be seen. The most recent version includes the updated files. 
-
+ -->
