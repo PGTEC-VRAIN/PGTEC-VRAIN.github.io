@@ -40,18 +40,6 @@
 /* ------------------------------
    Tipografía y contenido
 --------------------------------- */
-@font-face { 
-  font-family:'FK Grotesk'; 
-  src:url('/fonts/FKGrotesk-Regular.woff2') format('woff2'); 
-  font-weight:300; 
-  font-style:normal; 
-}
-
-body { 
-  font-family:'FK Grotesk', system-ui, -apple-system, Segoe UI, Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif; 
-  color: #000;
-}
-
 sup { font-size: 10px; }
 
 .md-content p,
