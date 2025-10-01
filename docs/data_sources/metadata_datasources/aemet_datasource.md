@@ -2,7 +2,7 @@
 
 **The State Meteorological Agency (AEMET)** is the official Spanish government body responsible for observing, predicting and studying meteorological phenomena. As the main authority, AEMET provides reliable, consistent and standardised data, following the guidelines of the World Meteorological Organisation (WMO). 
 
-Its [AEMET OpenData](https://opendata.aemet.es/centrodedescargas/inicio)service is the designated platform for disseminating this information, offering access to a wide range of **meteorological** and **climatological** products. The quality of its data is backed by rigorous validation processes and by the National Plan for the Prediction and Monitoring of Adverse Meteorological Phenomena (Meteoalerta), which establishes the risk thresholds for alerts. 
+Its [AEMET OpenData](https://opendata.aemet.es/centrodedescargas/inicio) service is the designated platform for disseminating this information, offering access to a wide range of **meteorological** and **climatological** products. The quality of its data is backed by rigorous validation processes and by the National Plan for the Prediction and Monitoring of Adverse Meteorological Phenomena (Meteoalerta), which establishes the risk thresholds for alerts. 
 
 In the **Valencian Community**, there are approximately **40 meteorological stations** that transmit data on a regular basis and are therefore used for live weather monitoring. 
 

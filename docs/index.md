@@ -40,7 +40,7 @@ article p {
 
 <img class="package-icon skip-glightbox" src="assets/images/package.png">
   <h1>Information of PGTEC</h1>
-  
+    <p>A data platform that periodically retrieves <strong>climate</strong>  and <strong>weather</strong> historical data and predictions from multiple APIs, standardizes them using <strong>Smart Data Models</strong> and stores them in a <strong>FIWARE Context Broker</strong> with historical persistence for machine learning and deep learning models.</p> 
 </div>
 
 <div class="grid cards cols-3" markdown>
@@ -49,7 +49,7 @@ article p {
 
     Start by learning the basics of PGTEC.
 
-    [:octicons-arrow-right-24: Learn more](welcome.md)
+    [:octicons-arrow-right-24: Learn more](getting_started/index.md)
 
 - :material-database: **Data Sources**
 

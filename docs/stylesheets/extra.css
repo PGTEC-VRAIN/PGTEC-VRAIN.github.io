@@ -1,12 +1,9 @@
-/* ------------------------------
-   Paleta PGTEC VRAIN (verde + azul)
---------------------------------- */
 :root {
-  --md-primary-fg-color:        #1B5E20;   /* verde oscuro elegante */
-  --md-primary-fg-color--light: #4CAF50;   /* verde vivo */
+  --md-primary-fg-color:        #1B5E20;   
+  --md-primary-fg-color--light: #4CAF50;   
   --md-primary-fg-color--dark:  #0B3D12;
 
-  --md-accent-fg-color:         #1565C0;   /* azul fuerte */
+  --md-accent-fg-color:         #1565C0;   
   --md-accent-bg-color:         #1565C0;
 
   --md-default-fg-color:        rgba(28, 30, 33, 0.87);
@@ -17,7 +14,7 @@
   --md-code-fg-color:           #1B5E20;
 
   --pg-hero-shadow: 0 1px 0 rgba(0,0,0,0.06);
-  --pg-accent-color: #1565C0;  /* reusado para botones hero */
+  --pg-accent-color: #1565C0; 
 }
 
 /* Dark mode */
@@ -25,11 +22,11 @@
   --md-default-bg-color:        #0B0F12;
   --md-default-fg-color:        rgba(250, 250, 252, 0.92);
 
-  --md-primary-fg-color:        #34C759;   /* verde neón */
+  --md-primary-fg-color:        #34C759;  
   --md-primary-fg-color--light: #6FE28B;
   --md-primary-fg-color--dark:  #1A8F3A;
 
-  --md-accent-fg-color:         #42A5F5;   /* azul eléctrico */
+  --md-accent-fg-color:         #42A5F5;   
   --md-accent-bg-color:         #42A5F5;
 
   --md-typeset-a-color:         #42A5F5;
@@ -72,6 +69,19 @@ sup { font-size: 10px; }
   color: #ffffff !important;
 }
 
+.md-header__title {
+  display: flex;
+  align-items: center;   
+  gap: 0.5rem;      
+}
+
+.md-header__title .md-header__topic {
+  display: flex;
+  align-items: center;  
+  font-size: 1.2rem; 
+  font-weight: 600;
+}
+
 .pg-feature {
   padding: 2rem 0 1rem !important;
 }
@@ -104,6 +114,7 @@ sup { font-size: 10px; }
   align-items: start;
 }
 
+
 @media (max-width: 960px) {
   .pg-footer {
     grid-template-columns: 1fr;
@@ -114,28 +125,12 @@ sup { font-size: 10px; }
   }
 }
 
-/* Footer logos alineados */
+
 .footer-logo {
   display: flex;
-  align-items: center;   /* centra verticalmente PGTEC y VRAIN */
-  gap: 1.5rem;           /* espacio entre los dos logos */
-}
-
-/* Ajustamos tamaños para que se vean proporcionados */
-.footer-logo .pgtec-logo {
-  height: 60px !important;
-  width: auto !important;
-}
-
-.footer-logo .vrain-logo {
-  height: 40px !important;
-  width: auto !important;
-}
-
-.pg-h4 {
-  margin: 0 0 .4rem 0;
-  font-size: 0.95rem;
-  font-weight: 700;
+  justify-content: center;   
+  align-items: center;   
+  gap: 1.5rem;           
 }
 
 .footer-logo .pgtec-logo {
@@ -155,16 +150,24 @@ sup { font-size: 10px; }
   filter: none !important;  
 }
 
+.pg-h4 {
+  margin: 0 0 .4rem 0;
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-align: center;   
+}
+
 /* ------------------------------
    Logos
 --------------------------------- */
 .md-header__button.md-logo img {
-  height: 100px !important;  
+  height: 42px !important;  
   width: auto !important;
 }
 
 .logo-container {
   display: flex;
+  justify-content: center;   
   align-items: center;
   gap: 1.2rem;
   margin: .5rem 0;
@@ -188,6 +191,9 @@ sup { font-size: 10px; }
   margin-top: 1rem;
   max-width: 700px;       
   opacity: .85;
+  margin-left: auto;
+  margin-right: auto; 
+  text-align: center;
 }
 
 /* ------------------------------
@@ -209,7 +215,6 @@ sup { font-size: 10px; }
   color: #c7792a !important;
   text-decoration: underline;
 }
-
 
 .grid.cards .card {
   border: 1px solid var(--md-default-fg-color--lightest);
@@ -272,17 +277,13 @@ sup { font-size: 10px; }
   background-color: #e0821e !important;
 }
 
-
-.md-nav__link--active::before {
-  background-color: #e0821e !important;
-}
-
 .pg-prevnext {
   background: #00223b;  
   padding: 0.6rem 1.2rem;
   margin: 0 auto;      
-  max-width: 960px;    
-  border-radius: 6px;   
+  max-width: none !important;  
+  width: 100% !important;
+  border-radius: 0;             
   box-shadow: 0 1px 2px rgba(0,0,0,.2);
 }
 
@@ -307,9 +308,10 @@ sup { font-size: 10px; }
 .md-nav__list .md-nav__list .md-nav__link {
   font-weight: 400 !important;
 }
+
 .md-typeset a {
-    color: #e0821e;
-    word-break: break-word;
+  color: #e0821e;
+  word-break: break-word;
 }
 
 .md-typeset a:hover,
