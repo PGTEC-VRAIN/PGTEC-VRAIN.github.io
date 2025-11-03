@@ -86,6 +86,7 @@ nav:
       - SmartDataModels/index.md
       - SmartDataModels/WeatherForecastSeries.md
       - SmartDataModels/WeatherObserved.md
+      - SmartDataModels/StreamFlow.md
 
   - SmartFlow:
       - SmartFlow/index.md
