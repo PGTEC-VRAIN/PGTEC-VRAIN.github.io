@@ -1,4 +1,3 @@
-## WeatherForecastSeries
 
 The **WeatherForecastSeries** Smart Data Model is an **extension of the official** [WeatherForecast](https://smart-data-models.github.io/dataModel.Weather/WeatherForecast/schema.json) model from FIWARE’s Smart Data Models initiative.  
 Its main goal is to enable the representation of **forecast time series** (rather than a single prediction) within a single entity.

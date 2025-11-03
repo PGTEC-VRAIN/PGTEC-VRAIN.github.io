@@ -1,11 +1,10 @@
-## WeatherObserved
 
 The **WeatherObserved** Smart Data Model is used to represent real-time meteorological observations within the **PGTEC** project.  
 It follows the official FIWARE definition and does not require any structural modification, ensuring full compatibility and interoperability with other FIWARE-based systems.
 
 This model serves as the standard framework for integrating **real-time data** collected from multiple external sources, including:
 
-- :es: **AEMET** — Agencia Estatal de Meteorología
+- :material-earth: **AEMET** — Agencia Estatal de Meteorología
 - :droplet: **CHJ** — Confederación Hidrográfica del Júcar 
 - :cloud: **AVSRE** — Agencia Valenciana de Seguridad y Respuesta a las Emergencias  
 
