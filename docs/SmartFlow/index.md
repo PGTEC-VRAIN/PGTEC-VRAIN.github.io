@@ -96,7 +96,7 @@ To get a local copy up and running follow these simple steps in ubuntu command l
    docker compose up --build -d
    ```
 
-# Data Sources Overview
+## Airflow Data Sources Overview
 
 <div class="grid cards cols-5" markdown>
 
@@ -121,7 +121,6 @@ To get a local copy up and running follow these simple steps in ubuntu command l
 - :material-alert: **[EFFIS – Copernicus](metadata_scripts/EFFIS.md)**  
 
 </div>
-
 
 <!--
 ### Prerequisites
@@ -161,9 +160,91 @@ These are the necessary requirements to be able to execute the project:
 <!-- USAGE EXAMPLES -->
 # Usage
 
-This is an example to use the environment using the scripts to download data and convert to Smart Data Models format:
+This section describes how to run and test the main components of the PGTEC platform — the Airflow workflows for data processing and the FastAPI services for data delivery and dashboard integration. Both components can be deployed together using the provided Docker Compose environment. 
 
-To fill...
+
+It is supposed that the enviroment has been cloned following the instructions of Getting Started section.
+
+
+## 1. Running Airflow Workflows
+
+
+The Airflow DAGs automate the process of retrieving and transforming climate and hydrological data from different sources (AEMET, CHJ, Open-Meteo, Copernicus...).
+
+🧩 Steps
+
+1.1 Start the containers:
+
+```sh
+docker-compose up -d
+```
+
+The -d option runs the containers in detached mode, hiding Airflow logs and keeping the terminal clean.
+
+### 1.2. Access the Airflow web interface:
+👉 http://localhost:8080
+
+### 1.3. Enable the DAGs:
+Inside the Airflow UI, activate the desired workflows (e.g., AEMET_HARMONIE_AROME, AIFS_ECMWF, etc.).
+
+### 1.4. Monitor execution:
+You can visualize the data extraction and transformation progress directly in the DAG view.
+
+Below is an example of a Python script running in the Airflow user interface, showing the logs of its execution:
+
+![Airflow DAG example](images/airflow_running.png){ width="600" align="center" }
+
+In the screenshot, the DWD_ICON.py workflow is being executed. In just 4.04 seconds, it retrieves several points of interest from the Valencian Community and stores them using the WeatherForecastSeries Smart Data Model format.
+
+## 2. Running FastAPI scripts.
+
+The FastAPI services expose the processed data as REST APIs, allowing other applications — such as the TETIS dashboard — to access the latest standardized data stored in the FIWARE Context Broker.
+
+Each service corresponds to a specific data source or Smart Data Model and can be easily extended to include new ones.
+
+🧩 Steps
+
+### 2.1. Make sure the Docker environment is running:
+   ```sh
+   docker-compose up -d
+   ```
+
+### 2.2. Access the FastAPI documentation:
+👉 http://localhost:8000/docs
+
+This interface allows you to explore and test all available endpoints interactively.
+
+### 2.3. Test an endpoint:
+For example, you can retrieve the latest weather forecast data by calling:
+
+  ```sh
+  GET /weather?source=AEMET&variable=temperature
+  ```
+
+### 2.4 Integration with the TETIS dashboard:
+The FastAPI services feed the TETIS dashboard, allowing users to select:
+
+- The data sources (e.g., AEMET, DWD, ECMWF)
+
+- The points of interest (catchments, stations, or coordinates)
+
+Once the user selects these options, TETIS automatically triggers the corresponding API calls — which execute the same Python scripts described in the SmartFlow section — to retrieve and process the forecast data used as inputs for hydrological simulations.
+
+📁 Example folder structure
+
+SmartFlow/FastAPI/
+├── main.py           # FastAPI entry point
+├── routes/
+│   ├── AEMET.py      # Endpoints for WeatherObserved / Forecast data
+│   ├── DWD_ICON.py   # Endpoints for CHJ flow data
+│   └── ...
+└── models/
+    ├── AEMET.py
+    └── DWD_ICON.py
+
+🧠 Tip: You can add new endpoints easily by creating a new Python file in the routes/ folder and registering it in main.py.
+
+
 <!-- ROADMAP 
 ## Roadmap
 
