@@ -65,8 +65,14 @@ article p {
 
 - :material-puzzle-outline: **Smart Data Models**  
 
-    Description of the data models used
+    Description of the data models used.
 
     [:octicons-arrow-right-24: Learn more](SmartDataModels/index.md)
+
+- :material-sync: **Smart Flow**
+
+    Python-based scripts designed with Airflow and FastAPI to manage and automate data processing pipelines.
+
+    [:octicons-arrow-right-24: Learn more](SmartFlow/index.md)
 
 </div>

@@ -1,6 +1,8 @@
 ---
-icon: material/sitemap-outline
+icon: material/puzzle-outline
 title: Smart Data Models
+hide:
+  - toc
 ---
 
 <script>
@@ -38,4 +40,4 @@ Para el proyecto, se ha pensado en tener 3 Smart Data Models diferentes enfocado
 - **[CHJ](https://github.com/PGTEC-VRAIN/WorkflowPTGEC/blob/juan/tetis/hydrographic_models.py):** A new Smart Data Model focused on CHJ hydrometeorological data. It standardizes variables such as gauging and flow rates into a consistent format using the FIWARE Smart Data Models ontology.
 
 
-![Smart Data Models image](images/logo_smd.png){ width="400" }
+![Smart Data Models image](images/logo_smd.png){ width="400" style="display:block; margin:auto;" }
