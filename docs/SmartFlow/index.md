@@ -18,20 +18,6 @@ hide:
     });
 </script>
 
-# Overview
-
-This repository is part of the tasks developed within the **PGTEC** project. Its main objective is to describe and provide the infrastructure required to deploy a data space using FIWARE technologies, offering a detailed and easy-to-follow guide adaptable to different environments.
-
-This repository specifically contains the Python scripts used to:
-
-- Retrieve data from multiple climate data sources such as AEMET, CHJ, Open-Meteo, and Copernicus.
-
-- Convert the raw data into **FIWARE Smart Data Models** to standardize the format.
-
-- The creation of automated Airflow DAGs for pipeline execution.
-
-- The creation of FastAPI scripts to provide data as a service neede to provide a dashboard where users select the data sources to run TETIS model (Hydrological model from IIAMA-UPV) 
-
 <details>
   <summary>Table of Contents</summary>
   <ol>
@@ -57,24 +43,27 @@ This repository specifically contains the Python scripts used to:
   </ol>
 </details>
 
-This README provides an overview of the project’s purpose, setup instructions, usage examples, and references for further development.
-
 <!-- ABOUT THE PROJECT -->
 # About The Project
 
-Its main objective is to describe and provide the infrastructure required to deploy a data space using <a href="https://www.fiware.org/">FIWARE</a> technology, offering a detailed and easy-to-follow guide for different environments.
+This section is part of the tasks developed within the <a href="https://pgtec.webs.upv.es/">PGTEC</a> project. Its main objective is to describe and provide the infrastructure required to deploy a data space using <a href="https://www.fiware.org/">FIWARE</a> technologies, offering a detailed and easy-to-follow guide adaptable to different environments. Specifically, it explains the logic used to download data from multiple sources, transform it into a common language using Smart Data Models, and make it available in two complementary ways:
 
-This repository is part of the tasks developed within the <a href="https://pgtec.webs.upv.en/">PGTEC</a> project. Its main objective is to describe and provide the infrastructure required to deploy a data space using  <a href="https://www.fiware.org/">FIWARE</a> technologies, offering a detailed and easy-to-follow guide adaptable to different environments.
+- **Airflow workflows**: Python scripts that use Airflow logic to automate the execution of data retrieval and transformation tasks, ensuring that climate predictions are periodically processed and ready to use.
 
-The goal of PGTEC is to build a data platform that periodically retrieves historical and forecasted climate and weather data from multiple APIs, standardizes them using Smart Data Models, and stores them in a FIWARE Context Broker with historical persistence — enabling the development of machine learning and deep learning models.
+- **FastAPI services**: Python scripts built with FastAPI that expose the processed data through RESTful APIs. These services feed a dashboard where users can select the data sources and points of interest required to run the **TETIS hydrological model**. Once the user makes a selection, TETIS automatically triggers the corresponding FastAPI Python scripts described in this section to retrieve and process the climate predictions, which are then used as input for the model’s execution.
 
-This repository specifically contains the Python scripts used to:
+This section specifically describes the Python scripts used to:
 
 - Retrieve data from multiple climate data sources such as AEMET, CHJ, Open-Meteo, and Copernicus.
 
-- Convert the raw data into FIWARE Smart Data Models to standardize the format.
+- Convert the raw data into **FIWARE Smart Data Models** to standardize the format.
 
 - The creation of automated Airflow DAGs for pipeline execution.
+
+- The creation of FastAPI scripts to provide data as a service neede to provide a dashboard where users select the data sources to run TETIS model (Hydrological model from IIAMA-UPV) 
+
+All the python files are in the <a href="https://github.com/PGTEC-VRAIN/SmartFlow/tree/main/dags">SmartFlow Github Repository</a>
+
 
 
 ## Built With
