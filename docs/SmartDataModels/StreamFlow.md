@@ -1,4 +1,4 @@
-# 💧 StreamFlow Smart Data Model — Overview
+## StreamFlow
 
 This section presents a proposal for the creation of a new **Smart Data Model** designed to represent **hydrological information** from the *Confederación Hidrográfica del Júcar (CHJ)*.  
 The objective is to standardize the collection, integration, and exchange of **river discharge and reservoir data** within the **PGTEC project** framework.

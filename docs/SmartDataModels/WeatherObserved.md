@@ -1,4 +1,4 @@
-## :material-weather-partly-cloudy: SMART DATA MODEL – WeatherObserved
+## WeatherObserved
 
 The **WeatherObserved** Smart Data Model is used to represent real-time meteorological observations within the **PGTEC** project.  
 It follows the official FIWARE definition and does not require any structural modification, ensuring full compatibility and interoperability with other FIWARE-based systems.
