@@ -98,6 +98,18 @@ To get a local copy up and running follow these simple steps in ubuntu command l
 
 ## Airflow Data Sources Overview
 
+This section contains links to detailed explanations of the Python scripts that programmatically download forecasts from different models using Airflow. Specifically, each script description includes:
+
+- The name of the Python file in the <a href="https://github.com/PGTEC-VRAIN/SmartFlow/tree/main/dags">SmartFlow Github Repository</a>
+
+- The data source accessed and the variables of interest
+
+- The Smart Data Model used to standardize the data
+
+- The required API key (if applicable)
+
+- The suggested execution frequency to keep the data up to date
+
 <div class="grid cards cols-5" markdown>
 
 - :material-weather-cloudy: **[HARMONIE/AROME- AEMET](metadata_scripts/Harmonie_AEMET.md)**  
@@ -192,7 +204,7 @@ You can visualize the data extraction and transformation progress directly in th
 
 Below is an example of a Python script running in the Airflow user interface, showing the logs of its execution:
 
-![Airflow DAG example](images/airflow_running.png){ width="600" align="center" }
+![Airflow DAG example](images/airflow_running.png){ width="900" align="center" }
 
 In the screenshot, the DWD_ICON.py workflow is being executed. In just 4.04 seconds, it retrieves several points of interest from the Valencian Community and stores them using the WeatherForecastSeries Smart Data Model format.
 
@@ -232,16 +244,17 @@ Once the user selects these options, TETIS automatically triggers the correspond
 
 📁 Example folder structure
 
-SmartFlow/FastAPI/
-├── main.py           # FastAPI entry point
-├── routes/
-│   ├── AEMET.py      # Endpoints for WeatherObserved / Forecast data
-│   ├── DWD_ICON.py   # Endpoints for CHJ flow data
-│   └── ...
-└── models/
-    ├── AEMET.py
-    └── DWD_ICON.py
-
+  ```text
+  SmartFlow/FastAPI/
+  ├── main.py           # FastAPI entry point
+  ├── routes/
+  │   ├── AEMET.py      # Endpoints for WeatherObserved / Forecast data
+  │   ├── DWD_ICON.py   # Endpoints for CHJ flow data
+  │   └── ...
+  └── models/
+      ├── AEMET.py
+      └── DWD_ICON.py
+  ```
 🧠 Tip: You can add new endpoints easily by creating a new Python file in the routes/ folder and registering it in main.py.
 
 

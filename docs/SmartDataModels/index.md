@@ -35,7 +35,7 @@ Para el proyecto, se ha pensado en tener 3 Smart Data Models diferentes enfocado
     - CHJ: Confederación Hidrográfrica del Júcar
     - AVSRE: Agencia Valenciana de Seguridad y Respuesta a emergencias
 
-- **[WeatherForecastSeries](https://github.com/PGTEC-VRAIN/SmartFlow/blob/main/SmartDataModels/WeatherForcastSeries/schema.json):**. An extension of the smart data model WeatherForecast(https://fiware-datamodels.readthedocs.io/en/stable/Weather/WeatherForecast/doc/spec/index.html)
+- **[WeatherForecastSeries](https://github.com/PGTEC-VRAIN/SmartFlow/blob/main/SmartDataModels/WeatherForcastSeries/schema.json):**. An extension of the smart data model [WeatherForecast](https://fiware-datamodels.readthedocs.io/en/stable/Weather/WeatherForecast/doc/spec/index.html)
 
 - **[CHJ](https://github.com/PGTEC-VRAIN/WorkflowPTGEC/blob/juan/tetis/hydrographic_models.py):** A new Smart Data Model focused on CHJ hydrometeorological data. It standardizes variables such as gauging and flow rates into a consistent format using the FIWARE Smart Data Models ontology.
 
