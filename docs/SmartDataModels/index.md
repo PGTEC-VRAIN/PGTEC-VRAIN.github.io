@@ -26,9 +26,9 @@ Within the PGTEC project, the adoption of Smart Data Models plays a key role in 
 
 To achieve this, PGTEC implements and extends several Smart Data Models tailored to the project’s specific needs. The main models used include WeatherObserved, which harmonizes observational data from different meteorological agencies; WeatherForecastSeries, an extended version of the FIWARE WeatherForecast model adapted to handle forecast time series; and CHJ, a new model specifically designed to represent hydrological variables such as flow and gauging data from the Confederación Hidrográfica del Júcar (CHJ).
 
-## Smart Data Models proposed
+## Proposed Smart Data Models for PGTEC
 
-Para el proyecto, se ha pensado en tener 3 Smart Data Models diferentes enfocados cada uno en un tipo de fuente de datos. Hay fuentes de datos en tiempo real, fuentes de datos que resultan ser predicciones de modelos climáticos y fuentes de datos hidrológicas 
+For the project, three different Smart Data Models have been designed, each focused on a specific type of data source. These include real-time data sources, climate model forecast sources, and hydrological data sources.
 
 - **[WeatherObserved](https://fiware-datamodels.readthedocs.io/en/stable/Weather/WeatherObserved/doc/spec/index.html):** Fiware smart data model used to translate all the data from different climate data sources such as:
     - AEMET: Agencia Española de Meteorología
