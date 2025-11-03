@@ -63,4 +63,10 @@ article p {
 
     [:octicons-arrow-right-24: Learn more](pipeline/index.md)
 
+- :material-puzzle-outline: **Smart Data Models**  
+
+    Description of the data models used
+
+    [:octicons-arrow-right-24: Learn more](SmartDataModels/index.md)
+
 </div>
