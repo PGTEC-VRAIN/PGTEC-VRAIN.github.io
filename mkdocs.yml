@@ -82,6 +82,11 @@ nav:
       - pipeline/setup.md
       - pipeline/example_copernicus.md
 
+  - Smart Data Models:
+      - SmartDataModels/index.md
+      - SmartDataModels/WeatherForecastSeries.md
+      - SmartDataModels/WeatherObserved.md
+
   # - Documentation:
   #     - documentation/index.md
 
