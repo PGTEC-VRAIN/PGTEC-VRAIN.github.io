@@ -76,23 +76,15 @@ This repository specifically contains the Python scripts used to:
 
 - The creation of automated Airflow DAGs for pipeline execution.
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 
 ## Built With
 
 The project is built using the following main components:
 
-<div align="center">
-
 | | | | |
 |:-------------------------------------------:|:--------------------:|:-------------------:|:---------------------:|
 | [![Python][Python]][Python-url] | [![Airflow][Airflow]][Airflow-url] | [![Smart-data-models][Smart-data-models]][Smart-Data-models-url] | [![Docker][Docker]][Docker-url] |
 
-
-</div>
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- GETTING STARTED -->
 # Getting Started 
@@ -230,17 +222,10 @@ Don't forget to give the project a star! Thanks again!
 
 Distributed under the AGPL-3.0 License. See `LICENSE` for more information.
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
 <!-- CONTACT -->
 # Contact
 
 Project Link: [https://github.com/PGTEC-VRAIN](https://github.com/PGTEC-VRAIN)
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 
 
 <!-- References -->
@@ -248,10 +233,6 @@ Project Link: [https://github.com/PGTEC-VRAIN](https://github.com/PGTEC-VRAIN)
 
 * [Readme Template](https://github.com/othneildrew/Best-README-Template)
 * Smart Data Models [Weather Smart Data Model - Fiware](https://github.com/smart-data-models/dataModel.Weather)
-
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
