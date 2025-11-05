@@ -31,7 +31,7 @@ To achieve this, PGTEC implements and extends several Smart Data Models tailored
 For the project, three different Smart Data Models have been designed, each focused on a specific type of data source. These include real-time data sources, climate model forecast sources, and hydrological data sources.
 
 - **[WeatherObserved](https://fiware-datamodels.readthedocs.io/en/stable/Weather/WeatherObserved/doc/spec/index.html):** Fiware smart data model used to translate all the data from different climate data sources such as:
-    - AEMET: Agencia Española de Meteorología
+    - AEMET: Agencia Estatal de Meteorología
     - CHJ: Confederación Hidrográfrica del Júcar
     - AVSRE: Agencia Valenciana de Seguridad y Respuesta a emergencias
 

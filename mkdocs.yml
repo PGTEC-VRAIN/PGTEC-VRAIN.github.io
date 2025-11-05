@@ -39,8 +39,8 @@ nav:
   - welcome.md 
   - Getting Started: 
        - getting_started/index.md
-       - getting_started/interoperability.md
-       - getting_started/data_spaces/data_spaces.md
+      #  - getting_started/interoperability.md
+      #  - getting_started/data_spaces/data_spaces.md
   - Data Sources:
       - data_sources/index.md
       - data_sources/metadata_datasources/siah_datasource.md
