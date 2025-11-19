@@ -1,8 +1,6 @@
 ---
 icon: material/puzzle-outline
 title: Smart Data Models
-hide:
-  - toc
 ---
 
 <script>
@@ -18,7 +16,7 @@ hide:
     });
 </script>
 
-# Overview
+## Overview
 
 The **Smart Data Models** initiative, led by FIWARE Foundation, provides a set of open and interoperable data models designed to promote common standards for data exchange. These models define the structure, semantics, and units of measurement for key environmental and urban variables, allowing data to be easily reused and understood across multiple platforms and applications.
 
@@ -26,18 +24,18 @@ Within the PGTEC project, the adoption of Smart Data Models plays a key role in 
 
 To achieve this, PGTEC implements and extends several Smart Data Models tailored to the project’s specific needs. The main models used include WeatherObserved, which harmonizes observational data from different meteorological agencies; WeatherForecastSeries, an extended version of the FIWARE WeatherForecast model adapted to handle forecast time series; and CHJ, a new model specifically designed to represent hydrological variables such as flow and gauging data from the Confederación Hidrográfica del Júcar (CHJ).
 
-## Proposed Smart Data Models for PGTEC
+### Proposed Smart Data Models for PGTEC
 
 For the project, three different Smart Data Models have been designed, each focused on a specific type of data source. These include real-time data sources, climate model forecast sources, and hydrological data sources.
 
 - **[WeatherObserved](https://raw.githubusercontent.com/smart-data-models/dataModel.Weather/master/WeatherObserved/schema.json):** Fiware smart data model used to translate all the data from different climate data sources such as:
-    - AEMET: Agencia Estatal de Meteorología
-    - CHJ: Confederación Hidrográfrica del Júcar
-    - AVSRE: Agencia Valenciana de Seguridad y Respuesta a emergencias
+
+  - AEMET: Agencia Estatal de Meteorología
+  - CHJ: Confederación Hidrográfrica del Júcar
+  - AVSRE: Agencia Valenciana de Seguridad y Respuesta a emergencias
 
 - **[WeatherForecastSeries](https://github.com/PGTEC-VRAIN/SmartFlow/blob/main/SmartDataModels/WeatherForcastSeries/schema.json):**. An extension of the smart data model [WeatherForecast](https://fiware-datamodels.readthedocs.io/en/stable/Weather/WeatherForecast/doc/spec/index.html)
 
 - **[StreamFlow](https://github.com/PGTEC-VRAIN/WorkflowPTGEC/blob/juan/tetis/hydrographic_models.py):** A new Smart Data Model focused on CHJ hydrometeorological data. It standardizes variables such as gauging and flow rates into a consistent format using the FIWARE Smart Data Models ontology.
-
 
 ![Smart Data Models image](images/logo_smd.png){ width="400" style="display:block; margin:auto;" }

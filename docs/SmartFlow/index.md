@@ -1,50 +1,9 @@
 ---
 icon: material/sync
-title: Information
-hide:
-  - toc
+title: Smart Flow
 ---
 
-<script>
-    // Hide sidebar. This script is only executed in the data sources page.
-    document.addEventListener('DOMContentLoaded', function () {
-        const sidebar = document.querySelector('.md-sidebar--secondary');
-        if (document.querySelector('.catalog-header') && sidebar) {
-            sidebar.style.display = 'none';
-            sidebar.style.width = '0';
-            sidebar.style.padding = '0';
-            sidebar.style.margin = '0';
-        }
-    });
-</script>
-
-<details>
-  <summary>Table of Contents</summary>
-  <ol>
-    <li>
-      <a href="#about-the-project">About The Project</a>
-      <ul>
-        <li><a href="#built-with">Built With</a></li>
-      </ul>
-    </li>
-    <li>
-      <a href="#getting-started">Getting Started</a>
-      <ul>
-        <!--<li><a href="#prerequisites">Prerequisites</a></li>-->
-        <!--<li><a href="#cheatsheet">Cheatsheet</a></li>-->
-      </ul>
-    </li>
-    <li><a href="#usage">Usage</a></li>
-    <!--<li><a href="#roadmap">Roadmap</a></li>-->
-    <!--<li><a href="#contributing">Contributing</a></li>-->
-    <li><a href="#license">License</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="#references">References</a></li>
-  </ol>
-</details>
-
-<!-- ABOUT THE PROJECT -->
-# About The Project
+## About The Project
 
 This section is part of the tasks developed within the <a href="https://pgtec.webs.upv.es/">PGTEC</a> project. Its main objective is to describe and provide the infrastructure required to deploy a data space using <a href="https://www.fiware.org/">FIWARE</a> technologies, offering a detailed and easy-to-follow guide adaptable to different environments. Specifically, it explains the logic used to download data from multiple sources, transform it into a common language using Smart Data Models, and make it available in two complementary ways:
 
@@ -60,33 +19,33 @@ This section specifically describes the Python scripts used to:
 
 - The creation of automated Airflow DAGs for pipeline execution.
 
-- The creation of FastAPI scripts to provide data as a service neede to provide a dashboard where users select the data sources to run TETIS model (Hydrological model from IIAMA-UPV) 
+- The creation of FastAPI scripts to provide data as a service neede to provide a dashboard where users select the data sources to run TETIS model (Hydrological model from IIAMA-UPV)
 
 All the python files are in the <a href="https://github.com/PGTEC-VRAIN/SmartFlow/tree/main/dags">SmartFlow Github Repository</a>
 
-
-
-## Built With
+### Built With
 
 The project is built using the following main components:
 
-| | | | |
-|:-------------------------------------------:|:--------------------:|:-------------------:|:---------------------:|
+|                                 |                                    |                                                                  |                                 |
+| :-----------------------------: | :--------------------------------: | :--------------------------------------------------------------: | :-----------------------------: |
 | [![Python][Python]][Python-url] | [![Airflow][Airflow]][Airflow-url] | [![Smart-data-models][Smart-data-models]][Smart-Data-models-url] | [![Docker][Docker]][Docker-url] |
 
-
 <!-- GETTING STARTED -->
-# Getting Started 
+
+## Getting Started
 
 To get a local copy up and running follow these simple steps in ubuntu command line:
 
 1. Clone the repo and navigate to the project folder
+
    ```sh
    git clone https://github.com/PGTEC-VRAIN/SmartFlow
    cd SmartFlow
-   ``` 
+   ```
 
 2. Initialize docker:
+
    ```sh
    sudo systemctl start docker
    ```
@@ -96,7 +55,7 @@ To get a local copy up and running follow these simple steps in ubuntu command l
    docker compose up --build -d
    ```
 
-## Airflow Data Sources Overview
+### Airflow Data Sources Overview
 
 This section contains links to detailed explanations of the Python scripts that programmatically download forecasts from different models using Airflow. Specifically, each script description includes:
 
@@ -112,25 +71,25 @@ This section contains links to detailed explanations of the Python scripts that 
 
 <div class="grid cards cols-5" markdown>
 
-- :material-weather-cloudy: **[HARMONIE/AROME- AEMET](metadata_scripts/Harmonie_AEMET.md)**  
+- :material-weather-cloudy: **[HARMONIE/AROME- AEMET](metadata_scripts/Harmonie_AEMET.md)**
 
-- :material-weather-sunny: **[ARPEGE – OpenMeteo](metadata_scripts/ARPEGE.md)**  
+- :material-weather-sunny: **[ARPEGE – OpenMeteo](metadata_scripts/ARPEGE.md)**
 
-- :material-water: **[DWD_ICON – OpenMeteo](metadata_scripts/DWD_ICON.md)**  
+- :material-water: **[DWD_ICON – OpenMeteo](metadata_scripts/DWD_ICON.md)**
 
-- :material-alert: **[AIFS_ECMWF – OpenMeteo](metadata_scripts/AIFS_ECMWF.md)**  
+- :material-alert: **[AIFS_ECMWF – OpenMeteo](metadata_scripts/AIFS_ECMWF.md)**
 
-- :material-alert: **[GEPS_ENS_CNC – OpenMeteo](metadata_scripts/GEPS_ENS_CNC.md)**  
+- :material-alert: **[GEPS_ENS_CNC – OpenMeteo](metadata_scripts/GEPS_ENS_CNC.md)**
 
-- :material-alert: **[GFS_NOAA – OpenMeteo](metadata_scripts/GFS_NOAA.md)**  
+- :material-alert: **[GFS_NOAA – OpenMeteo](metadata_scripts/GFS_NOAA.md)**
 
-- :material-alert: **[IFS9km_ECMWF – OpenMeteo](metadata_scripts/IFS9km_ECMWF.md)**  
+- :material-alert: **[IFS9km_ECMWF – OpenMeteo](metadata_scripts/IFS9km_ECMWF.md)**
 
-- :material-alert: **[Seas5_ECMWF – OpenMeteo](metadata_scripts/Seas5_ECWMF_copernicus.md)**  
+- :material-alert: **[Seas5_ECMWF – OpenMeteo](metadata_scripts/Seas5_ECWMF_copernicus.md)**
 
-- :material-alert: **[EFAS – Copernicus](metadata_scripts/EFAS.md)**  
+- :material-alert: **[EFAS – Copernicus](metadata_scripts/EFAS.md)**
 
-- :material-alert: **[EFFIS – Copernicus](metadata_scripts/EFFIS.md)**  
+- :material-alert: **[EFFIS – Copernicus](metadata_scripts/EFFIS.md)**
 
 </div>
 
@@ -170,16 +129,14 @@ These are the necessary requirements to be able to execute the project:
 -->
 
 <!-- USAGE EXAMPLES -->
-# Usage
 
-This section describes how to run and test the main components of the PGTEC platform — the Airflow workflows for data processing and the FastAPI services for data delivery and dashboard integration. Both components can be deployed together using the provided Docker Compose environment. 
+## Usage
 
+This section describes how to run and test the main components of the PGTEC platform — the Airflow workflows for data processing and the FastAPI services for data delivery and dashboard integration. Both components can be deployed together using the provided Docker Compose environment.
 
 It is supposed that the enviroment has been cloned following the instructions of Getting Started section.
 
-
-## 1. Running Airflow Workflows
-
+### 1. Running Airflow Workflows
 
 The Airflow DAGs automate the process of retrieving and transforming climate and hydrological data from different sources (AEMET, CHJ, Open-Meteo, Copernicus...).
 
@@ -193,13 +150,16 @@ docker-compose up -d
 
 The -d option runs the containers in detached mode, hiding Airflow logs and keeping the terminal clean.
 
-### 1.2. Access the Airflow web interface:
+##### 1.1. Access the Airflow web interface:
+
 👉 http://localhost:8080
 
-### 1.3. Enable the DAGs:
+##### 1.2. Enable the DAGs:
+
 Inside the Airflow UI, activate the desired workflows (e.g., AEMET_HARMONIE_AROME, AIFS_ECMWF, etc.).
 
-### 1.4. Monitor execution:
+##### 1.3. Monitor execution:
+
 You can visualize the data extraction and transformation progress directly in the DAG view.
 
 Below is an example of a Python script running in the Airflow user interface, showing the logs of its execution:
@@ -208,7 +168,7 @@ Below is an example of a Python script running in the Airflow user interface, sh
 
 In the screenshot, the DWD_ICON.py workflow is being executed. In just 4.04 seconds, it retrieves several points of interest from the Valencian Community and stores them using the WeatherForecastSeries Smart Data Model format.
 
-## 2. Running FastAPI scripts.
+### 2. Running FastAPI scripts.
 
 The FastAPI services expose the processed data as REST APIs, allowing other applications — such as the TETIS dashboard — to access the latest standardized data stored in the FIWARE Context Broker.
 
@@ -216,24 +176,28 @@ Each service corresponds to a specific data source or Smart Data Model and can b
 
 🧩 Steps
 
-### 2.1. Make sure the Docker environment is running:
-   ```sh
-   docker-compose up -d
-   ```
+##### 2.1. Make sure the Docker environment is running:
 
-### 2.2. Access the FastAPI documentation:
+```sh
+docker-compose up -d
+```
+
+##### 2.2. Access the FastAPI documentation:
+
 👉 http://localhost:8000/docs
 
 This interface allows you to explore and test all available endpoints interactively.
 
-### 2.3. Test an endpoint:
+##### 2.3. Test an endpoint:
+
 For example, you can retrieve the latest weather forecast data by calling:
 
-  ```sh
-  GET /weather?source=AEMET&variable=temperature
-  ```
+```sh
+GET /weather?source=AEMET&variable=temperature
+```
 
-### 2.4 Integration with the TETIS dashboard:
+###### 2.4 Integration with the TETIS dashboard:
+
 The FastAPI services feed the TETIS dashboard, allowing users to select:
 
 - The data sources (e.g., AEMET, DWD, ECMWF)
@@ -244,21 +208,21 @@ Once the user selects these options, TETIS automatically triggers the correspond
 
 📁 Example folder structure
 
-  ```text
-  SmartFlow/FastAPI/
-  ├── main.py           # FastAPI entry point
-  ├── routes/
-  │   ├── AEMET.py      # Endpoints for WeatherObserved / Forecast data
-  │   ├── DWD_ICON.py   # Endpoints for CHJ flow data
-  │   └── ...
-  └── models/
-      ├── AEMET.py
-      └── DWD_ICON.py
-  ```
+```text
+SmartFlow/FastAPI/
+├── main.py           # FastAPI entry point
+├── routes/
+│   ├── AEMET.py      # Endpoints for WeatherObserved / Forecast data
+│   ├── DWD_ICON.py   # Endpoints for CHJ flow data
+│   └── ...
+└── models/
+    ├── AEMET.py
+    └── DWD_ICON.py
+```
+
 🧠 Tip: You can add new endpoints easily by creating a new Python file in the routes/ folder and registering it in main.py.
 
-
-<!-- ROADMAP 
+<!-- ROADMAP
 ## Roadmap
 
 - [x] Add Changelog
@@ -274,8 +238,7 @@ See the [open issues](https://github.com/othneildrew/Best-README-Template/issues
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 -->
 
-
-<!-- CONTRIBUTING 
+<!-- CONTRIBUTING
 ## Contributing
 
 Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
@@ -301,24 +264,27 @@ Don't forget to give the project a star! Thanks again!
 -->
 
 <!-- LICENSE -->
-# License
+
+## License
 
 Distributed under the AGPL-3.0 License. See `LICENSE` for more information.
 
 <!-- CONTACT -->
-# Contact
+
+## Contact
 
 Project Link: [https://github.com/PGTEC-VRAIN](https://github.com/PGTEC-VRAIN)
 
-
 <!-- References -->
-# References
 
-* [Readme Template](https://github.com/othneildrew/Best-README-Template)
-* Smart Data Models [Weather Smart Data Model - Fiware](https://github.com/smart-data-models/dataModel.Weather)
+## References
+
+- [Readme Template](https://github.com/othneildrew/Best-README-Template)
+- Smart Data Models [Weather Smart Data Model - Fiware](https://github.com/smart-data-models/dataModel.Weather)
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+
 [Python]: https://img.shields.io/badge/python-3.12.11+-blue.svg?logo=python&logoColor=white
 [Python-url]: https://www.python.org/
 [Airflow]: https://img.shields.io/badge/airflow-3.0.6-green.svg?logo=apacheairflow&logoColor=white

@@ -12,8 +12,8 @@ repo_name: pgtec-vrain/pgtec-vrain.github.io
 theme:
   custom_dir: docs/overrides
   name: material
-  logo: assets/images/logo_without_bg.png
-  favicon: assets/images/logo_without_bg.png
+  logo: assets/images/logo_PGTEC.svg
+  favicon: assets/images/logo_PGTEC.svg
   features:
     - navigation.footer
     - content.code.copy
@@ -36,70 +36,46 @@ extra_javascript:
 
 # --- Navegación ---
 nav:
-  - welcome.md 
-  - Getting Started: 
-       - getting_started/index.md
+  - welcome.md
+  - Getting Started:
+      - getting_started/index.md
       #  - getting_started/interoperability.md
       #  - getting_started/data_spaces/data_spaces.md
   - Data Sources:
       - data_sources/index.md
-      - data_sources/metadata_datasources/siah_datasource.md
-      - data_sources/metadata_datasources/siar_datasource.md
-      - data_sources/metadata_datasources/aemet_datasource.md
-      - data_sources/metadata_datasources/aemet_rocio_datasource.md
-      - data_sources/metadata_datasources/aemet_spain_datasource.md
-      - data_sources/metadata_datasources/copernicus_datasource.md
-      - data_sources/metadata_datasources/mswep_datasource.md
-      - data_sources/metadata_datasources/cedex_datasource.md
-      - data_sources/metadata_datasources/avsre_datasource.md
-  # - Guides:
-  #     - documentation/index.md
-  #     - Verifiable Credentials:
-  #         - documentation/verifiable_credentials/index.md
-  #         - Hands-On Configuration: documentation/verifiable_credentials/keycloak/index.md
-  #     - Trust Frameworks:
-  #       - documentation/trust_frameworks/index.md
-  #       - Fiware: documentation/trust_frameworks/fiware_trust_anchor/index.md
-  #     - Data Space Connectors:
-  #         - documentation/data_space_connectors/index.md
-  #         - Eclipse: documentation/data_space_connectors/eclipse/index.md
-  #         - Fiware: 
-  #             - documentation/data_space_connectors/fiware/index.md
-  #     - Data Federation:
-  #       - documentation/data_federation/index.md
-  #       - NGSI-v2 to NGSI-LD:
-  #           - Lepus: documentation/data_federation/ngsiv2_to_ld/lepus.md
-  #           - FIWARE IoT-Agent: documentation/data_federation/ngsiv2_to_ld/iot_agent.md
-  #     - MV Data Space:
-  #         - Fiware:
-  #             - documentation/mv_data_space/fiware/trust_anchor.md
-  #             - documentation/mv_data_space/fiware/consumer.md
-  #             - documentation/mv_data_space/fiware/provider.md
-  #         - documentation/mv_data_space/index.md
+      # - data_sources/metadata_datasources/siah_datasource.md
+      # - data_sources/metadata_datasources/siar_datasource.md
+      # - data_sources/metadata_datasources/aemet_datasource.md
+      # - data_sources/metadata_datasources/aemet_rocio_datasource.md
+      # - data_sources/metadata_datasources/aemet_spain_datasource.md
+      # - data_sources/metadata_datasources/copernicus_datasource.md
+      # - data_sources/metadata_datasources/mswep_datasource.md
+      # - data_sources/metadata_datasources/cedex_datasource.md
+      # - data_sources/metadata_datasources/avsre_datasource.md
   - Data Flow:
       - pipeline/index.md
-      - pipeline/requirements.md
-      - pipeline/setup.md
-      - pipeline/example_copernicus.md
+      # - pipeline/requirements.md
+      # - pipeline/setup.md
+      # - pipeline/example_copernicus.md
 
   - Smart Data Models:
       - SmartDataModels/index.md
-      - SmartDataModels/WeatherForecastSeries.md
-      - SmartDataModels/WeatherObserved.md
-      - SmartDataModels/StreamFlow.md
+      # - SmartDataModels/WeatherForecastSeries.md
+      # - SmartDataModels/WeatherObserved.md
+      # - SmartDataModels/StreamFlow.md
 
   - SmartFlow:
       - SmartFlow/index.md
-      - SmartFlow/metadata_scripts/Harmonie_AEMET.md
-      - SmartFlow/metadata_scripts/GEPS_ENS_CNC.md
-      - SmartFlow/metadata_scripts/DWD_ICON.md
-      - SmartFlow/metadata_scripts/ARPEGE.md
-      - SmartFlow/metadata_scripts/AIFS_ECMWF.md
-      - SmartFlow/metadata_scripts/GFS_NOAA.md
-      - SmartFlow/metadata_scripts/IFS9km_ECMWF.md
-      - SmartFlow/metadata_scripts/Seas5_ECWMF_copernicus.md
-      - SmartFlow/metadata_scripts/EFAS.md
-      - SmartFlow/metadata_scripts/EFFIS.md
+      # - SmartFlow/metadata_scripts/Harmonie_AEMET.md
+      # - SmartFlow/metadata_scripts/GEPS_ENS_CNC.md
+      # - SmartFlow/metadata_scripts/DWD_ICON.md
+      # - SmartFlow/metadata_scripts/ARPEGE.md
+      # - SmartFlow/metadata_scripts/AIFS_ECMWF.md
+      # - SmartFlow/metadata_scripts/GFS_NOAA.md
+      # - SmartFlow/metadata_scripts/IFS9km_ECMWF.md
+      # - SmartFlow/metadata_scripts/Seas5_ECWMF_copernicus.md
+      # - SmartFlow/metadata_scripts/EFAS.md
+      # - SmartFlow/metadata_scripts/EFFIS.md
 
   # - Documentation:
   #     - documentation/index.md
@@ -112,6 +88,9 @@ markdown_extensions:
   - pymdownx.details
   - pymdownx.superfences
   - pymdownx.inlinehilite
+  - toc:
+      permalink: false
+      toc_depth: 3
   - pymdownx.snippets
   - pymdownx.highlight:
       anchor_linenums: true
@@ -124,4 +103,3 @@ plugins:
   - git-revision-date-localized:
       enable_creation_date: true
   - git-authors
-
