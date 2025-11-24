@@ -3,33 +3,27 @@ icon: material/card-account-details
 title: Decentralized Identifiers (DIDs)
 ---
 
-Decentralized Identifiers (DIDs) are a core component of Self-Sovereign Identity (SSI) systems, providing a unique, persistent, and cryptographically verifiable way to identify any entity (person, organization, device, etc.) without relying on a central authority.
+**Decentralized Identifiers (DIDs)** are a core component of Self-Sovereign Identity (SSI) systems, providing a unique, persistent, and cryptographically verifiable way to identify any entity (person, organization, device, etc.) without relying on a central authority.
 
-A DID is a simple URI with three parts: the scheme (did:), the DID method identifier, and the method-specific identifier. For example, in did:web:example.com, **web** is the method identifier.
+A DID is a simple URI with three parts: the scheme (did:), the DID method identifier, and the method-specific identifier. For example, in did:web:example.com, *web* is the method identifier.
 
 DIDs resolve to a DID Document, which is a JSON file containing public keys (for authentication and verification) and service endpoints (for communication).
 
 ## did:web method
 The did:web method leverages existing web infrastructure, specifically HTTPS and Domain Name System (DNS), to create and resolve DIDs.
 
-Structure: A did:web DID is constructed directly from a domain name (and optional path), making it highly readable and familiar.
+A did:web DID is constructed directly from a domain name (and optional path), making it highly readable and familiar. For example: ```did:web:example.com```
 
-Example: did:web:example.com
-
-Resolution: The DID document is hosted on the corresponding web server at a *well-known* location:
-
-https://example.com/.well-known/did.json
+Resolution: The DID document is hosted on the corresponding web server at a *well-known* location like this: ```https://example.com/.well-known/did.json```
 
 ## did:key method
 The did:key method is the simplest form of DID, as the identifier is directly derived from a cryptographic public key.
 
-Structure: The DID method-specific identifier is an encoded representation of the public key material.
-
-Example: did:**key**:z6MkjBWPPa1njEKygyr3LR3pRKkqv714vyTkfnUdP6ToFSH5
+The DID method-specific identifier is an encoded representation of the public key material. For example: ```did:**key**:z6MkjBWPPa1njEKygyr3LR3pRKkqv714vyTkfnUdP6ToFSH5```
 
 Resolution: The DID document can be generated entirely from the DID string itself without requiring any external network lookup. It is self-contained.
 
-### Automated setup with Docker
+## Automated setup with Docker
 
 We use a docker image to create the DIDs from a key pair and a certificate.
 
@@ -51,7 +45,7 @@ openssl req -x509 -new -key example/key-pair.pem -out example/cert.pem -days 365
 openssl x509 -in example/cert.pem -text -noout
 ```
 
-## did:web setup
+### did:web setup
 
 Once we have the certificate associated to our key pair we can generate the did.json running a docker container:
 
@@ -59,7 +53,7 @@ Once we have the certificate associated to our key pair we can generate the did.
 docker run -p 8080:8080 -v ./example/cert.pem:/certs/tls.crt -it mortega5/did-helper:0.0.1 -didType web -hostUrl example.com -outputFormat json_jwk -certPath /certs/tls.crt
 ```
 
-This will print out the contents of a JSON file. That content should be accessible from example.com/.well-known/did.json if we are using a home page like example.com.
+This will print out the contents of a JSON file. That content should be accessible from ```example.com/.well-known/did.json``` if we are using a home page like example.com.
 
 If we want to use a deep link we have to run the docker container with the full link:
 
@@ -67,9 +61,9 @@ If we want to use a deep link we have to run the docker container with the full 
 docker run -p 8080:8080 -v ./example/cert.pem:/certs/tls.crt -it mortega5/did-helper:0.0.1 -didType web -hostUrl example.com/specific/page -outputFormat json_jwk -certPath /certs/tls.crt
 ```
 
-And make the JSON that it prints accessible from example.com/specific/page/did.json. The idintifier in this case would be did:web:example.com:specific:page
+And make the JSON that it prints accessible from ```example.com/specific/page/did.json```. The idintifier in this case would be did:web:example.com:specific:page
 
-## did:key setup
+### did:key setup
 
 Once we have the certificate associated to our key pair we can generate the did:key and did.json by running a docker container:
 
