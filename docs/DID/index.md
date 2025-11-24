@@ -19,7 +19,7 @@ Resolution: The DID document is hosted on the corresponding web server at a *wel
 ## did:key method
 The did:key method is the simplest form of DID, as the identifier is directly derived from a cryptographic public key.
 
-The DID method-specific identifier is an encoded representation of the public key material. For example: ```did:**key**:z6MkjBWPPa1njEKygyr3LR3pRKkqv714vyTkfnUdP6ToFSH5```
+The DID method-specific identifier is an encoded representation of the public key material. For example: ```did:key:z6MkjBWPPa1njEKygyr3LR3pRKkqv714vyTkfnUdP6ToFSH5```
 
 Resolution: The DID document can be generated entirely from the DID string itself without requiring any external network lookup. It is self-contained.
 
