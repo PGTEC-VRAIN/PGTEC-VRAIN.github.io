@@ -77,6 +77,9 @@ nav:
       # - SmartFlow/metadata_scripts/EFAS.md
       # - SmartFlow/metadata_scripts/EFFIS.md
 
+  - Decentralized Identifiers:
+      - DID/index.md
+
   # - Documentation:
   #     - documentation/index.md
 
