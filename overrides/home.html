@@ -1,0 +1,71 @@
+{% extends "main.html" %}
+{% block tabs %}
+  {{ super() }}
+  <style>
+    .pg-hero {
+      background: var(--md-primary-fg-color);
+      color:#E9EEF3;
+      padding: 6rem 0 2rem;
+    }
+    .md-main__inner > .md-content > article:first-of-type {
+      margin-top: 0 !important;
+    }
+    .pg-hero__container { max-width: 880px; margin: 0 auto; padding: 0 1rem; text-align: center; }
+    .pg-hero__title { margin:.35rem 0 0; font-size: clamp(2.7rem, 7vw, 3.8rem); line-height:1.05; font-weight:800; font-family: 'FK Grotesk', sans-serif; letter-spacing:-.02em }
+    .pg-hero__subtitle { margin: 1rem auto 1.6rem; max-width: 720px; font-size: clamp(1.05rem, 2.4vw, 1.15rem); color: rgba(255,255,255,.9) }
+    .pg-cta { display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; }
+    .md-button { padding:.9rem 1.8rem; font-size:1rem; border-radius:8px; }
+    .md-button--primary { background: var(--pg-accent-color); border-color: var(--pg-accent-color); color: #fff; }
+    .md-button--primary:hover { filter: brightness(.95); }
+    .md-button--outline { background: transparent; border: 2px solid var(--pg-accent-color); color: #fff; }
+    .md-button--outline:hover { border-color: var(--pg-accent-color); background: rgba(255,255,255,.08); }
+    .pg-cta__icon { width: 18px; height: 18px; vertical-align: -3px; margin-right: .5rem; }
+    article > h1 { display:none }
+    .pg-feature { background:#fff; color:#222; padding: 3.5rem 0 1.5rem; }
+    [data-md-color-scheme="slate"] .pg-feature { background: var(--md-default-bg-color); color: var(--md-default-fg-color); }
+    .pg-feature__inner { max-width: 980px; margin:0 auto; padding:0 1rem; text-align:center; }
+    .pg-feature__img { width: 160px; height: auto; display:block; margin: 0 auto 1.2rem; }
+    .pg-feature__caption { font-size: 1.5rem; opacity:.95; font-weight:700; margin-bottom: .6rem; }
+    .pg-feature__lead { max-width: 920px; margin: 0.5rem auto 2rem; font-size: .98rem; line-height: 1.6; opacity:.92; }
+    .pg-feature__lead strong { font-weight: 700; }
+    .pg-cards { background:#fff; color:#222; padding: .5rem 0 4rem; }
+    [data-md-color-scheme="slate"] .pg-cards { background: var(--md-default-bg-color); color: var(--md-default-fg-color); }
+    .pg-cards__inner { max-width: 1100px; margin:0 auto; padding:0 1rem; }
+    .pg-cardgrid { display:grid; grid-template-columns: repeat(3,1fr); gap: 1.2rem; }
+    @media (max-width: 980px){ .pg-cardgrid{ grid-template-columns: 1fr; } }
+    .pg-card { border: 1px solid rgba(0,0,0,.08); border-radius: 12px; padding: 1.2rem; background:#fff; box-shadow: 0 1px 1px rgba(0,0,0,.02); }
+    .pg-card:hover { box-shadow: 0 8px 24px rgba(0,0,0,.08); transform: translateY(-1px); transition: box-shadow .2s ease, transform .2s ease; }
+    [data-md-color-scheme="slate"] .pg-card { background: #0F1419; border-color: rgba(255,255,255,.06); }
+    .pg-card h3 { margin: .2rem 0 .35rem; font-size: 1.05rem; display:flex; align-items:center; gap:.5rem; }
+    .pg-card p { margin: 0 0 .9rem; opacity:.85; font-size: .95rem; }
+    .pg-card .md-button { margin-top: .2rem; }
+    .pg-i { width: 18px; height: 18px; opacity:.9 }
+    .md-header__source { display:flex !important; opacity:1 !important; }
+    .md-header__source a { color: #fff !important; }
+  </style>
+
+  <section class="pg-hero">
+    <div class="pg-hero__container">
+      <h2 class="pg-hero__title">PGTEC VRAIN</h2>
+      <p class="pg-hero__subtitle">Support & Documentation for <strong>Climate Emergency</strong> management.</p>
+      <div class="pg-cta">
+        <a class="md-button md-button--primary" href="{{ base_url }}/welcome">Welcome</a>
+        <a class="md-button md-button--outline" href="https://github.com/pgtec-vrain/pgtec-vrain.github.io" target="_blank" rel="noopener">
+          <svg class="pg-cta__icon" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+            <path d="M8 0C3.58 0 0 3.58 0 8a8 8 0 0 0 5.47 7.59c.4.07.55-.17.55-.38
+            0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52
+            0-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95
+            0-.87.31-1.59.82-2.15-.08-.2-.36-1.01.08-2.11 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27
+            c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.91.08 2.11.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48
+            0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+          </svg>
+          Go to GitHub
+        </a>
+      </div>
+    </div>
+  </section>
+{% endblock %}
+
+{% block content %}
+  {{ super() }}
+{% endblock %}
