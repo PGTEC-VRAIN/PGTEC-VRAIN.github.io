@@ -4,33 +4,29 @@ It follows the official FIWARE definition and does not require any structural mo
 
 This model serves as the standard framework for integrating **real-time data** collected from multiple external sources, including:
 
-- :material-earth: **AEMET** — Agencia Estatal de Meteorología
-- :droplet: **CHJ** — Confederación Hidrográfica del Júcar 
-- :cloud: **AVSRE** — Agencia Valenciana de Seguridad y Respuesta a las Emergencias  
+- :material-earth: [**AEMET**](https://www.aemet.es/es/portada) — Agencia Estatal de Meteorología
+- :droplet: [**CHJ**](https://www.chj.es/es-es/Paginas/Home.aspx) — Confederación Hidrográfica del Júcar 
+- :cloud: [**AVAMET**](https://www.avamet.org/) — Agencia Valenciana de Meteorología
+- :thunder: [**SiAR**](https://servicio.mapa.gob.es/websiar/) — Sistema de información agroclimática para el regadío
 
 By adopting the *WeatherObserved* schema, all incoming data are harmonized under a **common structure**, ensuring consistency in variable names, measurement units, and metadata representation across the entire data ecosystem.
 
 ---
 
-### 📊 Variable Mapping
+### Main Variables of Interest
 
-| **Variable (IIAMA)** | **Description**                      | **FIWARE Attribute** | **Unit**            |
-|:----------------------|:------------------------------------|:--------------------:|:--------------------|
-| **P**                 | Precipitation                       | `precipitation`      | mm, l/m²            |
-| **T**                 | Air temperature                     | `temperature`        | °C                  |
-| **Hum**               | Relative humidity                   | `relativeHumidity`   | %                   |
-| **Ni**                | Snow depth                          | `snowHeight`         | mm                  |
-| **Vviento**           | Wind speed                          | `windSpeed`          | m/s, km/h           |
+The following table describes the most important variables used in the PGTEC project:
 
-> 💡 *All these attributes are already defined in the original FIWARE* `WeatherObserved` *schema and can be used directly to ingest data from sensors, observation stations, or open APIs.*
+| **Description** | **FIWARE Attribute** | **Unit** |
+|:------------------------------------|:--------------------:|:--------------------|
+| Precipitation                       | `precipitation`      | mm, l/m²            |
+| Air temperature                     | `temperature`        | °C                  |
+| Relative humidity                   | `relativeHumidity`   | %                   |
+| Snow depth                          | `snowHeight`         | mm                  |
+| Wind speed                          | `windSpeed`          | m/s, km/h           |
 
 ---
 
-### 🌦️ Role within PGTEC
+### Role within PGTEC
 
-Within **PGTEC**, the *WeatherObserved* model is primarily used for the ingestion of **real-time meteorological data**, complementing:
-
-- **WeatherForecastSeries** → for forecasted weather data  
-- **StreamFlow** → for hydrological flow and discharge measurements  
-
-This approach ensures a unified and interoperable data layer, allowing seamless integration between the **Airflow pipelines**, **FastAPI services**, and the **TETIS dashboard**, where users can visualize or request the latest standardized weather observations.
+Within **PGTEC**, the *WeatherObserved* model is primarily used for the ingestion of **real-time meteorological data**. This approach ensures a unified and interoperable data layer, allowing seamless integration between the **Airflow pipelines**, **FastAPI services**, and the **TETIS dashboard**, where users can visualize or request the latest standardized weather observations.

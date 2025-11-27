@@ -1,14 +1,14 @@
 
-The **WeatherForecastSeries** Smart Data Model is an **extension of the official** [WeatherForecast](https://smart-data-models.github.io/dataModel.Weather/WeatherForecast/schema.json) model from FIWARE’s Smart Data Models initiative.  
+The **WeatherForecastSeries** Smart Data Model is an **extension of the official** [WeatherForecast](https://github.com/smart-data-models/dataModel.Weather/blob/master/WeatherForecast/schema.json) model from FIWARE’s Smart Data Models initiative.  
 Its main goal is to enable the representation of **forecast time series** (rather than a single prediction) within a single entity.
 
 ---
 
-### 🔄 Key Modifications
+### Key Modifications
 
 - **Array-based attributes**  
   Most of the variable types defined in the original `WeatherForecast` model have been converted into **arrays of their base type**.  
-  This structure allows the model to store **multiple forecasted values** (e.g., temperature, wind speed, precipitation) corresponding to **different timestamps** within a single object.
+  This structure allows the model to store **multiple forecasted values** (e.g., temperature, wind speed, precipitation) corresponding to **different timestamps** for a single point.
 
 - **Inlined definitions**  
   Some variables originally referenced from [Weather-Commons](https://smart-data-models.github.io/dataModel.Weather/weather-schema.json#/definitions/Weather-Commons) have now been defined **directly inside the WeatherForecastSeries schema**, improving self-containment and making the model easier to use independently.
@@ -19,7 +19,7 @@ Its main goal is to enable the representation of **forecast time series** (rathe
 
 ---
 
-### 🌦️ Purpose and Advantages
+### Purpose and Advantages
 
 This model enables the aggregation of **complete forecast time series** (e.g., hourly or daily predictions) in a **single JSON object**, reducing redundancy and improving data retrieval efficiency.
 
@@ -31,7 +31,7 @@ In the **PGTEC project**, it is used to:
 
 ---
 
-### 🧩 Example Entity
+### Example Entity
 
 Below is an example of a `WeatherForecastSeries` entity representing 3-hourly weather predictions for a given location:
 
@@ -61,3 +61,4 @@ Below is an example of a `WeatherForecastSeries` entity representing 3-hourly we
   "validFrom": "2025-03-01T00:00:00Z",
   "validTo": "2025-03-01T06:00:00Z"
 }
+```
