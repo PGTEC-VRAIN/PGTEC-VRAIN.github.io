@@ -35,7 +35,7 @@ As mention above, three different Smart Data Models have been designed, each foc
   - SiAR: Sistema de Información Agroclimática para el regadío
   - AVAMET: Agencia Estatal de Meteorología
 
-- **[WeatherForecastSeries](WeatherForecastSeries.md):**. An extension of the smart data model [WeatherForecast](https://github.com/smart-data-models/dataModel.Weather/blob/master/WeatherForecast/schema.json) adaptad to time series data. Fore more information visit the [json schema](https://github.com/PGTEC-VRAIN/SmartFlow/blob/main/SmartFlowAPI/SmartDataModels/WeatherForcastSeries/schema.json)
+- **[WeatherForecastSeries](WeatherForecastSeries.md):**. An extension of the smart data model [WeatherForecast](https://github.com/smart-data-models/dataModel.Weather/blob/master/WeatherForecast/schema.json) adaptad to time series data. Fore more information visit the [json schema](https://github.com/PGTEC-VRAIN/SmartFlow/blob/main/SmartFlowAPI/SmartDataModels/WeatherForcastSeries/schema.json).
 
 - **[StreamFlow](StreamFlow.md):** A new Smart Data Model focused on CHJ hydrometeorological data. It standardizes variables such as gauging and flow rates into a consistent format using the FIWARE Smart Data Models ontology. For deep understanding of the structure, visit the [github](https://github.com/PGTEC-VRAIN/WorkflowPTGEC/blob/juan/tetis/hydrographic_models.py).
 

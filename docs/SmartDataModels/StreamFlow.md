@@ -2,7 +2,7 @@
 This section presents a proposal for the creation of a new **Smart Data Model** designed to represent **hydrological information** from the *Confederación Hidrográfica del Júcar (CHJ)*.  
 The objective is to standardize the collection, integration, and exchange of **river discharge and reservoir data** within the **PGTEC project** framework. Specifically, data from three different types of hydrological data will be stored:
 
-- [Eiver discharge data](https://saih.chj.es/mapa-aforos)
+- [River discharge data](https://saih.chj.es/mapa-aforos)
 - [Precipitation data](https://saih.chj.es/mapa-lluvias)
 - [Reservoirs data](https://saih.chj.es/mapa-embalses)
 
