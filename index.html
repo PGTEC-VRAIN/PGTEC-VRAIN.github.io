@@ -195,75 +195,228 @@
     
     <div class="md-container" data-md-component="container">
       
-      
-  
+       
         
           
         
       
-  <style>
-    .pg-hero {
-      background: var(--md-primary-fg-color);
-      color:#E9EEF3;
-      padding: 6rem 0 2rem;
+<style>
+  .pg-hero {
+    background: var(--md-primary-fg-color);
+    color: #e9eef3;
+    padding: 6rem 0 2rem;
+  }
+  .md-main__inner > .md-content > article:first-of-type {
+    margin-top: 0 !important;
+  }
+  .pg-hero__container {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    text-align: center;
+  }
+  .pg-hero__title {
+    margin: 0.35rem 0 0;
+    font-size: clamp(2.7rem, 7vw, 3.8rem);
+    line-height: 1.05;
+    font-weight: 800;
+    font-family: "FK Grotesk", sans-serif;
+    letter-spacing: -0.02em;
+  }
+  .pg-hero__subtitle {
+    margin: 1rem auto 1.6rem;
+    max-width: 720px;
+    font-size: clamp(1.05rem, 2.4vw, 1.15rem);
+    color: rgba(255, 255, 255, 0.9);
+  }
+  .pg-cta {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .md-button {
+    padding: 0.9rem 1.8rem;
+    font-size: 1rem;
+    border-radius: 8px;
+  }
+  .md-button--primary {
+    background: var(--pg-accent-color);
+    border-color: var(--pg-accent-color);
+    color: #fff;
+  }
+  .md-button--primary:hover {
+    filter: brightness(0.95);
+  }
+  .md-button--outline {
+    background: transparent;
+    border: 2px solid var(--pg-accent-color);
+    color: #fff;
+  }
+  .md-button--outline:hover {
+    border-color: var(--pg-accent-color);
+    background: rgba(255, 255, 255, 0.08);
+  }
+  .pg-cta__icon {
+    width: 18px;
+    height: 18px;
+    vertical-align: -3px;
+    margin-right: 0.5rem;
+  }
+  article > h1 {
+    display: none;
+  }
+  .pg-feature {
+    background: #fff;
+    color: #222;
+    padding: 3.5rem 0 1.5rem;
+  }
+  [data-md-color-scheme="slate"] .pg-feature {
+    background: var(--md-default-bg-color);
+    color: var(--md-default-fg-color);
+  }
+  .pg-feature__inner {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    text-align: center;
+  }
+  .pg-feature__img {
+    width: 160px;
+    height: auto;
+    display: block;
+    margin: 0 auto 1.2rem;
+  }
+  .pg-feature__caption {
+    font-size: 1.5rem;
+    opacity: 0.95;
+    font-weight: 700;
+    margin-bottom: 0.6rem;
+  }
+  .pg-feature__lead {
+    max-width: 920px;
+    margin: 0.5rem auto 2rem;
+    font-size: 0.98rem;
+    line-height: 1.6;
+    opacity: 0.92;
+  }
+  .pg-feature__lead strong {
+    font-weight: 700;
+  }
+  .pg-cards {
+    background: #fff;
+    color: #222;
+    padding: 0.5rem 0 4rem;
+  }
+  [data-md-color-scheme="slate"] .pg-cards {
+    background: var(--md-default-bg-color);
+    color: var(--md-default-fg-color);
+  }
+  .pg-cards__inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+  .pg-cardgrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.2rem;
+  }
+  @media (max-width: 980px) {
+    .pg-cardgrid {
+      grid-template-columns: 1fr;
     }
-    .md-main__inner > .md-content > article:first-of-type {
-      margin-top: 0 !important;
-    }
-    .pg-hero__container { max-width: 880px; margin: 0 auto; padding: 0 1rem; text-align: center; }
-    .pg-hero__title { margin:.35rem 0 0; font-size: clamp(2.7rem, 7vw, 3.8rem); line-height:1.05; font-weight:800; font-family: 'FK Grotesk', sans-serif; letter-spacing:-.02em }
-    .pg-hero__subtitle { margin: 1rem auto 1.6rem; max-width: 720px; font-size: clamp(1.05rem, 2.4vw, 1.15rem); color: rgba(255,255,255,.9) }
-    .pg-cta { display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; }
-    .md-button { padding:.9rem 1.8rem; font-size:1rem; border-radius:8px; }
-    .md-button--primary { background: var(--pg-accent-color); border-color: var(--pg-accent-color); color: #fff; }
-    .md-button--primary:hover { filter: brightness(.95); }
-    .md-button--outline { background: transparent; border: 2px solid var(--pg-accent-color); color: #fff; }
-    .md-button--outline:hover { border-color: var(--pg-accent-color); background: rgba(255,255,255,.08); }
-    .pg-cta__icon { width: 18px; height: 18px; vertical-align: -3px; margin-right: .5rem; }
-    article > h1 { display:none }
-    .pg-feature { background:#fff; color:#222; padding: 3.5rem 0 1.5rem; }
-    [data-md-color-scheme="slate"] .pg-feature { background: var(--md-default-bg-color); color: var(--md-default-fg-color); }
-    .pg-feature__inner { max-width: 980px; margin:0 auto; padding:0 1rem; text-align:center; }
-    .pg-feature__img { width: 160px; height: auto; display:block; margin: 0 auto 1.2rem; }
-    .pg-feature__caption { font-size: 1.5rem; opacity:.95; font-weight:700; margin-bottom: .6rem; }
-    .pg-feature__lead { max-width: 920px; margin: 0.5rem auto 2rem; font-size: .98rem; line-height: 1.6; opacity:.92; }
-    .pg-feature__lead strong { font-weight: 700; }
-    .pg-cards { background:#fff; color:#222; padding: .5rem 0 4rem; }
-    [data-md-color-scheme="slate"] .pg-cards { background: var(--md-default-bg-color); color: var(--md-default-fg-color); }
-    .pg-cards__inner { max-width: 1100px; margin:0 auto; padding:0 1rem; }
-    .pg-cardgrid { display:grid; grid-template-columns: repeat(3,1fr); gap: 1.2rem; }
-    @media (max-width: 980px){ .pg-cardgrid{ grid-template-columns: 1fr; } }
-    .pg-card { border: 1px solid rgba(0,0,0,.08); border-radius: 12px; padding: 1.2rem; background:#fff; box-shadow: 0 1px 1px rgba(0,0,0,.02); }
-    .pg-card:hover { box-shadow: 0 8px 24px rgba(0,0,0,.08); transform: translateY(-1px); transition: box-shadow .2s ease, transform .2s ease; }
-    [data-md-color-scheme="slate"] .pg-card { background: #0F1419; border-color: rgba(255,255,255,.06); }
-    .pg-card h3 { margin: .2rem 0 .35rem; font-size: 1.05rem; display:flex; align-items:center; gap:.5rem; }
-    .pg-card p { margin: 0 0 .9rem; opacity:.85; font-size: .95rem; }
-    .pg-card .md-button { margin-top: .2rem; }
-    .pg-i { width: 18px; height: 18px; opacity:.9 }
-    .md-header__source { display:flex !important; opacity:1 !important; }
-    .md-header__source a { color: #fff !important; }
-  </style>
+  }
+  .pg-card {
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 12px;
+    padding: 1.2rem;
+    background: #fff;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.02);
+  }
+  .pg-card:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    transform: translateY(-1px);
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+  }
+  [data-md-color-scheme="slate"] .pg-card {
+    background: #0f1419;
+    border-color: rgba(255, 255, 255, 0.06);
+  }
+  .pg-card h3 {
+    margin: 0.2rem 0 0.35rem;
+    font-size: 1.05rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .pg-card p {
+    margin: 0 0 0.9rem;
+    opacity: 0.85;
+    font-size: 0.95rem;
+  }
+  .pg-card .md-button {
+    margin-top: 0.2rem;
+  }
+  .pg-i {
+    width: 18px;
+    height: 18px;
+    opacity: 0.9;
+  }
+  .md-header__source {
+    display: flex !important;
+    opacity: 1 !important;
+  }
+  .md-header__source a {
+    color: #fff !important;
+  }
+</style>
 
-  <section class="pg-hero">
-    <div class="pg-hero__container">
-      <h2 class="pg-hero__title">PGTEC VRAIN</h2>
-      <p class="pg-hero__subtitle">Support & Documentation for <strong>Climate Emergency</strong> management.</p>
-      <div class="pg-cta">
-        <a class="md-button md-button--primary" href="./welcome">Welcome</a>
-        <a class="md-button md-button--outline" href="https://github.com/pgtec-vrain/pgtec-vrain.github.io" target="_blank" rel="noopener">
-          <svg class="pg-cta__icon" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
-            <path d="M8 0C3.58 0 0 3.58 0 8a8 8 0 0 0 5.47 7.59c.4.07.55-.17.55-.38
+<section class="pg-hero">
+  <div class="pg-hero__container">
+    <h1 class="pg-hero__title">
+      <span class="pg-hero__brand">PGTEC</span>
+      <span class="pg-hero__headline">
+        Plataforma para la Gestión de prevención Temprana de Emergencias
+        Climáticas
+      </span>
+    </h1>
+
+    <p class="pg-hero__subtitle">
+      Support & Documentation for
+      <span class="pg-hero__em">Climate Emergency</span> management.
+    </p>
+
+    <div class="pg-cta">
+      <a class="md-button md-button--primary" href="./welcome"
+        >Welcome</a
+      >
+      <a
+        class="md-button md-button--outline"
+        href="https://github.com/pgtec-vrain/pgtec-vrain.github.io"
+        target="_blank"
+        rel="noopener"
+      >
+        <svg
+          class="pg-cta__icon"
+          viewBox="0 0 16 16"
+          fill="currentColor"
+          aria-hidden="true"
+        >
+          <path
+            d="M8 0C3.58 0 0 3.58 0 8a8 8 0 0 0 5.47 7.59c.4.07.55-.17.55-.38
             0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52
             0-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95
             0-.87.31-1.59.82-2.15-.08-.2-.36-1.01.08-2.11 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27
             c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.91.08 2.11.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48
-            0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
-          </svg>
-          Go to GitHub
-        </a>
-      </div>
+            0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"
+          />
+        </svg>
+        Go to GitHub
+      </a>
     </div>
-  </section>
+  </div>
+</section>
 
       <main class="md-main" data-md-component="main">
         <div class="md-main__inner md-grid">
@@ -788,8 +941,7 @@
             <div class="md-content" data-md-component="content">
               
               <article class="md-content__inner md-typeset">
-                
-  
+                 
                   
   
 
@@ -837,9 +989,9 @@ article p {
 
 <div style="text-align: center;">
 
-<img class="package-icon skip-glightbox" src="assets/images/package.png">
+<img class="package-icon skip-glightbox" src="assets/images/logo_PGTEC.svg">
   <h1>Information of PGTEC</h1>
-    <p>A data platform that periodically retrieves <strong>climate</strong>  and <strong>weather</strong> historical data and predictions from multiple APIs, standardizes them using <strong>Smart Data Models</strong> and stores them in a <strong>FIWARE Context Broker</strong> with historical persistence for machine learning and deep learning models.</p> 
+    <p>A climate and weather <strong>data space</strong> that connects <strong>providers</strong> and <strong>users</strong> through shared standards, governance and interoperability, enabling trusted reuse of information for <strong>early warning</strong> and <strong>risk management</strong>.</p>
 </div>
 
 <div class="grid cards cols-3">
@@ -893,7 +1045,7 @@ article p {
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="November 27, 2025 18:54:06">November 27, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="December 10, 2025 12:59:51">December 10, 2025</span>
   </span>
 
     
@@ -903,7 +1055,7 @@ article p {
     <span class="md-icon" title="Created">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="November 27, 2025 18:54:06">November 27, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="September 18, 2025 08:01:47">September 18, 2025</span>
   </span>
 
     
@@ -913,12 +1065,13 @@ article p {
   <span class="md-source-file__fact">
     <span class="md-icon" title="Contributors">
       
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 4a4 4 0 0 1 4 4 4 4 0 0 1-4 4 4 4 0 0 1-4-4 4 4 0 0 1 4-4m0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4 8-4"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 5.5A3.5 3.5 0 0 1 15.5 9a3.5 3.5 0 0 1-3.5 3.5A3.5 3.5 0 0 1 8.5 9 3.5 3.5 0 0 1 12 5.5M5 8c.56 0 1.08.15 1.53.42-.15 1.43.27 2.85 1.13 3.96C7.16 13.34 6.16 14 5 14a3 3 0 0 1-3-3 3 3 0 0 1 3-3m14 0a3 3 0 0 1 3 3 3 3 0 0 1-3 3c-1.16 0-2.16-.66-2.66-1.62a5.54 5.54 0 0 0 1.13-3.96c.45-.27.97-.42 1.53-.42M5.5 18.25c0-2.07 2.91-3.75 6.5-3.75s6.5 1.68 6.5 3.75V20h-13zM0 20v-1.5c0-1.39 1.89-2.56 4.45-2.9-.59.68-.95 1.62-.95 2.65V20zm24 0h-3.5v-1.75c0-1.03-.36-1.97-.95-2.65 2.56.34 4.45 1.51 4.45 2.9z"/></svg>
       
     </span>
     <nav>
       
-        <a href="mailto:alexchaumegarcia@gmail.com">Chaume</a>
+        <a href="mailto:alexchaumegarcia@gmail.com">Chaume</a>, 
+        <a href="mailto:bgralop@epsg.upv.es">begralop</a>
     </nav>
   </span>
 
@@ -932,8 +1085,7 @@ article p {
 
 
 
-                
-
+                 
               </article>
             </div>
           
