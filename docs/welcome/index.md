@@ -66,7 +66,17 @@ Currently, PGTEC offers three data related services in the data space.
 
 In the future, it is expected that the University of León will share the wildfire prediction model they have developed. Any additional participant joining the data space as a service provider will be incorporated accordingly.
 
-![Dana image](images/dana.png){ width="560" }
+<div style="text-align: center;">
+    
+    <h3>Image of L'Horta Sud (Valencia) Flooded After the DANA of October 29, 2024</h3>
+    
+    <img 
+        src="images/dana.png" 
+        alt="Image of L'Horta Sud (València) flooded after the DANA of October 29, 2024" 
+        style="display: block; margin: 0 auto; max-width: 100%; height: auto;" 
+        width="560" 
+    />
+</div>
 
 
 !!! Tip "Next steps"
