@@ -38,9 +38,9 @@ article p {
 
 <div style="text-align: center;">
 
-<img class="package-icon skip-glightbox" src="assets/images/package.png">
+<img class="package-icon skip-glightbox" src="assets/images/logo_PGTEC.svg">
   <h1>Information of PGTEC</h1>
-    <p>A data platform that periodically retrieves <strong>climate</strong>  and <strong>weather</strong> historical data and predictions from multiple APIs, standardizes them using <strong>Smart Data Models</strong> and stores them in a <strong>FIWARE Context Broker</strong> with historical persistence for machine learning and deep learning models.</p> 
+    <p>A climate and weather <strong>data space</strong> that connects <strong>providers</strong> and <strong>users</strong> through shared standards, governance and interoperability, enabling trusted reuse of information for <strong>early warning</strong> and <strong>risk management</strong>.</p>
 </div>
 
 <div class="grid cards cols-3" markdown>

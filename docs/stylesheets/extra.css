@@ -1,43 +1,45 @@
 :root {
-  --md-primary-fg-color:        #1B5E20;   
-  --md-primary-fg-color--light: #4CAF50;   
-  --md-primary-fg-color--dark:  #0B3D12;
+  --md-primary-fg-color: #1b5e20;
+  --md-primary-fg-color--light: #4caf50;
+  --md-primary-fg-color--dark: #0b3d12;
 
-  --md-accent-fg-color:         #1565C0;   
-  --md-accent-bg-color:         #1565C0;
+  --md-accent-fg-color: #1565c0;
+  --md-accent-bg-color: #1565c0;
 
-  --md-default-fg-color:        rgba(28, 30, 33, 0.87);
-  --md-default-bg-color:        #FFFFFF;
+  --md-default-fg-color: rgba(28, 30, 33, 0.87);
+  --md-default-bg-color: #ffffff;
 
-  --md-typeset-a-color:         #e8953b;
-  --md-code-bg-color:           #f4f6f8;
-  --md-code-fg-color:           #1B5E20;
+  --md-typeset-a-color: #e8953b;
+  --md-code-bg-color: #f4f6f8;
+  --md-code-fg-color: #1b5e20;
 
-  --pg-hero-shadow: 0 1px 0 rgba(0,0,0,0.06);
-  --pg-accent-color: #1565C0; 
+  --pg-hero-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
+  --pg-accent-color: #1565c0;
 }
 
 /* Dark mode */
 [data-md-color-scheme="slate"] {
-  --md-default-bg-color:        #0B0F12;
-  --md-default-fg-color:        rgba(250, 250, 252, 0.92);
+  --md-default-bg-color: #0b0f12;
+  --md-default-fg-color: rgba(250, 250, 252, 0.92);
 
-  --md-primary-fg-color:        #34C759;  
-  --md-primary-fg-color--light: #6FE28B;
-  --md-primary-fg-color--dark:  #1A8F3A;
+  --md-primary-fg-color: #34c759;
+  --md-primary-fg-color--light: #6fe28b;
+  --md-primary-fg-color--dark: #1a8f3a;
 
-  --md-accent-fg-color:         #42A5F5;   
-  --md-accent-bg-color:         #42A5F5;
+  --md-accent-fg-color: #42a5f5;
+  --md-accent-bg-color: #42a5f5;
 
-  --md-typeset-a-color:         #42A5F5;
-  --md-code-bg-color:           #111827;
-  --md-code-fg-color:           #A7F3D0;
+  --md-typeset-a-color: #42a5f5;
+  --md-code-bg-color: #111827;
+  --md-code-fg-color: #a7f3d0;
 }
 
 /* ------------------------------
    Tipografía y contenido
 --------------------------------- */
-sup { font-size: 10px; }
+sup {
+  font-size: 10px;
+}
 
 .md-content p,
 .md-content li {
@@ -45,22 +47,30 @@ sup { font-size: 10px; }
   margin-bottom: 0.6rem;
 }
 
-.md-content h1, .md-content h2 {
+.md-content h1,
+.md-content h2 {
   margin-top: 1rem;
   margin-bottom: 0.4rem;
 }
 
 .md-content__inner {
   max-width: 960px;
+  margin-top: -60px !important; 
   margin: auto;
 }
 
+/* Oculta el H1 de la página si usas hero propio */
+article > h1 {
+  display: none;
+}
+
 /* ------------------------------
-   Hero y secciones
+   HERO 
 --------------------------------- */
 .pg-hero {
-  padding: 4rem 0 3rem !important;
-  color: #fff;
+  background: var(--md-primary-fg-color);
+  color: #e9eef3;
+  padding: 2.6rem 0 1.8rem !important;
   box-shadow: var(--pg-hero-shadow);
 }
 
@@ -69,19 +79,135 @@ sup { font-size: 10px; }
   color: #ffffff !important;
 }
 
+.pg-hero__container {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  text-align: center;
+}
+
+.pg-hero__title {
+  margin: 0.2rem 0 0;
+  font-family: "FK Grotesk", sans-serif;
+  letter-spacing: -0.02em;
+}
+
+.pg-hero__brand {
+  display: block;
+  font-size: 2.7rem; 
+  line-height: 1.02;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+.pg-hero__headline {
+  display: block;
+  margin-top: 0.5rem;
+  font-size: 1.30rem; 
+  line-height: 1.2;
+  font-weight: 700;
+  opacity: 0.98;
+  max-width: 820px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.pg-hero__subtitle {
+  margin: 0.75rem auto 1.15rem;
+  max-width: 760px;
+  font-size: 0.9rem !important; 
+  line-height: 1.45;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.pg-hero__em {
+  font-weight: 600;
+}
+
+.pg-cta {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 0.9rem;
+}
+
+/* Botones (global) */
+.md-button {
+  font-size: 0.9rem;
+  padding: 0.35rem 0.9rem;
+  border-radius: 6px;
+  margin: 0.25rem 0.4rem;
+}
+
+/* Botones dentro del hero */
+.pg-hero .md-button {
+  padding: 0.55rem 1.1rem;
+  font-size: 0.95rem;
+  border-radius: 8px;
+  margin: 0;
+}
+
+.md-button--primary {
+  background: var(--pg-accent-color);
+  border-color: var(--pg-accent-color);
+  color: #fff;
+}
+
+.md-button--primary:hover {
+  filter: brightness(0.95);
+}
+
+.md-button--outline {
+  background: transparent;
+  border: 2px solid var(--pg-accent-color);
+  color: #fff;
+}
+
+.md-button--outline:hover {
+  border-color: var(--pg-accent-color);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.pg-cta__icon {
+  width: 18px;
+  height: 18px;
+  vertical-align: -3px;
+  margin-right: 0.5rem;
+}
+
+/* Alinea el bloque contenido para que el hero no deje margen raro */
+.md-main__inner > .md-content > article:first-of-type {
+  margin-top: 0 !important;
+}
+
+/* Cabecera: repo/source visible y blanco */
+.md-header__source {
+  display: flex !important;
+  opacity: 1 !important;
+}
+
+.md-header__source a {
+  color: #fff !important;
+}
+
+/* Título en la cabecera */
 .md-header__title {
   display: flex;
-  align-items: center;   
-  gap: 0.5rem;      
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .md-header__title .md-header__topic {
   display: flex;
-  align-items: center;  
-  font-size: 1.2rem; 
+  align-items: center;
+  font-size: 1.2rem;
   font-weight: 600;
 }
 
+/* ------------------------------
+   Secciones
+--------------------------------- */
 .pg-feature {
   padding: 2rem 0 1rem !important;
 }
@@ -94,16 +220,16 @@ sup { font-size: 10px; }
    Footer
 --------------------------------- */
 .md-footer {
-  background: #00223b !important;  
+  background: #00223b !important;
   color: #fff !important;
   border-top: 3px solid #000 !important;
   padding: 0.8rem 0 1.2rem 0 !important;
 }
 
 .md-footer__inner {
-  display:flex; 
-  justify-content:space-between; 
-  align-items:center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   padding: 0 1rem;
 }
 
@@ -114,67 +240,66 @@ sup { font-size: 10px; }
   align-items: start;
 }
 
-
 @media (max-width: 960px) {
   .pg-footer {
     grid-template-columns: 1fr;
     text-align: center;
   }
-  .footer-logo, .logo-container { 
+  .footer-logo,
+  .logo-container {
     justify-content: center;
   }
 }
 
-
 .footer-logo {
   display: flex;
-  justify-content: center;   
-  align-items: center;   
-  gap: 1.5rem;           
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
 }
 
 .footer-logo .pgtec-logo {
-  height: 150px !important;   
+  height: 150px !important;
   width: auto !important;
   object-fit: contain;
-  opacity: .95;
+  opacity: 0.95;
   margin-right: 0.75rem;
 }
 
 .footer-logo .vrain-logo {
-  height: 32px !important;  
+  height: 32px !important;
   width: auto !important;
   object-fit: contain;
-  opacity: .95;
+  opacity: 0.95;
   margin-right: 0.75rem;
-  filter: none !important;  
+  filter: none !important;
 }
 
 .pg-h4 {
-  margin: 0 0 .4rem 0;
+  margin: 0 0 0.4rem 0;
   font-size: 0.95rem;
   font-weight: 700;
-  text-align: center;   
+  text-align: center;
 }
 
 /* ------------------------------
    Logos
 --------------------------------- */
 .md-header__button.md-logo img {
-  height: 42px !important;  
+  height: 42px !important;
   width: auto !important;
 }
 
 .logo-container {
   display: flex;
-  justify-content: center;   
+  justify-content: center;
   align-items: center;
   gap: 1.2rem;
-  margin: .5rem 0;
+  margin: 0.5rem 0;
 }
 
 .logo-container img {
-  height: 55px !important;  
+  height: 55px !important;
   width: auto !important;
   object-fit: contain !important;
 }
@@ -186,18 +311,18 @@ sup { font-size: 10px; }
 }
 
 .pg-disclaimer {
-  font-size: 0.72rem;     
+  font-size: 0.72rem;
   line-height: 1.35;
   margin-top: 1rem;
-  max-width: 700px;       
-  opacity: .85;
+  max-width: 700px;
+  opacity: 0.85;
   margin-left: auto;
-  margin-right: auto; 
+  margin-right: auto;
   text-align: center;
 }
 
 /* ------------------------------
-   Cards
+   Cards (mkdocs-material grid cards)
 --------------------------------- */
 .grid.cards > ul {
   list-style: none;
@@ -218,7 +343,7 @@ sup { font-size: 10px; }
 
 .grid.cards .card {
   border: 1px solid var(--md-default-fg-color--lightest);
-  border-radius: .4rem;
+  border-radius: 0.4rem;
   background: var(--md-default-bg-color);
   padding: 1rem;
   box-shadow: var(--md-shadow-z1);
@@ -228,12 +353,12 @@ sup { font-size: 10px; }
 }
 
 .grid.cards .card h3 {
-  margin: 0 0 .5rem;
+  margin: 0 0 0.5rem;
   font-weight: 600;
 }
 
 .grid.cards .card p {
-  margin: 0 0 .75rem;
+  margin: 0 0 0.75rem;
 }
 
 .grid.cards .card a {
@@ -252,15 +377,8 @@ sup { font-size: 10px; }
 }
 
 /* ------------------------------
-   Navegación y botones
+   Navegación y enlaces
 --------------------------------- */
-.md-button {
-  font-size: 0.9rem;
-  padding: 0.35rem 0.9rem;
-  border-radius: 6px;
-  margin: 0.25rem 0.4rem;
-}
-
 .md-nav__link:hover,
 .md-nav__link:focus {
   color: #c97113 !important;
@@ -277,14 +395,42 @@ sup { font-size: 10px; }
   background-color: #e0821e !important;
 }
 
+.md-nav__list > .md-nav__item > .md-nav__link {
+  font-weight: 700 !important;
+}
+
+.md-nav__list .md-nav__list .md-nav__link {
+  font-weight: 400 !important;
+}
+
+/* Links en contenido */
+.md-typeset a {
+  color: #e0821e;
+  word-break: break-word;
+}
+
+.md-typeset a:hover,
+.md-typeset a:focus {
+  color: #c97113 !important;
+}
+
+/* Search icon blanco */
+.md-search__icon {
+  color: #fff !important;
+  fill: #fff !important;
+}
+
+/* ------------------------------
+   Prev/Next (si lo usas como barra)
+--------------------------------- */
 .pg-prevnext {
-  background: #00223b;  
+  background: #00223b;
   padding: 0.6rem 1.2rem;
-  margin: 0 auto;      
-  max-width: none !important;  
+  margin: 0 auto;
+  max-width: none !important;
   width: 100% !important;
-  border-radius: 0;             
-  box-shadow: 0 1px 2px rgba(0,0,0,.2);
+  border-radius: 0;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 .pg-prevnext a {
@@ -294,27 +440,4 @@ sup { font-size: 10px; }
 
 .pg-prevnext .md-footer__title {
   font-size: 0.9rem;
-}
-
-.md-search__icon {
-  color: #fff !important;
-  fill: #fff !important;
-}
-
-.md-nav__list > .md-nav__item > .md-nav__link {
-  font-weight: 700 !important;
-}
-
-.md-nav__list .md-nav__list .md-nav__link {
-  font-weight: 400 !important;
-}
-
-.md-typeset a {
-  color: #e0821e;
-  word-break: break-word;
-}
-
-.md-typeset a:hover,
-.md-typeset a:focus {
-  color: #c97113 !important;
 }
