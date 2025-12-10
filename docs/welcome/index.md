@@ -9,7 +9,7 @@ This site serves as a comprehensive **documentation** hub for the **PGTEC** proj
 
 Following the terrible consequences of the 2024 DANA floods in the province of Valencia, PGTEC aims to develop a platform for climate emergency prevention and management, providing advanced tools for the collection, analysis and modelling of environmental and climate data. This solution is integrated into interoperable data spaces, allowing public administrations, emergency management agencies and companies in the climate sector to access real-time information for decision-making.
 
-This project is part of the call for sectoral data spaces from the Data Space Reference Centre (CRED), under the Ministry for Digital Transformation and Public Administration, within the products and services programme.
+This project is part of the call for sectoral data spaces from the Data Space Reference Centre [(CRED)](https://cred.digital.gob.es/inicio), under the Ministry for Digital Transformation and Public Administration, within the products and services programme.
 
 ### Platform
 The platform will contribute to the **digitalization** of the climate resilience and emergency management sector, fostering the creation of **data-driven products** and **services** aligned with the principles of the **European Data Strategy** and the Recovery, Transformation and Resilience Plan.
@@ -66,16 +66,17 @@ Currently, PGTEC offers three data related services in the data space.
 
 In the future, it is expected that the University of León will share the wildfire prediction model they have developed. Any additional participant joining the data space as a service provider will be incorporated accordingly.
 
-<div style="text-align: center;">
-    
-    <h3>Image of L'Horta Sud (Valencia) Flooded After the DANA of October 29, 2024</h3>
+<div style="text-align: center; width: 560px; margin: 0 auto;">
     
     <img 
         src="images/dana.png" 
-        alt="Image of L'Horta Sud (València) flooded after the DANA of October 29, 2024" 
+        alt="Image of L'Horta Sud (Valencia) flooded after the DANA of October 29, 2024" 
         style="display: block; margin: 0 auto; max-width: 100%; height: auto;" 
         width="560" 
     />
+    
+    <h3 style="margin-top: 10px; font-size: 1.1em;">Image of L'Horta Sud (Valencia) Flooded After the DANA of October 29, 2024</h3>
+    
 </div>
 
 
