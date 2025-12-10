@@ -28,7 +28,7 @@ To ensure interoperability, trust, and security across the data space, the proje
 
 - **Digital Twins:** Different participants in the data space contribute hydrological, hydraulic and fire models to be fed with data and provide vital predictions for the prevention of climate emergencies. Other participants contribute dashboards or interactive maps to simulate real and future weather scenarios, such as IIAMA's [Water4Cast application](https://water4cast.webs.upv.es/).
 
-- **Smart Data Models:** Data schemas used to create a common ontology to standardise all data in the data space following the JSON-LD format. For more information go to the  [Smart Data Models section](../SmartDataModels/).
+- **Smart Data Models:** Data schemas used to create a common ontology to standardise all data in the data space following the JSON-LD format. For more information go to the  [Smart Data Models section](https://pgtec-vrain.github.io/SmartDataModels/).
 
 - **Data Spaces:** Following the developments of Fiware for data spaces, the aim of the project is to implement a trusted, interoperable and federated data space that adds value to citizens and the government when making data-based decisions in the event of a climate emergency. Notable developments include the Trust Anchor component, which acts as a police force within the data space to ensure the trust and security of participants.
 
