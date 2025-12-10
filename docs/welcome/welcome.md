@@ -22,9 +22,9 @@ The platform will contribute to the **digitalization** of the climate resilience
 
 ### Technologies
 
-- APIs: Various types of public and private APIs are used to collect data from different climate agencies, as well as proprietary REST APIs designed specifically for the project.
+- **APIs:** Various types of public and private APIs are used to collect data from different climate agencies, as well as proprietary REST APIs designed specifically for the project.
 
-- Digital Twins: Different participants in the data space contribute hydrological, hydraulic and fire models to be fed with data and provide vital predictions for the prevention of climate emergencies. Other participants contribute dashboards or interactive maps to simulate real and future weather scenarios, such as IIAMA's [Water4Cast](https://water4cast.webs.upv.es/).
+- **Digital Twins:** Different participants in the data space contribute hydrological, hydraulic and fire models to be fed with data and provide vital predictions for the prevention of climate emergencies. Other participants contribute dashboards or interactive maps to simulate real and future weather scenarios, such as IIAMA's [Water4Cast](https://water4cast.webs.upv.es/).
 
 - **Smart Data Models:** Data schemas used to create a common ontology to standardise all data in the data space following the JSON-LD format.
 
@@ -53,6 +53,18 @@ On the other hand, the international climate agencies that have been used for th
 - [National Oceanic and Atmospheric Administration (NOAA)](https://www.noaa.gov/)
 
 ### Services offered
+
+Currently, PGTEC offers three data related services in the data space. 
+
+- **Hydrological model [(TETIS)](https://iiama.webs.upv.es/en/technology-transfer/software/tetis/):** A spatially distributed hydrological and sediment cycle **simulation model** that divides the basin into regular cells and uses physically based parameters. As a comprehensive model, it can address **flooding** and erosion processes (with minute- or hour-level temporal resolution) as well as water-resources problems (daily resolution). It also includes a robust automatic **calibration algorithm** for both effective parameters and initial state variables, greatly simplifying practical implementation.
+
+- **Real time Dashboard:** A dynamic, user-configurable map developed by VRAIN-UPV that visualizes different meteorological variables—such as temperature and precipitation—in real time across various locations throughout the national territory.
+
+- **Tetis predictions Dashboard:** An interactive map developed by VRAIN-UPV to display model outputs after executing the TETIS hydrological model. It allows users to select multiple input datasets to run TETIS simulations and visualize these simulations simultaneously, enabling comparative analysis of inputs and supporting decision-making processes.
+
+- **[Water4Cast APP](https://water4cast.webs.upv.es/):** An application developed by IIAMA designed to provide a visualization and decision-support system to predict variables and indicators relevant to the efficient management of water resource systems and river basins. The case study focuses on the Júcar River basin, the main basin in the Valencian Community.
+
+In the future, it is expected that the University of León will share the wildfire prediction model they have developed. Any additional participant joining the data space as a service provider will be incorporated accordingly.
 
 ![Dana image](images/dana.png){ width="560" }
 
