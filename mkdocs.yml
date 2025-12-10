@@ -36,7 +36,7 @@ extra_javascript:
 
 # --- Navegación ---
 nav:
-  - welcome/welcome.md
+  - welcome/index.md
   - Getting Started:
       - getting_started/index.md
       #  - getting_started/interoperability.md
