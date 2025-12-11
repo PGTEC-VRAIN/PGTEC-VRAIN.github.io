@@ -39,10 +39,11 @@ nav:
   - welcome/index.md
   - Getting Started:
       - getting_started/index.md
-      #  - getting_started/interoperability.md
-      #  - getting_started/data_spaces/data_spaces.md
+      - getting_started/what_is_pgtec.md
+      - getting_started/data_and_services.md
+      - getting_started/join_data_space.md
   - Data Sources:
-      - data_sources/index.md
+      - data_sources/index.md 
       # - data_sources/metadata_datasources/siah_datasource.md
       # - data_sources/metadata_datasources/siar_datasource.md
       # - data_sources/metadata_datasources/aemet_datasource.md
@@ -54,15 +55,15 @@ nav:
       # - data_sources/metadata_datasources/avsre_datasource.md
   - Data Flow:
       - pipeline/index.md
-      # - pipeline/requirements.md
-      # - pipeline/setup.md
-      # - pipeline/example_copernicus.md
+      - pipeline/requirements.md
+      - pipeline/setup.md
+      - pipeline/example_copernicus.md
 
   - Smart Data Models:
       - SmartDataModels/index.md
-      # - SmartDataModels/WeatherForecastSeries.md
-      # - SmartDataModels/WeatherObserved.md
-      # - SmartDataModels/StreamFlow.md
+      - SmartDataModels/WeatherForecastSeries.md
+      - SmartDataModels/WeatherObserved.md
+      - SmartDataModels/StreamFlow.md
 
   - SmartFlow:
       - SmartFlow/index.md
@@ -79,9 +80,6 @@ nav:
 
   - Decentralized Identifiers:
       - DID/index.md
-
-  # - Documentation:
-  #     - documentation/index.md
 
 # --- Extensiones de Markdown ---
 markdown_extensions:

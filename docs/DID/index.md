@@ -3,6 +3,8 @@ icon: material/card-account-details
 title: Decentralized Identifiers (DIDs)
 ---
 
+## Decentralized Identifiers
+
 **Decentralized Identifiers (DIDs)** are a core component of Self-Sovereign Identity (SSI) systems, providing a unique, persistent, and cryptographically verifiable way to identify any entity (person, organization, device, etc.) without relying on a central authority.
 
 A DID is a simple URI with three parts: the scheme (did:), the DID method identifier, and the method-specific identifier. For example, in did:web:example.com, *web* is the method identifier.

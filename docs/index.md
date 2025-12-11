@@ -40,7 +40,7 @@ article p {
 
 <img class="package-icon skip-glightbox" src="assets/images/logo_PGTEC.svg">
   <h1>Information of PGTEC</h1>
-    <p>A climate and weather <strong>data space</strong> that connects <strong>providers</strong> and <strong>users</strong> through shared standards, governance and interoperability, enabling trusted reuse of information for <strong>early warning</strong> and <strong>risk management</strong>.</p>
+    <p style="text-align: center;">A climate and weather <strong>data space</strong> that connects <strong>providers</strong> and <strong>users</strong> through shared standards, governance and interoperability, enabling trusted reuse of information for <strong>early warning</strong> and <strong>risk management</strong>.</p>
 </div>
 
 <div class="grid cards cols-3" markdown>
