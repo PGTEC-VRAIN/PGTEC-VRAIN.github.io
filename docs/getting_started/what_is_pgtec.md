@@ -63,4 +63,4 @@ PGTEC relies on several key technologies that appear across the documentation:
     - See [Data Flow](../pipeline/index.md) for an end-to-end description of the ingestion pipeline.
     - See [Smart Data Models](../SmartDataModels/index.md) for the entity schemas used across the project.
     - See [SmartFlow](../SmartFlow/index.md) if you are planning to run the pipelines or services locally.
-    - See [Decentralized Identifiers](../DID/index.md) for identity and trust aspects inside the data space.
+    - See [Data Space](../DataSpace/index.md) for the architecture, governance and trust model of the PGTEC data space.

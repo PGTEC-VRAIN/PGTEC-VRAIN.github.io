@@ -1,15 +1,29 @@
----
-icon: material/card-account-details
-title: Decentralized Identifiers (DIDs)
----
-
 ## Decentralized Identifiers
 
-**Decentralized Identifiers (DIDs)** are a core component of Self-Sovereign Identity (SSI) systems, providing a unique, persistent, and cryptographically verifiable way to identify any entity (person, organization, device, etc.) without relying on a central authority.
+In the PGTEC data space, decentralized identifiers (DIDs) are used to represent identities in a portable and cryptographically verifiable way. They are especially useful to identify organisations, services or components without relying on a single central authority.
 
-A DID is a simple URI with three parts: the scheme (did:), the DID method identifier, and the method-specific identifier. For example, in did:web:example.com, *web* is the method identifier.
+This page gives a practical introduction to DIDs and shows how to generate did:web and did:key identifiers using Docker, as used in the PGTEC experiments.
 
-DIDs resolve to a DID Document, which is a JSON file containing public keys (for authentication and verification) and service endpoints (for communication).
+For a higher-level description of how identities and credentials are used in the data space, see the page on identities and verifiable credentials in the Data Space section.
+
+## What is a DID?
+
+A decentralized identifier (DID) is a URI-like identifier that is:
+
+- Globally unique and persistent
+- Bound to one or more public keys
+- Resolvable to a DID document, which is a JSON file containing public keys (for authentication and verification) and service endpoints (for communication).
+
+A DID has three parts:
+
+- The scheme, always `did:`
+- The DID method name
+- The method-specific identifier
+
+For example, in:
+
+```text
+did:web:example.com
 
 ## did:web method
 The did:web method leverages existing web infrastructure, specifically HTTPS and Domain Name System (DNS), to create and resolve DIDs.

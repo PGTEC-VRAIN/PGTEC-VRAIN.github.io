@@ -374,6 +374,12 @@ article > h1 {
 .grid.cards.cols-3 {
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 1rem;
+  text-align: left !important;
+}
+
+.grid.cards p,
+.grid.cards li {
+  text-align: left !important;
 }
 
 /* ------------------------------

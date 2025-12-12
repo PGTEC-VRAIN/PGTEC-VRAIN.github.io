@@ -78,8 +78,13 @@ nav:
       # - SmartFlow/metadata_scripts/EFAS.md
       # - SmartFlow/metadata_scripts/EFFIS.md
 
-  - Decentralized Identifiers:
-      - DID/index.md
+  - Data Space:
+      - DataSpace/index.md
+      - DataSpace/arquitecture.md
+      - Identities and Credentials:
+          - Overview: DataSpace/identities_and_credentials.md  
+          - DID: DataSpace/did.md
+      
 
 # --- Extensiones de Markdown ---
 markdown_extensions:

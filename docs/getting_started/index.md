@@ -11,7 +11,7 @@ The goal of this guide is to answer three basic questions:
 
 1.  <strong>What is PGTEC?</strong>
 2.  <strong>What does PGTEC offer?</strong>
-3.  <strong>How can I join the PGTEC data space?</strong>
+3.  <strong>How can I join the PGTEC Data Space?</strong>
 
 ### Who is this documentation for?
 
@@ -42,8 +42,7 @@ The following sections have more detailed information:
 - [Data Flow](../pipeline/index.md) describes the end-to-end pipeline from raw data to context information stored in a FIWARE Context Broker.
 - [Smart Data Models](../SmartDataModels/index.md) introduces the harmonised data models used to represent climate, hydrological and risk entities.
 - [SmartFlow](../SmartFlow/index.md) explains how the Airflow and FastAPI components orchestrate data retrieval, transformation and exposure as services.
-- [Decentralized Identifiers](../DID/index.md) presents how self-sovereign identity and DIDs are used to identify entities inside the data space.
-
+- [Data Space](../DataSpace/index.md) describes the PGTEC data space architecture, its main components, and how identity, access and governance are handled.
 !!! Tip "More details"
 
     If you just want a high-level understanding, reading this Getting Started section is enough.  

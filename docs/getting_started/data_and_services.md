@@ -1,6 +1,7 @@
 # Data and Services
 ## Data and Services in PGTEC
 This page answers the question:
+
 <strong> What does PGTEC offer in practice?</strong>
 
 PGTEC brings together climate, hydrological and risk-related information, processes it through a common pipeline and exposes it as interoperable services that can be reused by different applications.
