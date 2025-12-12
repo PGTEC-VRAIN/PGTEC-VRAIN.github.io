@@ -75,4 +75,10 @@ article p {
 
     [:octicons-arrow-right-24: Learn more](SmartFlow/index.md)
 
+- :material-hub: **Data Space**
+
+    Overview of the PGTEC data space architecture, governance model, identities and access control.
+
+    [:octicons-arrow-right-24: Learn more](DataSpace/index.md)
+
 </div>
