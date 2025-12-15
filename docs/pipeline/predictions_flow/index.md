@@ -5,7 +5,7 @@ title: Predictions
 ## Overview
 
 Different climate agencies around the world are used to provide weather forecast data from their climate models. In this case, the Open-Meteo wrapper is used, as it provides direct access to the forecasts of several climate models via an API, eliminating the need to navigate to the official websites of each climate agency individually. It also offers the data in a standardised format, facilitating conversion to the JSON-LD format used by Smart Data Models. The climate agencies that hold relevant PGTEC project predictions data, given their national scope, are:
-    
+
 - CNC (Canadian National Committee):  
     - Model GEPS (Global Ensemble Prediction System). 
 
@@ -47,17 +47,17 @@ The components of the data flow used to collect predictions are as follows:
 
 As explained above, the prediction data flow follows a demand-driven lifecycle that optimises storage and processing resources:
 
--**Data acquisition:** Prediction data from multiple climate models is periodically retrieved through Open-Meteo or using Airflow and stored as raw files in the S3 bucket.
+- **Data acquisition:** Prediction data from multiple climate models is periodically retrieved through Open-Meteo or using Airflow and stored as raw files in the S3 bucket.
 
--**On-demand processing:** When a user or service requests prediction data, the SmartFlow API identifies and loads the relevant raw files from S3.
+- **On-demand processing:** When a user or service requests prediction data, the SmartFlow API identifies and loads the relevant raw files from S3.
 
--**Standardisation:** The requested data is transformed into the Weather Forecast Series Smart Data Model, converting variables, units and structures into a common representation.
+- **Standardisation:** The requested data is transformed into the Weather Forecast Series Smart Data Model, converting variables, units and structures into a common representation.
 
--**Delivery:** The standardised prediction data is returned to the requester through the API, ready for direct use in simulations, dashboards or decision-support tools.
+- **Delivery:** The standardised prediction data is returned to the requester through the API, ready for direct use in simulations, dashboards or decision-support tools.
 
 To visually understand the data flow, a flow chart has been created that captures the passage of data between the different components of the flow and the interactions between them.
 
-![Predictions data flow image](images/predictions_flow.png){ width="1200" }
+![Predictions data flow image](../images/predictions_flow.png){ width="1200" }
 
 As shown in the diagram, access to prediction data is always mediated by the SmartFlow API, which acts as the entry point to the raw prediction files stored in Amazon S3 and ensures that all outputs conform to the Smart Data Models used within the PGTEC data space. 
 

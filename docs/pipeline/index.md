@@ -3,7 +3,7 @@ icon: material/sitemap-outline
 title: Data Flow
 ---
 
-### Definition
+## Definition
 
 The purpose of this section is to explain all the data flows that take place within the PGTEC ecosystem. Since the objective of the project is to create an interoperable data space in which climate data and services can be securely shared, the associated data flows play a key role.
 
@@ -15,7 +15,7 @@ For the development of the project, data flows have been classified according to
 
 This classification improves the clarity and understanding of the different data flows and facilitates a more detailed analysis of each one.
 
-### Types
+## Types
 
 Each data flow comprises a set of climate agencies or institutions that provide climate data of particular relevance for the early prevention of climate-related emergencies. All climate agencies are therefore equally important, as all climate data, regardless of the data flow to which they belong, contribute to anticipating adverse meteorological phenomena.
 
