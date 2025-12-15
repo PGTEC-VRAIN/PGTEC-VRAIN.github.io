@@ -55,9 +55,11 @@ nav:
       # - data_sources/metadata_datasources/avsre_datasource.md
   - Data Flow:
       - pipeline/index.md
-      - pipeline/requirements.md
-      - pipeline/setup.md
-      - pipeline/example_copernicus.md
+      - pipeline/real_time_data_flow/index.md
+      - pipeline/predictions_flow/index.md
+      #- pipeline/requirements.md
+      #- pipeline/setup.md
+      #- pipeline/example_copernicus.md
 
   - Smart Data Models:
       - SmartDataModels/index.md
