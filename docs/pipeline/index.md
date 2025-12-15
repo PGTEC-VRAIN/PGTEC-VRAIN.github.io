@@ -3,32 +3,31 @@ icon: material/sitemap-outline
 title: Data Flow
 ---
 
-## Overview
+### Definition
 
-The **data space** aims to centralise and standardise climate information from various sources so that it is available to organisations interested in early prevention of climate emergencies.
+The purpose of this section is to explain all the data flows that take place within the PGTEC ecosystem. Since the objective of the project is to create an interoperable data space in which climate data and services can be securely shared, the associated data flows play a key role.
 
-The **first** phase in building the data space is **data collection**. To do this, it is not enough to simply collect information from different sources: it is necessary to ensure that the data is updated in real time, is in a standardised format and is easily accessible to different organisations and applications.
+For the development of the project, data flows have been classified according to the temporal nature of the climate data. Based on this criterion, two main groups have been defined:
 
-To this end, a structured data flow is designed that covers several consecutive stages, from obtaining the data at source to its storage and distribution in the data space. This flow ensures that each piece of data collected goes through a process of capture, translation, standardisation, management and historical persistence, so that it can ultimately be integrated correctly and consistently into the data ecosystem.
+- Meteorological prediction data flow: Includes all data flows from climate agencies that provide future or forecast data to the ecosystem.
 
-### Components of the data flow
+- Real-time data flow: Includes climate agencies that provide real-time or near real-time climate data to the ecosystem.
 
-- **[Airflow](https://airflow.apache.org/):** An orchestration tool that allows you to schedule and automate data collection tasks. It is responsible for periodically executing scripts that query APIs or download files from different sources.
+This classification improves the clarity and understanding of the different data flows and facilitates a more detailed analysis of each one.
 
-- **[IoT Agent Ultralight](https://fiware-tutorials.readthedocs.io/en/latest/iot-agent.html):** Acts as a translator for the data received. It converts information from sensors or APIs into a common, standardised format (in this case based on FIWARE Smart Data Models), ensuring consistency in variable names and units of measurement.
+### Types
 
-- **[Orion-LD (Context Broker)](https://fiware-orion.readthedocs.io/en/master/):** Core of the system. It manages, stores and distributes contextual information in JSON-LD format, allowing data to be queried in real time by different applications or services.
+Each data flow comprises a set of climate agencies or institutions that provide climate data of particular relevance for the early prevention of climate-related emergencies. All climate agencies are therefore equally important, as all climate data, regardless of the data flow to which they belong, contribute to anticipating adverse meteorological phenomena.
 
-- **[QuantumLeap](https://quantumleap.readthedocs.io/en/latest/user/using/):** Component specialised in historical storage. It receives data from the Context Broker and stores it in a temporary database, in this case CrateDB, thus facilitating its consultation and subsequent use for analysis, report generation or artificial intelligence model training.
+The following subsections describe in detail the data flows introduced above. Defining structured and traceable data flows is essential to ensure timely access to data and to enable secure data sharing within the data space, preserving data integrity and supporting informed decision-making for the prevention of adverse events.
 
-### Stages of data flow
+To explore the different data flows, navigate to the following sections:
 
-- **Data collection:** Climate data is collected periodically from different sources, mostly through REST APIs, although some comes from direct downloads from web pages. This process is automated with Apache Airflow, which, thanks to the use of DAGs (Directed Acyclic Graphs) in Python, allows dependencies to be defined, execution to be scheduled (e.g., hourly) and regular, reliable data updates to be ensured.
+- Dive into [Real Time Data Flow](./real_time_data_flow/index.md) to access the explanation of real-time data flows.
+- Go to [Predictions Data Flow](./predictions_flow/index.md) to access the explanation of meteorological prediction data flows.
 
-- **Standardisation and translation:** Each source uses different variables and formats, so it is necessary to unify names, units, and structures. This task is performed by the IoT Agent, which translates the information into common models defined by FIWARE's Smart Data Models. In this case, a climate model is used to ensure data interoperability for future applications.
+!!! Tip "Next steps"
 
-- **Contextual management and distribution:** Standardised data is managed by the Orion-LD Context Broker, which stores and distributes it in JSON-LD format. This makes it easier for multiple applications or services to consume it consistently.
+    Click on **Real Time Data** in the bottom navigation bar located at the upper-left to advance to the next section.
 
-- **Historical and analytical persistence:** Finally, real-time data is stored in a historical database through QuantumLeap, which inserts it into CrateDB as time series. In this way, complete records are built that allow IIAMA to train machine learning and deep learning models, which are key to the prediction and early detection of adverse climate phenomena.
-
-![Data space flow image](images/data_spaces_flow.png){ width="1200" }
+    *You can use the buttons in the bottom navigation bar to navigate between the previous and next pages or jump to a section with the side navigation bars.*
