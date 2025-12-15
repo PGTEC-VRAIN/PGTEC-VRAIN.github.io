@@ -1352,12 +1352,22 @@
 </ul>
 <h3 id="stages-of-data-flow">Stages of data flow</h3>
 <p>As explained above, the prediction data flow follows a demand-driven lifecycle that optimises storage and processing resources:</p>
-<p>-<strong>Data acquisition:</strong> Prediction data from multiple climate models is periodically retrieved through Open-Meteo or using Airflow and stored as raw files in the S3 bucket.</p>
-<p>-<strong>On-demand processing:</strong> When a user or service requests prediction data, the SmartFlow API identifies and loads the relevant raw files from S3.</p>
-<p>-<strong>Standardisation:</strong> The requested data is transformed into the Weather Forecast Series Smart Data Model, converting variables, units and structures into a common representation.</p>
-<p>-<strong>Delivery:</strong> The standardised prediction data is returned to the requester through the API, ready for direct use in simulations, dashboards or decision-support tools.</p>
+<ul>
+<li>
+<p><strong>Data acquisition:</strong> Prediction data from multiple climate models is periodically retrieved through Open-Meteo or using Airflow and stored as raw files in the S3 bucket.</p>
+</li>
+<li>
+<p><strong>On-demand processing:</strong> When a user or service requests prediction data, the SmartFlow API identifies and loads the relevant raw files from S3.</p>
+</li>
+<li>
+<p><strong>Standardisation:</strong> The requested data is transformed into the Weather Forecast Series Smart Data Model, converting variables, units and structures into a common representation.</p>
+</li>
+<li>
+<p><strong>Delivery:</strong> The standardised prediction data is returned to the requester through the API, ready for direct use in simulations, dashboards or decision-support tools.</p>
+</li>
+</ul>
 <p>To visually understand the data flow, a flow chart has been created that captures the passage of data between the different components of the flow and the interactions between them.</p>
-<p><img alt="Predictions data flow image" src="images/predictions_flow.png" width="1200" /></p>
+<p><img alt="Predictions data flow image" src="../images/predictions_flow.png" width="1200" /></p>
 <p>As shown in the diagram, access to prediction data is always mediated by the SmartFlow API, which acts as the entry point to the raw prediction files stored in Amazon S3 and ensures that all outputs conform to the Smart Data Models used within the PGTEC data space. </p>
 <p>All user and service requests are first routed through APISIX, which acts as the API Gateway and security entry point of the FIWARE connector. APISIX is responsible for authentication and authorization, ensuring that only authenticated dashboards or services can access the available endpoints. Once the credentials are validated, APISIX routes each request to the appropriate internal service, in this case, the SmartFlow API.</p>
 <p>This architecture enforces a single, secure entry point to the prediction services while maintaining a clear separation between access control, routing and data processing within the PGTEC data space.</p>
@@ -1383,7 +1393,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="December 15, 2025 18:17:32">December 15, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="December 15, 2025 18:24:22">December 15, 2025</span>
   </span>
 
     
