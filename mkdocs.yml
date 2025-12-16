@@ -67,8 +67,8 @@ nav:
       - SmartDataModels/WeatherObserved.md
       - SmartDataModels/StreamFlow.md
 
-  - SmartFlow:
-      - SmartFlow/index.md
+  # - SmartFlow:
+  #     - SmartFlow/index.md
       # - SmartFlow/metadata_scripts/Harmonie_AEMET.md
       # - SmartFlow/metadata_scripts/GEPS_ENS_CNC.md
       # - SmartFlow/metadata_scripts/DWD_ICON.md

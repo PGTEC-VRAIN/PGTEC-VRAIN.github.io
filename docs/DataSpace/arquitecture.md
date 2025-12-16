@@ -41,13 +41,17 @@ At a high level, the PGTEC data space is composed of:
 2. Common trust and governance services: Trust Anchor, Verifiable Credentials Issuer and Marketplace
 3. A cloud-native infrastructure that hosts these components on Kubernetes in AWS
 
-Each participant connects to the data space through *its own* FIWARE Data Space Connector. The connector acts as a standardised gateway where:
+A continuación, se muestra un diagrama sobrela arquitectura global del espacio de datos: 
+
+![High-Level Architecture](./images/architecture.png){ width="1200" }
+
+The image above shows that each participant connects to the data space through *its own* FIWARE Data Space Connector. The connector acts as a standardised gateway where:
 
 - Incoming requests are authenticated and authorised
 - Usage policies are enforced
 - Data is exposed through interoperable APIs based on NGSI-LD and TM Forum standards
 
-Shared components such as the Trust Anchor and Marketplace provide ecosystem-wide services for identity, policy and discovery.
+Shared components such as the Trust Anchor, Marketplace and VC-Issuer provide ecosystem-wide services for identity, policy and discovery. The next section makes a detailed description of this components.
 
 ## Common trust and governance services
 
@@ -95,7 +99,11 @@ Conceptually, the FDSC provides:
 - Contract and policy management for data usage
 - Actual data exchange between connectors using the Dataspace protocol
 
-Internally, the FDSC is itself composed of several subsystems, which can be grouped by function: 
+Internally, the FDSC is itself composed of several subsystems, which can be grouped by function. The next image provides an explanation of the internal architecture of the FDSC
+
+![High-Level Architecture](./images/detailed_architecture_connector.png){ width="1200" }
+
+The next section describes all the subsystems grouped by their functionality:
 
 ### Authentication and authorisation
 
@@ -148,7 +156,9 @@ In this first deployment:
 - The Verifiable Credentials Issuer is not yet required, because only internal PGTEC participants are involved.
 - The connector for VRAIN can be added later, once the real-time dashboard service is ready to be integrated.
 
-Even in this reduced configuration, the MVDS provides a functional dataspace where realistic scenarios can be simulated and the behaviour of connectors, models and services can be evaluated.
+Even in this reduced configuration, the MVDS provides a functional dataspace where realistic scenarios can be simulated and the behaviour of connectors, models and services can be evaluated. The next image describes the MVDS:
+
+![MVDS Architecture](./images/mvds.png){ width="1200" }
 
 ## Infrastructure and Deployment
 
