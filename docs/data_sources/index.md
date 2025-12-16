@@ -1,6 +1,6 @@
 ---
 icon: material/database
-title: Information
+title: Data Sources
 hide:
   - toc
 ---
@@ -18,13 +18,13 @@ hide:
     });
 </script>
 
+## Data Sources
 
 <div class="catalog-header" markdown>
 <div markdown>
 This section will detail the different data sources available to feed the prediction models and algorithms that will enable us to anticipate extreme weather events, thereby contributing to a more effective response to meteorological emergencies. Their usefulness, quality and availability will be evaluated.
 </div>
 </div>
-## Data Sources
 
 <div class="grid cards cols-3" markdown>
 

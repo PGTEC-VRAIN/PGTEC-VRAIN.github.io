@@ -1,4 +1,6 @@
-# Sistema de Información Agroclimática para el Regadío (SiAR)
+[:material-arrow-left: Back to Data Sources](../index.md){ .pg-back-button }
+
+## Sistema de Información Agroclimática para el Regadío (SiAR)
 
 [The Agroclimatic Information System for Irrigation (SiAR)](https://www.mapa.gob.es/es/desarrollo-rural/temas/gestion-sostenible-regadios/sistema-informacion-agroclimatica-regadio/presentacion) of the Ministry of Agriculture, Fisheries and Food is a network of **more than 520 weather stations** that captures, records and disseminates agroclimatic data necessary to determine the water demand of irrigated farms. 
 
@@ -8,7 +10,7 @@ The SiAR network places special emphasis on maintaining the **high quality** and
 
 There are **more than 360 stations** managed by the Ministry and **more than 160 managed** by the autonomous communities. [The SiAR network in the Valencian Community](http://riegos.ivia.es/red-siar) has 55 stations located in irrigated areas. 
 
-## API
+### API
 
 SiAR **allows access to all your data via REST API**, provided that the maximum number of requests and the maximum amount of data queried per day and per minute are respected. Each user has different restrictions regarding the maximum number of requests. 
 
@@ -38,11 +40,3 @@ With regard to **real-time data**, attempts have been made to download the most 
 The data update times are **not known exactly**. The update time is estimated to be **30 minutes**, given that the finest temporal granularity is every 30 minutes. 
 
 Regarding temporal resolution, the technical manual explains the different granularities for accessing data according to the required time span (hourly, daily, weekly, monthly, etc.). 
-
-
-<!-- ??? info "More information"
-    The SiAR API is **public**, but you must fill out a form on the website with your personal details and the purpose for which you will use the data. SiAR will then decide whether to accept your request and send you the API key. 
-
-    To access the SiAR REST API, you must use the **key provided after registering** on their [website](https://servicio.mapa.gob.es/websiar/). Registration requires you to provide your personal details (ID number, first name, surname, email address), the organisation you work for and the intended use of the data. 
-
-    Once registered, you will receive an **email with an API key** that you will need to provide in each query to identify yourself.  -->
