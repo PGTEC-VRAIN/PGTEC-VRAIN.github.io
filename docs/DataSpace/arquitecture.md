@@ -41,7 +41,7 @@ At a high level, the PGTEC data space is composed of:
 2. Common trust and governance services: Trust Anchor, Verifiable Credentials Issuer and Marketplace
 3. A cloud-native infrastructure that hosts these components on Kubernetes in AWS
 
-A continuación, se muestra un diagrama sobrela arquitectura global del espacio de datos: 
+The diagram below shows the overall architecture of the data space: 
 
 ![High-Level Architecture](./images/architecture.png){ width="1200" }
 

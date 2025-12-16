@@ -69,11 +69,11 @@ article p {
 
     [:octicons-arrow-right-24: Learn more](SmartDataModels/index.md)
 
-- :material-sync: **Smart Flow**
+<!-- - :material-sync: **Smart Flow**
 
     Python-based scripts designed with Airflow and FastAPI to manage and automate data processing pipelines.
 
-    [:octicons-arrow-right-24: Learn more](SmartFlow/index.md)
+    [:octicons-arrow-right-24: Learn more](SmartFlow/index.md) -->
 
 - :material-hub: **Data Space**
 
