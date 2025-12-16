@@ -36,7 +36,7 @@ To ensure interoperability, trust, and security across the data space, the proje
 
 - **Cloud Services:** To ensure that the platform can scale efficiently, the data space has been designed to operate in the cloud, leveraging Amazon Web Services (AWS). The project has the collaboration of the companies [Kanzo-Tech](https://kanzo.site/) and [Think-IT](https://think-it.io/) to carry out the migration to the cloud.
 
-### Data sources
+### Data Sources
 
 The project is designed to prevent national climate emergencies, so the climate agencies of interest will be those that have national information. In addition, following the consequences of the DANA explained above, considerable emphasis has been placed on climate agencies in the Valencian Community. Therefore, the national climate agencies that provide data for the project are:
 
@@ -58,9 +58,9 @@ On the other hand, the international climate agencies that have been used for th
 
 Currently, PGTEC offers the following data related services in the data space:
 
-- **Hydrological model [(TETIS)](https://iiama.webs.upv.es/en/technology-transfer/software/tetis/):** A spatially distributed hydrological and sediment cycle **simulation model** that divides the basin into regular cells and uses physically based parameters. As a comprehensive model, it can address **flooding** and erosion processes (with minute- or hour-level temporal resolution) as well as water-resources problems (daily resolution). It also includes a robust automatic **calibration algorithm** for both effective parameters and initial state variables, greatly simplifying practical implementation.
+- **Hydrological Model [(TETIS)](https://iiama.webs.upv.es/en/technology-transfer/software/tetis/):** A spatially distributed hydrological and sediment cycle **simulation model** that divides the basin into regular cells and uses physically based parameters. As a comprehensive model, it can address **flooding** and erosion processes (with minute- or hour-level temporal resolution) as well as water-resources problems (daily resolution). It also includes a robust automatic **calibration algorithm** for both effective parameters and initial state variables, greatly simplifying practical implementation.
 
-- **Real time Dashboard:** A dynamic, user-configurable map developed by VRAIN-UPV that visualizes different meteorological variables—such as temperature and precipitation—in real time across various locations throughout the national territory.
+- **Real Time Dashboard:** A dynamic, user-configurable map developed by VRAIN-UPV that visualizes different meteorological variables—such as temperature and precipitation—in real time across various locations throughout the national territory.
 
 - **Tetis predictions Dashboard:** An interactive map developed by VRAIN-UPV to display model outputs after executing the TETIS hydrological model. It allows users to select multiple input datasets to run TETIS simulations and visualize these simulations simultaneously, enabling comparative analysis of inputs and supporting decision-making processes.
 

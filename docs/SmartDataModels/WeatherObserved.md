@@ -1,4 +1,4 @@
-
+## WeatherObserved Model
 The **WeatherObserved** Smart Data Model is used to represent real-time meteorological observations within the **PGTEC** project.  
 It follows the official FIWARE definition and does not require any structural modification, ensuring full compatibility and interoperability with other FIWARE-based systems.
 
@@ -10,8 +10,6 @@ This model serves as the standard framework for integrating **real-time data** c
 - [**SiAR**](https://servicio.mapa.gob.es/websiar/) — Sistema de información agroclimática para el regadío
 
 By adopting the *WeatherObserved* schema, all incoming data are harmonized under a **common structure**, ensuring consistency in variable names, measurement units, and metadata representation across the entire data ecosystem.
-
----
 
 ### Main Variables of Interest
 
@@ -25,7 +23,6 @@ The following table describes the most important variables used in the PGTEC pro
 | Snow depth                          | `snowHeight`         | mm                  |
 | Wind speed                          | `windSpeed`          | m/s, km/h           |
 
----
 
 ### Role within PGTEC
 

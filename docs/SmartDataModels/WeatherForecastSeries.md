@@ -1,8 +1,7 @@
-
+## WeatherForecastSeries Model
 The **WeatherForecastSeries** Smart Data Model is an **extension of the official** [WeatherForecast](https://github.com/smart-data-models/dataModel.Weather/blob/master/WeatherForecast/schema.json) model from FIWARE’s Smart Data Models initiative.  
 Its main goal is to enable the representation of **forecast time series** (rather than a single prediction) within a single entity.
 
----
 
 ### Key Modifications
 
@@ -17,8 +16,6 @@ Its main goal is to enable the representation of **forecast time series** (rathe
   A new property, `timestamps`, has been introduced to specify the **exact prediction times** corresponding to each value in the variable arrays.  
   This makes it possible to directly associate each forecasted parameter with its valid time, simplifying temporal analysis.
 
----
-
 ### Purpose and Advantages
 
 This model enables the aggregation of **complete forecast time series** (e.g., hourly or daily predictions) in a **single JSON object**, reducing redundancy and improving data retrieval efficiency.
@@ -28,8 +25,6 @@ In the **PGTEC project**, it is used to:
 - Store **weather predictions** retrieved from different data sources such as AEMET, Open-Meteo, and Copernicus.  
 - Provide these standardized forecasts as input for the **TETIS hydrological model**, ensuring that all variables share a common format and temporal alignment.  
 - Facilitate **interoperability** between APIs, Airflow workflows, and visualization dashboards.
-
----
 
 ### Example Entity
 
