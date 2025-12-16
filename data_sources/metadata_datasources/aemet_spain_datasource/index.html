@@ -23,7 +23,7 @@
     
     
   
-    <title>AEMET (Spain02) - PGTEC - VRAIN</title>
+    <title>Aemet spain datasource - PGTEC - VRAIN</title>
   
 
     
@@ -117,7 +117,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              AEMET (Spain02)
+              Aemet spain datasource
             
           </span>
         </div>
@@ -1124,8 +1124,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -1134,6 +1132,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#aemet-spain02" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AEMET (Spain02)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="AEMET (Spain02)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#api" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1141,6 +1151,11 @@
       
     </span>
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1169,25 +1184,16 @@
   
 
 
-<h1 id="aemet-spain02">AEMET (Spain02)</h1>
+  <h1>Aemet spain datasource</h1>
+
+<p><a class="pg-back-button" href="../../"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg></span> Back to Data Sources</a></p>
+<h2 id="aemet-spain02">AEMET (Spain02)</h2>
 <p>The <a href="https://www.aemet.es/es/serviciosclimaticos/cambio_climat/datos_diarios/ayuda/rejilla_20km">Spain02</a> dataset is the result of institutional collaboration between the State Meteorological Agency (AEMET) and the Santander Meteorology Group (SMG) at the University of Cantabria-CSIC.  </p>
 <p>The dataset consists of a <strong>20 km resolution</strong> grid covering mainland Spain and the Balearic Islands, generated using interpolation techniques based on daily observations at meteorological stations. The aim is to provide a homogeneous and continuous basis of climate information, suitable for regional analyses and climate change impact studies. </p>
 <p>Similar to the ROCIO grid, Spain02 includes <strong>precipitation</strong> and <strong>maximum</strong> and <strong>minimum temperature</strong> series, offering a homogeneous and continuous product over time, suitable for regional analyses, hydrological studies, climate change impact assessments and climate modelling. The availability of multiple interpolation versions and resolutions allows the data to be adapted to different scales of analysis and modelling methodologies, ensuring the robustness of the scientific studies that use them. </p>
-<h2 id="api">API</h2>
+<h3 id="api">API</h3>
 <p>The only way to access the SPAIN02 grid data is through the <strong>THREDDS</strong> data centre, which stores a replica of the data files. This data centre is developed and maintained by the <strong>University of Cantabria</strong>. This server allows you to browse the catalogue of available datasets and, using the <strong>OPeNDAP</strong> (Open-source Project for a Network Data Access Protocol) protocol, remotely query and extract only the necessary variables or subsets, without having to download the entire files. </p>
 <p>Update times are <strong>unknown</strong>. The data files only cover up to the year <strong>2022</strong>, so there is <strong>no real-time</strong> data available. With regard to <strong>historical data</strong>, the data files contain data from <strong>1951</strong> onwards, so there are large volumes of historical data available. </p>
-<!-- ??? info "More information"
-    The first step to access the data is to create an account on [User Data Gateway](https://meteo.unican.es/udg-tap/signup) . This web application controls user access to scientific data on **Thredds servers**. It is important to use your work email address and justify your access to the data in the ‘Intended Usage’ section. 
-
-    Once the account has been created, the next step is to access the Thredds server and navigate to the Spain02 datasets. The web address can be found at the following link: https://data.meteo.unican.es/thredds/catalog/catalogs/Spain02/spain02Datasets.html
-
-    There are **two** services for requesting data: 
-
-    - OPENDAP: Open source protocol
-
-    - NetcdfSubset: Web service that is not working
-
-    At the moment, it has **not been possible** to access the Spain02 data. We hope to obtain valid credentials to be able to download the data.  -->
 
 
 
@@ -1210,7 +1216,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="September 26, 2025 08:29:45">September 26, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="December 16, 2025 10:15:47">December 16, 2025</span>
   </span>
 
     

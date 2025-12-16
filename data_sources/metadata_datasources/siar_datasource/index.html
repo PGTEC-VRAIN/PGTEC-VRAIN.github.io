@@ -23,7 +23,7 @@
     
     
   
-    <title>Sistema de Información Agroclimática para el Regadío (SiAR) - PGTEC - VRAIN</title>
+    <title>Siar datasource - PGTEC - VRAIN</title>
   
 
     
@@ -117,7 +117,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Sistema de Información Agroclimática para el Regadío (SiAR)
+              Siar datasource
             
           </span>
         </div>
@@ -1124,8 +1124,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -1134,6 +1132,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#sistema-de-informacion-agroclimatica-para-el-regadio-siar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sistema de Información Agroclimática para el Regadío (SiAR)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Sistema de Información Agroclimática para el Regadío (SiAR)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#api" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1141,6 +1151,11 @@
       
     </span>
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1169,12 +1184,15 @@
   
 
 
-<h1 id="sistema-de-informacion-agroclimatica-para-el-regadio-siar">Sistema de Información Agroclimática para el Regadío (SiAR)</h1>
+  <h1>Siar datasource</h1>
+
+<p><a class="pg-back-button" href="../../"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg></span> Back to Data Sources</a></p>
+<h2 id="sistema-de-informacion-agroclimatica-para-el-regadio-siar">Sistema de Información Agroclimática para el Regadío (SiAR)</h2>
 <p><a href="https://www.mapa.gob.es/es/desarrollo-rural/temas/gestion-sostenible-regadios/sistema-informacion-agroclimatica-regadio/presentacion">The Agroclimatic Information System for Irrigation (SiAR)</a> of the Ministry of Agriculture, Fisheries and Food is a network of <strong>more than 520 weather stations</strong> that captures, records and disseminates agroclimatic data necessary to determine the water demand of irrigated farms. </p>
 <p>The Sub-Directorate General for Irrigation, Natural Roads and Rural Infrastructure of the Ministry of Agriculture has been developing, maintaining and updating SiAR for <strong>more than 20 years</strong>. SiAR is currently the largest source of agroclimatic information provided by both the Ministry and the autonomous communities. </p>
 <p>The SiAR network places special emphasis on maintaining the <strong>high quality</strong> and <strong>accuracy of the data</strong> it provides. </p>
 <p>There are <strong>more than 360 stations</strong> managed by the Ministry and <strong>more than 160 managed</strong> by the autonomous communities. <a href="http://riegos.ivia.es/red-siar">The SiAR network in the Valencian Community</a> has 55 stations located in irrigated areas. </p>
-<h2 id="api">API</h2>
+<h3 id="api">API</h3>
 <p>SiAR <strong>allows access to all your data via REST API</strong>, provided that the maximum number of requests and the maximum amount of data queried per day and per minute are respected. Each user has different restrictions regarding the maximum number of requests. </p>
 <details class="info">
 <summary>More information</summary>
@@ -1202,12 +1220,6 @@
 <p>With regard to <strong>real-time data</strong>, attempts have been made to download the most recent data for several stations, and the most recent data returned by the API is from <strong>two hours ago</strong>.</p>
 <p>The data update times are <strong>not known exactly</strong>. The update time is estimated to be <strong>30 minutes</strong>, given that the finest temporal granularity is every 30 minutes. </p>
 <p>Regarding temporal resolution, the technical manual explains the different granularities for accessing data according to the required time span (hourly, daily, weekly, monthly, etc.). </p>
-<!-- ??? info "More information"
-    The SiAR API is **public**, but you must fill out a form on the website with your personal details and the purpose for which you will use the data. SiAR will then decide whether to accept your request and send you the API key. 
-
-    To access the SiAR REST API, you must use the **key provided after registering** on their [website](https://servicio.mapa.gob.es/websiar/). Registration requires you to provide your personal details (ID number, first name, surname, email address), the organisation you work for and the intended use of the data. 
-
-    Once registered, you will receive an **email with an API key** that you will need to provide in each query to identify yourself.  -->
 
 
 
@@ -1230,7 +1242,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="September 26, 2025 08:29:45">September 26, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="December 16, 2025 10:15:47">December 16, 2025</span>
   </span>
 
     

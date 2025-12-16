@@ -23,7 +23,7 @@
     
     
   
-    <title>Agencia Estatal de Meteorología (AEMET) - PGTEC - VRAIN</title>
+    <title>Aemet datasource - PGTEC - VRAIN</title>
   
 
     
@@ -117,7 +117,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Agencia Estatal de Meteorología (AEMET)
+              Aemet datasource
             
           </span>
         </div>
@@ -1124,8 +1124,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -1134,6 +1132,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#agencia-estatal-de-meteorologia-aemet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Agencia Estatal de Meteorología (AEMET)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Agencia Estatal de Meteorología (AEMET)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#api" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1141,6 +1151,11 @@
       
     </span>
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1169,12 +1184,15 @@
   
 
 
-<h1 id="agencia-estatal-de-meteorologia-aemet">Agencia Estatal de Meteorología (AEMET)</h1>
+  <h1>Aemet datasource</h1>
+
+<p><a class="pg-back-button" href="../../"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg></span> Back to Data Sources</a></p>
+<h2 id="agencia-estatal-de-meteorologia-aemet">Agencia Estatal de Meteorología (AEMET)</h2>
 <p><strong>The State Meteorological Agency (AEMET)</strong> is the official Spanish government body responsible for observing, predicting and studying meteorological phenomena. As the main authority, AEMET provides reliable, consistent and standardised data, following the guidelines of the World Meteorological Organisation (WMO). </p>
 <p>Its <a href="https://opendata.aemet.es/centrodedescargas/inicio">AEMET OpenData</a> service is the designated platform for disseminating this information, offering access to a wide range of <strong>meteorological</strong> and <strong>climatological</strong> products. The quality of its data is backed by rigorous validation processes and by the National Plan for the Prediction and Monitoring of Adverse Meteorological Phenomena (Meteoalerta), which establishes the risk thresholds for alerts. </p>
 <p>In the <strong>Valencian Community</strong>, there are approximately <strong>40 meteorological stations</strong> that transmit data on a regular basis and are therefore used for live weather monitoring. </p>
 <p>It should be noted that, although <strong>real-time data</strong> is subject to automatic checks, it may contain occasional errors. Even so, the data collected by AEMET is considered to be of <strong>high quality</strong> due to its official nature. Consolidated climate data undergoes more exhaustive validation processes before its final publication. </p>
-<h2 id="api">API</h2>
+<h3 id="api">API</h3>
 <p>The AEMET API is based on <strong>REST architecture</strong> and returns data mainly in <strong>JSON</strong> format, using international standards such as <strong>CAP</strong> (Common Alerting Protocol) for warnings and <strong>GeoJSON</strong> to represent affected areas.</p>
 <p>Data is available on:</p>
 <ul>
@@ -1185,17 +1203,6 @@
 </ul>
 <p>With regard to <strong>historical data</strong>, there is no fixed start year for the data in the ‘climatological values’ section of the API. For daily, monthly and annual climatology and extreme values, the start date of the records depends on each individual weather station. For normal climatology, it returns average values calculated over the period from <strong>1991</strong> to <strong>2020</strong>. </p>
 <p>The API is <strong>public</strong>, but registration is required. An API Key must be requested on the official <a href="https://opendata.aemet.es/">AEMET OpenData</a>. It is valid for <strong>three months</strong> and is linked to an <strong>email address</strong>. </p>
-<!-- ??? info "More information"
-    The API has a [Swagger](https://opendata.aemet.es/dist/index.html) available, although it depends on **server availability**. There are recurring **instability issues** such as timeouts and intermittent unavailability. This lack of reliability presents a significant risk and requires the implementation of fault-tolerant architectures. 
-
-    The data retrieval process takes place in **two steps**:
-
-    - The first request returns **metadata** and a **download URL**.
-
-    - The client must make a **second request** to that URL to finally obtain the **data**. 
-
-    The service imposes **rate limits**, HTTP code 429 ‘Too Many Requests’, when the flow per minute is exceeded. For intensive use, it is advisable to coordinate with AEMET to avoid blockages. It has also been detected that when the link is generated and the server fails, when the link is accessed again, it sometimes returns 404 ‘Expired data’ because the link has expired. 
- -->
 
 
 
@@ -1218,7 +1225,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="October 1, 2025 12:07:17">October 1, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="December 16, 2025 10:15:47">December 16, 2025</span>
   </span>
 
     

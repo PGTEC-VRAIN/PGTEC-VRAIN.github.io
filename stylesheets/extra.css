@@ -59,7 +59,6 @@ sup {
   margin: auto;
 }
 
-/* Oculta el H1 de la página si usas hero propio */
 article > h1 {
   display: none;
 }
@@ -132,7 +131,6 @@ article > h1 {
   margin-top: 0.9rem;
 }
 
-/* Botones (global) */
 .md-button {
   font-size: 0.9rem;
   padding: 0.35rem 0.9rem;
@@ -140,7 +138,6 @@ article > h1 {
   margin: 0.25rem 0.4rem;
 }
 
-/* Botones dentro del hero */
 .pg-hero .md-button {
   padding: 0.55rem 1.1rem;
   font-size: 0.95rem;
@@ -176,12 +173,10 @@ article > h1 {
   margin-right: 0.5rem;
 }
 
-/* Alinea el bloque contenido para que el hero no deje margen raro */
 .md-main__inner > .md-content > article:first-of-type {
   margin-top: 0 !important;
 }
 
-/* Cabecera: repo/source visible y blanco */
 .md-header__source {
   display: flex !important;
   opacity: 1 !important;
@@ -322,7 +317,7 @@ article > h1 {
 }
 
 /* ------------------------------
-   Cards (mkdocs-material grid cards)
+   Cards
 --------------------------------- */
 .grid.cards > ul {
   list-style: none;
@@ -409,7 +404,6 @@ article > h1 {
   font-weight: 400 !important;
 }
 
-/* Links en contenido */
 .md-typeset a {
   color: #e0821e;
   word-break: break-word;
@@ -420,15 +414,11 @@ article > h1 {
   color: #c97113 !important;
 }
 
-/* Search icon blanco */
 .md-search__icon {
   color: #fff !important;
   fill: #fff !important;
 }
 
-/* ------------------------------
-   Prev/Next (si lo usas como barra)
---------------------------------- */
 .pg-prevnext {
   background: #00223b;
   padding: 0.6rem 1.2rem;
@@ -446,4 +436,32 @@ article > h1 {
 
 .pg-prevnext .md-footer__title {
   font-size: 0.9rem;
+}
+
+.md-typeset a.pg-back-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+
+  padding: 0.4rem 0.9rem;
+  border-radius: 6px;
+
+  border: 1px solid #c97113;   
+  background-color: transparent;
+
+  color: #b65e00;
+  text-decoration: none !important;
+  font-size: 0.85rem;
+  font-weight: 500;
+
+  transition: background-color 0.15s ease, color 0.15s ease,
+              box-shadow 0.15s ease, border-color 0.15s ease;
+}
+
+.md-typeset a.pg-back-button:hover,
+.md-typeset a.pg-back-button:focus {
+  background-color: #c97113;                   
+  border-color: #c97113;
+  color: #ffffff !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
 }
