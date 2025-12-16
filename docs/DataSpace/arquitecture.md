@@ -20,15 +20,15 @@ At the centre of this architecture are FIWARE Data Space Connectors (FDSC) and a
 
 From the perspective of the data space, the main participants are grouped into roles.
 
-- Data Providers  
+- **Data Providers**  
   Organisations that expose observed or forecast data through their own connector.  
   Examples: AEMET, CHJ, SIAR, AVAMET, Copernicus and other climate data providers.
 
-- Service Providers  
+- **Service Providers**  
   Organisations that expose value-added services (hydrological models, dashboards, simulations) that consume data from the space and publish results back as services.  
   Examples: IIAMA, VRAIN.
 
-- Data Consumers  
+- **Data Consumers**  
   Any participant that queries the data space to consume datasets or services published by providers.
 
 Most real participants play more than one role. For example, IIAMA and VRAIN consume climate data and provide services based on that information. 
@@ -38,10 +38,7 @@ Most real participants play more than one role. For example, IIAMA and VRAIN con
 At a high level, the PGTEC data space is composed of:
 
 1. A set of FIWARE Data Space Connectors, one per participating organisation
-2. Common trust and governance services:
-   - Trust Anchor
-   - Verifiable Credentials Issuer 
-   - Marketplace
+2. Common trust and governance services: Trust Anchor, Verifiable Credentials Issuer and Marketplace
 3. A cloud-native infrastructure that hosts these components on Kubernetes in AWS
 
 Each participant connects to the data space through *its own* FIWARE Data Space Connector. The connector acts as a standardised gateway where:
@@ -116,21 +113,21 @@ Internally, the FDSC is itself composed of several subsystems, which can be grou
 
 ### Data publication and discovery
 
-- Scorpio NGSI-LD Broker  
+- **Scorpio NGSI-LD Broker**  
   Manages publication, query and subscription of context data. This is where harmonised entities (for example, observations or forecasts) are stored and exposed using NGSI-LD.
 
-- TM Forum APIs and Contract Management  
+- **TM Forum APIs and Contract Management**  
   Allow providers to publish catalogues and assets, and to define and manage usage contracts between participants.
 
 ### Dataspace protocol and dataplane
 
-- Rainbow (IDSA Dataspace Protocol implementation)  
+- **Rainbow (IDSA Dataspace Protocol implementation)**  
   Implements the International Data Spaces Association protocol for secure data exchange between connectors.
 
-- Trusted Policy Propagator (TPP)  
+- **Trusted Policy Propagator (TPP)**  
   Distributes policies between participants to ensure that usage constraints are consistently enforced.
 
-- DID and dataplane services  
+- **DID and dataplane services**  
   Manage decentralised identifiers and the actual data transfer channel, ensuring that policies and security rules are applied during data movement.
 
 This modular design allows each connector to be extended with additional components when needed. For example, climate data providers add components such as Orion-LD, TimescaleDB, Mintaka, Airflow or SmartFlow API to handle their specific data ingestion and exposure needs. :contentReference[oaicite:9]{index=9}
