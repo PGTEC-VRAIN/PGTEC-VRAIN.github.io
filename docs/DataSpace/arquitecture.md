@@ -130,7 +130,7 @@ Internally, the FDSC is itself composed of several subsystems, which can be grou
 - **DID and dataplane services**  
   Manage decentralised identifiers and the actual data transfer channel, ensuring that policies and security rules are applied during data movement.
 
-This modular design allows each connector to be extended with additional components when needed. For example, climate data providers add components such as Orion-LD, TimescaleDB, Mintaka, Airflow or SmartFlow API to handle their specific data ingestion and exposure needs. :contentReference[oaicite:9]{index=9}
+This modular design allows each connector to be extended with additional components when needed. For example, climate data providers add components such as Orion-LD, TimescaleDB, Mintaka, Airflow or SmartFlow API to handle their specific data ingestion and exposure needs. 
 
 ## Minimum Viable Data Space (MVDS)
 
