@@ -1227,6 +1227,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#example-folder-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example folder structure
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1296,10 +1307,10 @@
 <p>This section is part of the tasks developed within the <a href="https://pgtec.webs.upv.es/">PGTEC</a> project. Its main objective is to describe and provide the infrastructure required to deploy a data space using <a href="https://www.fiware.org/">FIWARE</a> technologies, offering a detailed and easy-to-follow guide adaptable to different environments. Specifically, it explains the logic used to download data from multiple sources, transform it into a common language using Smart Data Models, and make it available in two complementary ways:</p>
 <ul>
 <li>
-<p><strong>Airflow workflows</strong>: Python scripts that use Airflow logic to automate the execution of data retrieval and transformation tasks, ensuring that climate predictions are periodically processed and ready to use.</p>
+<p><strong>Airflow Workflows</strong>: Python scripts that use Airflow logic to automate the execution of data retrieval and transformation tasks, ensuring that climate predictions are periodically processed and ready to use.</p>
 </li>
 <li>
-<p><strong>FastAPI services</strong>: Python scripts built with FastAPI that expose the processed data through RESTful APIs. These services feed a dashboard where users can select the data sources and points of interest required to run the <strong>TETIS hydrological model</strong>. Once the user makes a selection, TETIS automatically triggers the corresponding FastAPI Python scripts described in this section to retrieve and process the climate predictions, which are then used as input for the model’s execution.</p>
+<p><strong>FastAPI Services</strong>: Python scripts built with FastAPI that expose the processed data through RESTful APIs. These services feed a dashboard where users can select the data sources and points of interest required to run the <strong>TETIS hydrological model</strong>. Once the user makes a selection, TETIS automatically triggers the corresponding FastAPI Python scripts described in this section to retrieve and process the climate predictions, which are then used as input for the model’s execution.</p>
 </li>
 </ul>
 <p>This section specifically describes the Python scripts used to:</p>
@@ -1452,16 +1463,16 @@ These are the necessary requirements to be able to execute the project:
 <p>It is supposed that the enviroment has been cloned following the instructions of Getting Started section.</p>
 <h3 id="1-running-airflow-workflows">1. Running Airflow Workflows</h3>
 <p>The Airflow DAGs automate the process of retrieving and transforming climate and hydrological data from different sources (AEMET, CHJ, Open-Meteo, Copernicus...).</p>
-<p>🧩 Steps</p>
+<h4 id="steps">Steps</h4>
 <p>1.1 Start the containers:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>docker-compose<span class="w"> </span>up<span class="w"> </span>-d
 </code></pre></div>
 <p>The -d option runs the containers in detached mode, hiding Airflow logs and keeping the terminal clean.</p>
-<h5 id="11-access-the-airflow-web-interface">1.1. Access the Airflow web interface:</h5>
-<p>👉 http://localhost:8080</p>
-<h5 id="12-enable-the-dags">1.2. Enable the DAGs:</h5>
+<h6 id="11-access-the-airflow-web-interface">1.1. Access the Airflow web interface:</h6>
+<p>http://localhost:8080</p>
+<h6 id="12-enable-the-dags">1.2. Enable the DAGs:</h6>
 <p>Inside the Airflow UI, activate the desired workflows (e.g., AEMET_HARMONIE_AROME, AIFS_ECMWF, etc.).</p>
-<h5 id="13-monitor-execution">1.3. Monitor execution:</h5>
+<h6 id="13-monitor-execution">1.3. Monitor execution:</h6>
 <p>You can visualize the data extraction and transformation progress directly in the DAG view.</p>
 <p>Below is an example of a Python script running in the Airflow user interface, showing the logs of its execution:</p>
 <p><img align="center" alt="Airflow DAG example" src="images/airflow_running.png" width="900" /></p>
@@ -1469,14 +1480,14 @@ These are the necessary requirements to be able to execute the project:
 <h3 id="2-running-fastapi-scripts">2. Running FastAPI scripts.</h3>
 <p>The FastAPI services expose the processed data as REST APIs, allowing other applications — such as the TETIS dashboard — to access the latest standardized data stored in the FIWARE Context Broker.</p>
 <p>Each service corresponds to a specific data source or Smart Data Model and can be easily extended to include new ones.</p>
-<p>🧩 Steps</p>
-<h5 id="21-make-sure-the-docker-environment-is-running">2.1. Make sure the Docker environment is running:</h5>
+<h4 id="steps_1">Steps</h4>
+<h6 id="21-make-sure-the-docker-environment-is-running">2.1. Make sure the Docker environment is running:</h6>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>docker-compose<span class="w"> </span>up<span class="w"> </span>-d
 </code></pre></div>
-<h5 id="22-access-the-fastapi-documentation">2.2. Access the FastAPI documentation:</h5>
-<p>👉 http://localhost:8000/docs</p>
+<h6 id="22-access-the-fastapi-documentation">2.2. Access the FastAPI documentation:</h6>
+<p>http://localhost:8000/docs</p>
 <p>This interface allows you to explore and test all available endpoints interactively.</p>
-<h5 id="23-test-an-endpoint">2.3. Test an endpoint:</h5>
+<h6 id="23-test-an-endpoint">2.3. Test an endpoint:</h6>
 <p>For example, you can retrieve the latest weather forecast data by calling:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>GET<span class="w"> </span>/weather?source<span class="o">=</span>AEMET<span class="p">&amp;</span><span class="nv">variable</span><span class="o">=</span>temperature
 </code></pre></div>
@@ -1491,7 +1502,7 @@ These are the necessary requirements to be able to execute the project:
 </li>
 </ul>
 <p>Once the user selects these options, TETIS automatically triggers the corresponding API calls — which execute the same Python scripts described in the SmartFlow section — to retrieve and process the forecast data used as inputs for hydrological simulations.</p>
-<p>📁 Example folder structure</p>
+<h3 id="example-folder-structure">Example folder structure</h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>SmartFlow/FastAPI/
 <a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>├── main.py           # FastAPI entry point
 <a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>├── routes/
@@ -1502,7 +1513,10 @@ These are the necessary requirements to be able to execute the project:
 <a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>    ├── AEMET.py
 <a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>    └── DWD_ICON.py
 </code></pre></div>
-<p>🧠 Tip: You can add new endpoints easily by creating a new Python file in the routes/ folder and registering it in main.py.</p>
+<div class="admonition tip">
+<p class="admonition-title">New endpoints</p>
+<p>You can add new endpoints easily by creating a new Python file in the routes/ folder and registering it in main.py.</p>
+</div>
 <!-- ROADMAP
 ## Roadmap
 
@@ -1583,7 +1597,7 @@ Don't forget to give the project a star! Thanks again!
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="November 19, 2025 09:21:16">November 19, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="December 16, 2025 09:03:04">December 16, 2025</span>
   </span>
 
     
