@@ -29,5 +29,3 @@ To explore the different data flows, navigate to the following sections:
 !!! Tip "Next steps"
 
     Click on **Real Time Data** in the bottom navigation bar located at the upper-left to advance to the next section.
-
-    *You can use the buttons in the bottom navigation bar to navigate between the previous and next pages or jump to a section with the side navigation bars.*
