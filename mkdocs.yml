@@ -86,7 +86,7 @@ nav:
       - Identities and Credentials:
           - Overview: DataSpace/identities_and_credentials.md  
           - DID: DataSpace/did.md
-          - VCs: DataSpace/verfiable_credentials.md
+          - VCs: DataSpace/verifiable_credentials.md
       
 
 # --- Extensiones de Markdown ---
