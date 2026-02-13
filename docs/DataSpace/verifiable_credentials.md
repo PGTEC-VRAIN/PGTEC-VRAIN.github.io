@@ -2,13 +2,13 @@
 
 The purpose of this section is to describe and document the process for performing a Machine-to-Machine (M2M) data transaction by terminal using Verifiable Credentials (VCs) to access the data space and request data from the Orion-LD Context Broker through the APISIX component, which acts as an API Gateway.
 
-The previous page [Decentralized identifiers](did.md) gives a practical introduction to DIDs and shows how to generate did:web and did:key identifiers using Docker. It is necessary to follow this section first, as it is the basis for the current section, which assumes that the certificates and DIDs have been created.
+The previous page [Decentralized identifiers](did.md) gives a practical introduction to DIDs and shows how to generate did:web and did:key identifiers using Docker. It is recommended to follow this section first, as it is the basis for the current section.
 
 All commands used can be executed from the Ubuntu CLI. The steps to follow in order to perform the data transaction are described below. 
 
 ## Components
 
-The components that form part of the data transaction process in the data space are as follows:
+The components that form part of the data transaction process in the data space are:
 
 - DIDs: Decentralized Identifiers used to represent identities in a portable and cryptographically verifiable way.
 
@@ -27,6 +27,17 @@ The components that form part of the data transaction process in the data space 
 ## Data transaction guide
 
 This section describes the process to follow in order to request data from the Orion-LD context broker within the PGTEC data space.
+
+### 0º: DID generator
+
+To create DIDs and certificates, you can follow the code below, although we recommend reading the previous section to understand in detail how DIDs are used and created.
+
+```sh
+mkdir wallet-identity
+chmod o+rw wallet-identity
+docker run -v $(pwd)/wallet-identity:/cert quay.io/wi_stefan/did-helper:0.1.1
+sudo chmod -R o+rw wallet-identity/private-key.pem
+```
 
 ### 1º: VC creation
 
@@ -187,7 +198,7 @@ When executed, a VC issued by Keycloak will be created in the ```sh wallet-ident
 
 ### 2º: Creation of the VP and the Access token.
 
-In this section, the Verifiable Presentation is created using the newly created VC, the DID key, and did.json generated on the [Decentralized identifiers](did.md) page. The script is configured so that the DIDs are located in the ```sh wallet-identity``` folder. The path can be configured in the scripts:
+In this section, the Verifiable Presentation is created using the newly created VC, the DID key, and did.json generated before. The script is configured so that the DIDs are located in the ```sh wallet-identity``` folder. The path can be configured in the scripts:
 
 ```sh
 #!/bin/bash
@@ -362,7 +373,7 @@ APISIX has validated the access token and allows data to be requested from Orion
 
 ### Current Status
 
-Keycloak is currently in the development phase, so only a few sample users and roles have been created. In addition, data access policies have not been implemented, so access to data is possible as long as a valid VC and VP verified by the Verifier is available.
+Keycloak and Verifier are fully integrated and have operational ODRL access policies for operator profiles. The system is currently in the process of extending governance rules, with additional granular policies being deployed for new users and roles while maintaining technical validation of VCs and VPs as a basic trust criterion.
 
 Furthermore, access via the [EUDI Wallet](https://ec.europa.eu/digital-building-blocks/sites/spaces/EUDIGITALIDENTITYWALLET/pages/694487738/EU+Digital+Identity+Wallet+Home) is being implemented so that the process does not have to be performed manually from the command line.
 
