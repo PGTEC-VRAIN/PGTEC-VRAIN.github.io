@@ -4,24 +4,18 @@ The purpose of this section is to describe and document the process for performi
 
 The previous page [Decentralized identifiers](did.md) gives a practical introduction to DIDs and shows how to generate did:web and did:key identifiers using Docker. It is recommended to follow this section first, as it is the basis for the current section.
 
-All commands used can be executed from the Ubuntu CLI. The steps to follow in order to perform the data transaction are described below. 
+All commands used can be executed from the Ubuntu CLI. The steps to follow in order to perform the data transaction are described below.
 
 ## Components
 
 The components that form part of the data transaction process in the data space are:
 
 - DIDs: Decentralized Identifiers used to represent identities in a portable and cryptographically verifiable way.
-
 - VCs: Verifiable Credentials
-
 - VPs: Verifiable Presentations
-
 - Keycloak: Tool for user and role management (IAM)
-
 - Verifier: Component of the data space Trust Anchor responsible for validating participants' credentials.
-
 - Context Broker: Service that stores data with context using the [NGSI-LD](https://es.wikipedia.org/wiki/NGSI-LD) protocol.
-
 - APISIX: API Gateway that acts as a firewall to prevent direct access to data space services. It checks the identities of requesters before granting access to services.
 
 ## Data transaction guide
@@ -194,11 +188,11 @@ nano get_credentials.sh #then copy and paste the script code
 ./get_credentials.sh #also can be used bash ./get_credentials.sh
 ```
 
-When executed, a VC issued by Keycloak will be created in the ```sh wallet-identity``` folder called ```sh vc.jwt``` . The credential format is JSON Web Token.
+When executed, a VC issued by Keycloak will be created in the ``sh wallet-identity`` folder called ``sh vc.jwt`` . The credential format is JSON Web Token.
 
 ### 2º: Creation of the VP and the Access token.
 
-In this section, the Verifiable Presentation is created using the newly created VC, the DID key, and did.json generated before. The script is configured so that the DIDs are located in the ```sh wallet-identity``` folder. The path can be configured in the scripts:
+In this section, the Verifiable Presentation is created using the newly created VC, the DID key, and did.json generated before. The script is configured so that the DIDs are located in the ``sh wallet-identity`` folder. The path can be configured in the scripts:
 
 ```sh
 #!/bin/bash
@@ -333,7 +327,6 @@ In this case, the steps taken are:
 
 With the access token issued by the Verifier, data can be requested from the Orion-LD Broker through APISIX. This component is responsible for protecting the data space services to limit their use only to participants who can make use of them. Below is an example of a query to APISIX to request data from Orion-LD. Two sample queries have been created. The first does not have a valid token to access the service, and the second does. The APISIX responses are described below:
 
-
 #### 3.1º: Invalid query
 
 This query to APISIX does not contain a token issued by the Verifier, which generates an authentication error:
@@ -358,18 +351,51 @@ The answer is as follows:
 #### 3.2º Valid query
 
 This query to APISIX contains the token issued by the Verifier in section 2, so the response is successful:
+
 ```sh
 export TOKEN=$(cat ./wallet-identity/vp.jwt)
-curl -G 'https://mp-data-service.pgtec-vrain-dataspace.eu/ngsi-ld/v1/entities'   -H "Authorization: Bearer ${TOKEN}"   -H 'Accept: application/ld+json'   -H 'Link: <https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context-v1.8.jsonld>; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json"'   --data-urlencode 'type=WeatherStation'
+curl -G 'https://mp-data-service.pgtec-vrain-dataspace.eu/ngsi-ld/v1/entities'   -H "Authorization: Bearer ${TOKEN}"   -H 'Accept: application/ld+json'   -H 'Link: <https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context-v1.8.jsonld>; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json"'   --data-urlencode 'type=WeatherStation' --data-urlencode 'limit=1' --data-urlencode 'attrs=precipitation,temperature,latitude,longitude' | jq
+
 ```
 
 The answer is as follows:
 
-```
-[]
+```json
+[
+  {
+    "id": "urn:ngsi-ld:WeatherObserved:AVAMET:c11m148e01",
+    "type": "WeatherStation",
+    "latitude": {
+      "type": "Property",
+      "value": 39.498399,
+      "observedAt": "2026-02-24T12:30:00.000Z"
+    },
+    "longitude": {
+      "type": "Property",
+      "value": -0.59539,
+      "observedAt": "2026-02-24T12:30:00.000Z"
+    },
+    "precipitation": {
+      "type": "Property",
+      "value": 0,
+      "observedAt": "2026-02-24T12:30:00.000Z",
+      "unitCode": "l/m2"
+    },
+    "temperature": {
+      "type": "Property",
+      "value": 20.5,
+      "observedAt": "2026-02-24T12:30:00.000Z",
+      "unitCode": "CEL"
+    },
+    "@context": [
+      "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context-v1.8.jsonld",
+      "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context-v1.7.jsonld"
+    ]
+  }
+]
 ```
 
-APISIX has validated the access token and allows data to be requested from Orion-LD. Orion-LD is not returning data yet.
+APISIX has validated the access token and allows data to be requested from Orion-LD.
 
 ### Current Status
 
