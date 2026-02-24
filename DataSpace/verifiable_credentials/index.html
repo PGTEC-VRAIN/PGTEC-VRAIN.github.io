@@ -21,7 +21,7 @@
       
       
       <link rel="icon" href="../../assets/images/logo_PGTEC.svg">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.3">
     
     
   
@@ -1401,31 +1401,17 @@
 <h2 id="introduction">Introduction</h2>
 <p>The purpose of this section is to describe and document the process for performing a Machine-to-Machine (M2M) data transaction by terminal using Verifiable Credentials (VCs) to access the data space and request data from the Orion-LD Context Broker through the APISIX component, which acts as an API Gateway.</p>
 <p>The previous page <a href="../did/">Decentralized identifiers</a> gives a practical introduction to DIDs and shows how to generate did:web and did:key identifiers using Docker. It is recommended to follow this section first, as it is the basis for the current section.</p>
-<p>All commands used can be executed from the Ubuntu CLI. The steps to follow in order to perform the data transaction are described below. </p>
+<p>All commands used can be executed from the Ubuntu CLI. The steps to follow in order to perform the data transaction are described below.</p>
 <h2 id="components">Components</h2>
 <p>The components that form part of the data transaction process in the data space are:</p>
 <ul>
-<li>
-<p>DIDs: Decentralized Identifiers used to represent identities in a portable and cryptographically verifiable way.</p>
-</li>
-<li>
-<p>VCs: Verifiable Credentials</p>
-</li>
-<li>
-<p>VPs: Verifiable Presentations</p>
-</li>
-<li>
-<p>Keycloak: Tool for user and role management (IAM)</p>
-</li>
-<li>
-<p>Verifier: Component of the data space Trust Anchor responsible for validating participants' credentials.</p>
-</li>
-<li>
-<p>Context Broker: Service that stores data with context using the <a href="https://es.wikipedia.org/wiki/NGSI-LD">NGSI-LD</a> protocol.</p>
-</li>
-<li>
-<p>APISIX: API Gateway that acts as a firewall to prevent direct access to data space services. It checks the identities of requesters before granting access to services.</p>
-</li>
+<li>DIDs: Decentralized Identifiers used to represent identities in a portable and cryptographically verifiable way.</li>
+<li>VCs: Verifiable Credentials</li>
+<li>VPs: Verifiable Presentations</li>
+<li>Keycloak: Tool for user and role management (IAM)</li>
+<li>Verifier: Component of the data space Trust Anchor responsible for validating participants' credentials.</li>
+<li>Context Broker: Service that stores data with context using the <a href="https://es.wikipedia.org/wiki/NGSI-LD">NGSI-LD</a> protocol.</li>
+<li>APISIX: API Gateway that acts as a firewall to prevent direct access to data space services. It checks the identities of requesters before granting access to services.</li>
 </ul>
 <h2 id="data-transaction-guide">Data transaction guide</h2>
 <p>This section describes the process to follow in order to request data from the Orion-LD context broker within the PGTEC data space.</p>
@@ -1727,14 +1713,45 @@
 <a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
 </code></pre></div>
 <h4 id="32o-valid-query">3.2º Valid query</h4>
-<p>This query to APISIX contains the token issued by the Verifier in section 2, so the response is successful:
+<p>This query to APISIX contains the token issued by the Verifier in section 2, so the response is successful:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">TOKEN</span><span class="o">=</span><span class="k">$(</span>cat<span class="w"> </span>./wallet-identity/vp.jwt<span class="k">)</span>
-<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>curl<span class="w"> </span>-G<span class="w"> </span><span class="s1">&#39;https://mp-data-service.pgtec-vrain-dataspace.eu/ngsi-ld/v1/entities&#39;</span><span class="w">   </span>-H<span class="w"> </span><span class="s2">&quot;Authorization: Bearer </span><span class="si">${</span><span class="nv">TOKEN</span><span class="si">}</span><span class="s2">&quot;</span><span class="w">   </span>-H<span class="w"> </span><span class="s1">&#39;Accept: application/ld+json&#39;</span><span class="w">   </span>-H<span class="w"> </span><span class="s1">&#39;Link: &lt;https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context-v1.8.jsonld&gt;; rel=&quot;http://www.w3.org/ns/json-ld#context&quot;; type=&quot;application/ld+json&quot;&#39;</span><span class="w">   </span>--data-urlencode<span class="w"> </span><span class="s1">&#39;type=WeatherStation&#39;</span>
-</code></pre></div></p>
-<p>The answer is as follows:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>[]
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>curl<span class="w"> </span>-G<span class="w"> </span><span class="s1">&#39;https://mp-data-service.pgtec-vrain-dataspace.eu/ngsi-ld/v1/entities&#39;</span><span class="w">   </span>-H<span class="w"> </span><span class="s2">&quot;Authorization: Bearer </span><span class="si">${</span><span class="nv">TOKEN</span><span class="si">}</span><span class="s2">&quot;</span><span class="w">   </span>-H<span class="w"> </span><span class="s1">&#39;Accept: application/ld+json&#39;</span><span class="w">   </span>-H<span class="w"> </span><span class="s1">&#39;Link: &lt;https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context-v1.8.jsonld&gt;; rel=&quot;http://www.w3.org/ns/json-ld#context&quot;; type=&quot;application/ld+json&quot;&#39;</span><span class="w">   </span>--data-urlencode<span class="w"> </span><span class="s1">&#39;type=WeatherStation&#39;</span><span class="w"> </span>--data-urlencode<span class="w"> </span><span class="s1">&#39;limit=1&#39;</span><span class="w"> </span>--data-urlencode<span class="w"> </span><span class="s1">&#39;attrs=precipitation,temperature,latitude,longitude&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>jq
 </code></pre></div>
-<p>APISIX has validated the access token and allows data to be requested from Orion-LD. Orion-LD is not returning data yet.</p>
+<p>The answer is as follows:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="p">[</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">  </span><span class="p">{</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">    </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;urn:ngsi-ld:WeatherObserved:AVAMET:c11m148e01&quot;</span><span class="p">,</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;WeatherStation&quot;</span><span class="p">,</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="w">    </span><span class="nt">&quot;latitude&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Property&quot;</span><span class="p">,</span>
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="w">      </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">39.498399</span><span class="p">,</span>
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="w">      </span><span class="nt">&quot;observedAt&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2026-02-24T12:30:00.000Z&quot;</span>
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="w">    </span><span class="nt">&quot;longitude&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Property&quot;</span><span class="p">,</span>
+<a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a><span class="w">      </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">-0.59539</span><span class="p">,</span>
+<a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a><span class="w">      </span><span class="nt">&quot;observedAt&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2026-02-24T12:30:00.000Z&quot;</span>
+<a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a><span class="w">    </span><span class="nt">&quot;precipitation&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a><span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Property&quot;</span><span class="p">,</span>
+<a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a><span class="w">      </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a><span class="w">      </span><span class="nt">&quot;observedAt&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2026-02-24T12:30:00.000Z&quot;</span><span class="p">,</span>
+<a id="__codelineno-8-19" name="__codelineno-8-19" href="#__codelineno-8-19"></a><span class="w">      </span><span class="nt">&quot;unitCode&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;l/m2&quot;</span>
+<a id="__codelineno-8-20" name="__codelineno-8-20" href="#__codelineno-8-20"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-8-21" name="__codelineno-8-21" href="#__codelineno-8-21"></a><span class="w">    </span><span class="nt">&quot;temperature&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-8-22" name="__codelineno-8-22" href="#__codelineno-8-22"></a><span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Property&quot;</span><span class="p">,</span>
+<a id="__codelineno-8-23" name="__codelineno-8-23" href="#__codelineno-8-23"></a><span class="w">      </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">20.5</span><span class="p">,</span>
+<a id="__codelineno-8-24" name="__codelineno-8-24" href="#__codelineno-8-24"></a><span class="w">      </span><span class="nt">&quot;observedAt&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2026-02-24T12:30:00.000Z&quot;</span><span class="p">,</span>
+<a id="__codelineno-8-25" name="__codelineno-8-25" href="#__codelineno-8-25"></a><span class="w">      </span><span class="nt">&quot;unitCode&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;CEL&quot;</span>
+<a id="__codelineno-8-26" name="__codelineno-8-26" href="#__codelineno-8-26"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-8-27" name="__codelineno-8-27" href="#__codelineno-8-27"></a><span class="w">    </span><span class="nt">&quot;@context&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-8-28" name="__codelineno-8-28" href="#__codelineno-8-28"></a><span class="w">      </span><span class="s2">&quot;https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context-v1.8.jsonld&quot;</span><span class="p">,</span>
+<a id="__codelineno-8-29" name="__codelineno-8-29" href="#__codelineno-8-29"></a><span class="w">      </span><span class="s2">&quot;https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context-v1.7.jsonld&quot;</span>
+<a id="__codelineno-8-30" name="__codelineno-8-30" href="#__codelineno-8-30"></a><span class="w">    </span><span class="p">]</span>
+<a id="__codelineno-8-31" name="__codelineno-8-31" href="#__codelineno-8-31"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-8-32" name="__codelineno-8-32" href="#__codelineno-8-32"></a><span class="p">]</span>
+</code></pre></div>
+<p>APISIX has validated the access token and allows data to be requested from Orion-LD.</p>
 <h3 id="current-status">Current Status</h3>
 <p>Keycloak and Verifier are fully integrated and have operational ODRL access policies for operator profiles. The system is currently in the process of extending governance rules, with additional granular policies being deployed for new users and roles while maintaining technical validation of VCs and VPs as a basic trust criterion.</p>
 <p>Furthermore, access via the <a href="https://ec.europa.eu/digital-building-blocks/sites/spaces/EUDIGITALIDENTITYWALLET/pages/694487738/EU+Digital+Identity+Wallet+Home">EUDI Wallet</a> is being implemented so that the process does not have to be performed manually from the command line.</p>
@@ -1766,7 +1783,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="February 13, 2026 14:10:00">February 13, 2026</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="February 24, 2026 16:00:50">February 24, 2026</span>
   </span>
 
     
