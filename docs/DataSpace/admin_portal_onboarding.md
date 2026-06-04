@@ -52,7 +52,7 @@ For the password to last indefinitely, the *Temporary* option can be disabled. A
 To access the administration portal as a user, you must first access the Onboarding Portal. From this portal, you can access the administration portal by clicking on the button in the upper right part that says *Admin Portal* as shown in the following image:  
 
 <div style="text-align: center;">
-<img src="../../assets/images/admin/portal_admin_onboarding" alt="Admin Portal Landing Page" width="700" height="auto">
+<img src="../../assets/images/admin/portal_admin_onboarding.png" alt="Admin Portal Landing Page" width="700" height="auto">
 </div>
 
 It is important to emphasize that this button accesses the administration portal as a user since it accesses the *onboarding* realm directly and not the *admin* administration realm. Therefore, from this button on the onboarding portal, you cannot log in as an administrator. To do this, you must access the administration portal directly.
