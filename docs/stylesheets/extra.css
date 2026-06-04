@@ -218,7 +218,7 @@ article > h1 {
   background: #00223b !important;
   color: #fff !important;
   border-top: 3px solid #000 !important;
-  padding: 0.8rem 0 1.2rem 0 !important;
+  padding: 0 !important;
 }
 
 .md-footer__inner {
@@ -228,92 +228,87 @@ article > h1 {
   padding: 0 1rem;
 }
 
-.pg-footer {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.5rem;
-  align-items: start;
+/* --- New single-row logo footer --- */
+.main-footer {
+  padding: 1.4rem 0 1.6rem;
 }
 
-@media (max-width: 960px) {
-  .pg-footer {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
-  .footer-logo,
-  .logo-container {
-    justify-content: center;
-  }
+.main-footer .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
 }
 
-.footer-logo {
+.main-footer .logo-group {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 1.5rem;
+  gap: 2.2rem;
+  flex-wrap: wrap;
 }
 
-.footer-logo .pgtec-logo {
-  height: 150px !important;
-  width: auto !important;
-  object-fit: contain;
-  opacity: 0.95;
-  margin-right: 0.75rem;
+.main-footer .logo-group a {
+  display: inline-flex;
+  align-items: center;
+  transition: opacity 0.2s ease;
 }
 
-.footer-logo .vrain-logo {
-  height: 32px !important;
-  width: auto !important;
+.main-footer .logo-group a:hover {
+  opacity: 0.75;
+}
+
+/* Shared base for all footer logos */
+.footer-img {
+  height: 50px;
+  width: auto;
   object-fit: contain;
-  opacity: 0.95;
-  margin-right: 0.75rem;
+  display: block;
+}
+
+/* Per-logo size overrides */
+.footer-img.iiama-logo {
+  height: 55px;
+}
+
+.footer-img.vrain-logo {
+  height: 30px;
   filter: none !important;
 }
 
-.pg-h4 {
-  margin: 0 0 0.4rem 0;
-  font-size: 0.95rem;
-  font-weight: 700;
-  text-align: center;
+.footer-img.pgtec-logo {
+  height: 55px;
+}
+
+.footer-img.sedia-logo {
+  height: 70px;
+}
+
+.footer-img.eu-logo {
+  height: 50px;
+}
+
+.footer-img.gva-logo {
+  height: 55px;
+}
+
+@media (max-width: 600px) {
+  .main-footer .logo-group {
+    gap: 1.2rem;
+  }
+  .footer-img {
+    height: 38px;
+  }
+  .footer-img.sedia-logo {
+    height: 52px;
+  }
 }
 
 /* ------------------------------
-   Logos
+   Logos (header)
 --------------------------------- */
 .md-header__button.md-logo img {
   height: 42px !important;
   width: auto !important;
-}
-
-.logo-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 1.2rem;
-  margin: 0.5rem 0;
-}
-
-.logo-container img {
-  height: 55px !important;
-  width: auto !important;
-  object-fit: contain !important;
-}
-
-.logo-container .gva-logo {
-  height: 90px !important;
-  width: auto !important;
-  object-fit: contain !important;
-}
-
-.pg-disclaimer {
-  font-size: 0.72rem;
-  line-height: 1.35;
-  margin-top: 1rem;
-  max-width: 700px;
-  opacity: 0.85;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
 }
 
 /* ------------------------------

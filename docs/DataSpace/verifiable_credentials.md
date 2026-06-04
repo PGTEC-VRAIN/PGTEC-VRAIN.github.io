@@ -10,8 +10,8 @@ All commands used can be executed from the Ubuntu CLI. The steps to follow in or
 
 The components that form part of the data transaction process in the data space are:
 
-- DIDs: Decentralized Identifiers used to represent identities in a portable and cryptographically verifiable way.
 - VCs: Verifiable Credentials
+- DIDs: Decentralized Identifiers used to represent identities in a portable and cryptographically verifiable way.
 - VPs: Verifiable Presentations
 - Keycloak: Tool for user and role management (IAM)
 - Verifier: Component of the data space Trust Anchor responsible for validating participants' credentials.
@@ -37,156 +37,154 @@ sudo chmod -R o+rw wallet-identity/private-key.pem
 
 The first step is to create a VC using Keycloak. To do this, run the following parameterizable script:
 
-??? note "Click to expand VC creation script"
+```sh
+#!/bin/bash
 
-    ```sh
-    #!/bin/bash
+# --- Updated Default Values to match your working environment ---
+BASE_URL="https://keycloak-consumer.pgtec-vrain-dataspace.eu"
+REALM="consumer"
+CLIENT_ID="account-console"
+USERNAME="operator"
+PASSWORD="test"
+CRED_CONFIG_ID="operator-credential"
+OUTPUT_FILE="./wallet-identity/vc.jwt"
+FORMAT="vc+sd-jwt"
+DEBUG=false
 
-    # --- Updated Default Values to match your working environment ---
-    BASE_URL="https://keycloak-consumer.pgtec-vrain-dataspace.eu"
-    REALM="consumer"
-    CLIENT_ID="account-console"
-    USERNAME="operator"
-    PASSWORD="test"
-    CRED_CONFIG_ID="operator-credential"
-    OUTPUT_FILE="./wallet-identity/vc.jwt"
-    FORMAT="vc+sd-jwt"
-    DEBUG=false
+# Usage helper
+usage() {
+  echo "Usage: $0 [-b url] [-r realm] [-c client_id] [-u user] [-p pass] [-i cred_id] [-o output_file] [-d]"
+  echo ""
+  echo "Options:"
+  echo "  -b    Base URL (Default: $BASE_URL)"
+  echo "  -r    Realm Name (Default: $REALM)"
+  echo "  -c    Client ID (Default: $CLIENT_ID)"
+  echo "  -u    Username (Default: $USERNAME)"
+  echo "  -p    Password (Default: $PASSWORD)"
+  echo "  -i    Credential Configuration ID (Default: $CRED_CONFIG_ID)"
+  echo "  -f    Choose the format (Default: $FORMAT)"
+  echo "  -o    File to save the credential (Optional)"
+  echo "  -d    Enable Debug mode (Print raw curl responses)"
+  exit 1
+}
 
-    # Usage helper
-    usage() {
-      echo "Usage: $0 [-b url] [-r realm] [-c client_id] [-u user] [-p pass] [-i cred_id] [-o output_file] [-d]"
-      echo ""
-      echo "Options:"
-      echo "  -b    Base URL (Default: $BASE_URL)"
-      echo "  -r    Realm Name (Default: $REALM)"
-      echo "  -c    Client ID (Default: $CLIENT_ID)"
-      echo "  -u    Username (Default: $USERNAME)"
-      echo "  -p    Password (Default: $PASSWORD)"
-      echo "  -i    Credential Configuration ID (Default: $CRED_CONFIG_ID)"
-      echo "  -f    Choose the format (Default: $FORMAT)"
-      echo "  -o    File to save the credential (Optional)"
-      echo "  -d    Enable Debug mode (Print raw curl responses)"
-      exit 1
-    }
-
-    # --- Helper: Debug Logger ---
-    debug_log() {
-        local step="$1"
-        local content="$2"
-        if [ "$DEBUG" = true ]; then
-            echo "--------------------------------------------------" >&2
-            echo "DEBUG [$step] RAW RESPONSE:" >&2
-            echo "$content" >&2
-            echo "--------------------------------------------------" >&2
-        fi
-    }
-
-    # --- Parse Flags ---
-    while getopts "b:r:c:u:p:i:o:f:hd" opt; do
-      case $opt in
-        b) BASE_URL="$OPTARG" ;;
-        r) REALM="$OPTARG" ;;
-        c) CLIENT_ID="$OPTARG" ;;
-        u) USERNAME="$OPTARG" ;;
-        p) PASSWORD="$OPTARG" ;;
-        i) CRED_CONFIG_ID="$OPTARG" ;;
-        o) OUTPUT_FILE="$OPTARG" ;;
-        f) FORMAT="$OPTARG"  ;;
-        d) DEBUG=true ;;
-        h) usage ;;
-        *) usage ;;
-      esac
-    done
-
-    BASE_URL=${BASE_URL%/}
-
-    # --- 1. Get Initial Access Token ---
-    echo "Logging in as $USERNAME..." >&2
-    response_1=$(curl -s -X POST "$BASE_URL/realms/$REALM/protocol/openid-connect/token" \
-      --header 'Accept: */*' \
-      --header 'Content-Type: application/x-www-form-urlencoded' \
-      --data "grant_type=password" \
-      --data "client_id=$CLIENT_ID" \
-      --data "username=$USERNAME" \
-      --data "password=$PASSWORD" \
-      --data "scope=openid")
-
-    debug_log "1. Initial Access Token" "$response_1"
-
-    access_token=$(echo "$response_1" | jq '.access_token' -r)
-
-    if [ "$access_token" == "null" ] || [ -z "$access_token" ]; then
-        echo "Error: Failed to obtain access token. Check your credentials, URL, Realm, or enable debug (-d) to see raw error." >&2
-        exit 1
+# --- Helper: Debug Logger ---
+debug_log() {
+    local step="$1"
+    local content="$2"
+    if [ "$DEBUG" = true ]; then
+        echo "--------------------------------------------------" >&2
+        echo "DEBUG [$step] RAW RESPONSE:" >&2
+        echo "$content" >&2
+        echo "--------------------------------------------------" >&2
     fi
+}
 
-    # --- 2. Get Credential Offer URI ---
-    echo "Fetching Credential Offer URI for $CRED_CONFIG_ID..." >&2
-    response_2=$(curl -s -X GET "$BASE_URL/realms/$REALM/protocol/oid4vc/credential-offer-uri?credential_configuration_id=$CRED_CONFIG_ID" \
-      --header "Authorization: Bearer ${access_token}")
+# --- Parse Flags ---
+while getopts "b:r:c:u:p:i:o:f:hd" opt; do
+  case $opt in
+    b) BASE_URL="$OPTARG" ;;
+    r) REALM="$OPTARG" ;;
+    c) CLIENT_ID="$OPTARG" ;;
+    u) USERNAME="$OPTARG" ;;
+    p) PASSWORD="$OPTARG" ;;
+    i) CRED_CONFIG_ID="$OPTARG" ;;
+    o) OUTPUT_FILE="$OPTARG" ;;
+    f) FORMAT="$OPTARG"  ;;
+    d) DEBUG=true ;;
+    h) usage ;;
+    *) usage ;;
+  esac
+done
 
-    debug_log "2. Credential Offer URI" "$response_2"
+BASE_URL=${BASE_URL%/}
 
-    offer_uri=$(echo "$response_2" | jq '"\(.issuer)\(.nonce)"' -r)
+# --- 1. Get Initial Access Token ---
+echo "Logging in as $USERNAME..." >&2
+response_1=$(curl -s -X POST "$BASE_URL/realms/$REALM/protocol/openid-connect/token" \
+  --header 'Accept: */*' \
+  --header 'Content-Type: application/x-www-form-urlencoded' \
+  --data "grant_type=password" \
+  --data "client_id=$CLIENT_ID" \
+  --data "username=$USERNAME" \
+  --data "password=$PASSWORD" \
+  --data "scope=openid")
 
-    # --- 3. Get Pre-Authorized Code ---
-    echo "Requesting Pre-Authorized Code..." >&2
-    # Note: Ensure offer_uri is a valid URL. If step 2 failed logic, this might fail.
-    response_3=$(curl -s -X GET "${offer_uri}" \
-      --header "Authorization: Bearer ${access_token}")
+debug_log "1. Initial Access Token" "$response_1"
 
-    debug_log "3. Pre-Authorized Code" "$response_3"
+access_token=$(echo "$response_1" | jq '.access_token' -r)
 
-    pre_authorized_code=$(echo "$response_3" | jq '.grants."urn:ietf:params:oauth:grant-type:pre-authorized_code"."pre-authorized_code"' -r)
+if [ "$access_token" == "null" ] || [ -z "$access_token" ]; then
+    echo "Error: Failed to obtain access token. Check your credentials, URL, Realm, or enable debug (-d) to see raw error." >&2
+    exit 1
+fi
 
-    # --- 4. Exchange Pre-Auth Code for Credential Access Token ---
-    echo "Exchanging code for Credential Access Token..." >&2
-    response_4=$(curl -s -X POST "$BASE_URL/realms/$REALM/protocol/openid-connect/token" \
-      --header 'Accept: */*' \
-      --header 'Content-Type: application/x-www-form-urlencoded' \
-      --data "grant_type=urn:ietf:params:oauth:grant-type:pre-authorized_code" \
-      --data "pre-authorized_code=${pre_authorized_code}")
+# --- 2. Get Credential Offer URI ---
+echo "Fetching Credential Offer URI for $CRED_CONFIG_ID..." >&2
+response_2=$(curl -s -X GET "$BASE_URL/realms/$REALM/protocol/oid4vc/credential-offer-uri?credential_configuration_id=$CRED_CONFIG_ID" \
+  --header "Authorization: Bearer ${access_token}")
 
-    debug_log "4. Credential Access Token" "$response_4"
+debug_log "2. Credential Offer URI" "$response_2"
 
-    credential_access_token=$(echo "$response_4" | jq '.access_token' -r)
+offer_uri=$(echo "$response_2" | jq '"\(.issuer)\(.nonce)"' -r)
 
-    # --- 5. Request the Verifiable Credential ---
-    echo "Issuing Credential..." >&2
-    response_5=$(curl -s -X POST "$BASE_URL/realms/$REALM/protocol/oid4vc/credential" \
-      --header 'Accept: */*' \
-      --header 'Content-Type: application/json' \
-      --header "Authorization: Bearer ${credential_access_token}" \
-      --data "{\"credential_identifier\":\"$CRED_CONFIG_ID\", \"format\":\"$FORMAT\"}")
+# --- 3. Get Pre-Authorized Code ---
+echo "Requesting Pre-Authorized Code..." >&2
+# Note: Ensure offer_uri is a valid URL. If step 2 failed logic, this might fail.
+response_3=$(curl -s -X GET "${offer_uri}" \
+  --header "Authorization: Bearer ${access_token}")
 
-    debug_log "5. Verifiable Credential" "$response_5"
+debug_log "3. Pre-Authorized Code" "$response_3"
 
-    credential=$(echo "$response_5" | jq '.credential' -r)
+pre_authorized_code=$(echo "$response_3" | jq '.grants."urn:ietf:params:oauth:grant-type:pre-authorized_code"."pre-authorized_code"' -r)
 
-    # --- Output Handling ---
-    if [ "$credential" == "null" ] || [ -z "$credential" ]; then
-        echo "Error: Failed to retrieve credential. Enable debug (-d) to inspect the API response." >&2
-        exit 1
-    fi
+# --- 4. Exchange Pre-Auth Code for Credential Access Token ---
+echo "Exchanging code for Credential Access Token..." >&2
+response_4=$(curl -s -X POST "$BASE_URL/realms/$REALM/protocol/openid-connect/token" \
+  --header 'Accept: */*' \
+  --header 'Content-Type: application/x-www-form-urlencoded' \
+  --data "grant_type=urn:ietf:params:oauth:grant-type:pre-authorized_code" \
+  --data "pre-authorized_code=${pre_authorized_code}")
 
-    if [ -n "$OUTPUT_FILE" ]; then
-        # Ensure directory exists
-        mkdir -p "$(dirname "$OUTPUT_FILE")"
-        echo "$credential" > "$OUTPUT_FILE"
-        echo "Success! Credential saved to: $OUTPUT_FILE" >&2
-    else
-        echo "--- BEGIN CREDENTIAL ---" >&2
-        echo "$credential"
-        echo "--- END CREDENTIAL ---" >&2
-    fi
-    ```
+debug_log "4. Credential Access Token" "$response_4"
+
+credential_access_token=$(echo "$response_4" | jq '.access_token' -r)
+
+# --- 5. Request the Verifiable Credential ---
+echo "Issuing Credential..." >&2
+response_5=$(curl -s -X POST "$BASE_URL/realms/$REALM/protocol/oid4vc/credential" \
+  --header 'Accept: */*' \
+  --header 'Content-Type: application/json' \
+  --header "Authorization: Bearer ${credential_access_token}" \
+  --data "{\"credential_identifier\":\"$CRED_CONFIG_ID\", \"format\":\"$FORMAT\"}")
+
+debug_log "5. Verifiable Credential" "$response_5"
+
+credential=$(echo "$response_5" | jq '.credential' -r)
+
+# --- Output Handling ---
+if [ "$credential" == "null" ] || [ -z "$credential" ]; then
+    echo "Error: Failed to retrieve credential. Enable debug (-d) to inspect the API response." >&2
+    exit 1
+fi
+
+if [ -n "$OUTPUT_FILE" ]; then
+    # Ensure directory exists
+    mkdir -p "$(dirname "$OUTPUT_FILE")"
+    echo "$credential" > "$OUTPUT_FILE"
+    echo "Success! Credential saved to: $OUTPUT_FILE" >&2
+else
+    echo "--- BEGIN CREDENTIAL ---" >&2
+    echo "$credential"
+    echo "--- END CREDENTIAL ---" >&2
+fi
+```
 
 The script is designed to be parameterizable to adapt to different use cases. You can choose the URL where Keycloak is located, the type of Keycloak client, the user, the configuration, and the format of the VC to be created. To create and run the script, execute the following line:
 
 ```bash
-    nano get_credentials.sh #then copy and paste the script code
-    ./get_credentials.sh #also can be used bash ./get_credentials.sh
+nano get_credentials.sh #then copy and paste the script code
+./get_credentials.sh #also can be used bash ./get_credentials.sh
 ```
 
 When executed, a VC issued by Keycloak will be created in the ``sh wallet-identity`` folder called ``sh vc.jwt`` . The credential format is JSON Web Token.
@@ -195,121 +193,119 @@ When executed, a VC issued by Keycloak will be created in the ``sh wallet-identi
 
 In this section, the Verifiable Presentation is created using the newly created VC, the DID key, and did.json generated before. The script is configured so that the DIDs are located in the ``sh wallet-identity`` folder. The path can be configured in the scripts:
 
-??? note "Click to expand VP creation script"
+```sh
+#!/bin/bash
 
-    ```sh
-    #!/bin/bash
+# --- Default Values ---
+BASE_URL="https://verifier.pgtec-vrain-dataspace.eu/services/data-service"
+SCOPE="operator"
+CLIENT_ID="account-console"
+DID_FILE="wallet-identity/did.json"
+KEY_FILE="wallet-identity/private-key.pem"
+VC_INPUT="./wallet-identity/vc.jwt"
+DEBUG=false
+OUTPUT_FILE="./wallet-identity/vp.jwt"  
 
-    # --- Default Values ---
-    BASE_URL="https://verifier.pgtec-vrain-dataspace.eu/services/data-service"
-    SCOPE="operator"
-    CLIENT_ID="account-console"
-    DID_FILE="wallet-identity/did.json"
-    KEY_FILE="wallet-identity/private-key.pem"
-    VC_INPUT="./wallet-identity/vc.jwt"
-    DEBUG=false
-    OUTPUT_FILE="./wallet-identity/vp.jwt"  
+usage() {
+  echo "Usage: $0 [-v vc_jwt_or_file] [-b url] [-s scope] [-d did_file] [-k key_file] [-c client_id] [-o output_file] [-x]"
+  echo "Options:"
+  echo "  -o    File to write the access token to"
+  echo "  -x    Enable debug mode (prints curl commands and raw responses)"
+  exit 1
+}
 
-    usage() {
-      echo "Usage: $0 [-v vc_jwt_or_file] [-b url] [-s scope] [-d did_file] [-k key_file] [-c client_id] [-o output_file] [-x]"
-      echo "Options:"
-      echo "  -o    File to write the access token to"
-      echo "  -x    Enable debug mode (prints curl commands and raw responses)"
-      exit 1
-    }
+# --- Parse Flags ---
+while getopts "b:v:s:d:k:c:o:xh" opt; do
+  case $opt in
+    b) BASE_URL="$OPTARG" ;;
+    v) VC_INPUT="$OPTARG" ;;
+    s) SCOPE="$OPTARG" ;;
+    d) DID_FILE="$OPTARG" ;;
+    k) KEY_FILE="$OPTARG" ;;
+    c) CLIENT_ID="$OPTARG" ;;
+    o) OUTPUT_FILE="$OPTARG" ;;
+    x) DEBUG=true ;;
+    h|*) usage ;;
+  esac
+done
 
-    # --- Parse Flags ---
-    while getopts "b:v:s:d:k:c:o:xh" opt; do
-      case $opt in
-        b) BASE_URL="$OPTARG" ;;
-        v) VC_INPUT="$OPTARG" ;;
-        s) SCOPE="$OPTARG" ;;
-        d) DID_FILE="$OPTARG" ;;
-        k) KEY_FILE="$OPTARG" ;;
-        c) CLIENT_ID="$OPTARG" ;;
-        o) OUTPUT_FILE="$OPTARG" ;;
-        x) DEBUG=true ;;
-        h|*) usage ;;
-      esac
-    done
+# --- 1. Validation & Input Handling ---
+if [ ! -f "$VC_INPUT" ] && [[ ! "$VC_INPUT" == ey* ]]; then
+    echo "Error: VC input not found as file and doesn't look like a JWT string." >&2
+    exit 1
+fi
 
-    # --- 1. Validation & Input Handling ---
-    if [ ! -f "$VC_INPUT" ] && [[ ! "$VC_INPUT" == ey* ]]; then
-        echo "Error: VC input not found as file and doesn't look like a JWT string." >&2
-        exit 1
-    fi
+if [ -f "$VC_INPUT" ]; then
+    [ "$DEBUG" = true ] && echo "--- DEBUG: Reading VC from file $VC_INPUT ---" >&2
+    VC_JWT=$(cat "$VC_INPUT" | tr -d '[:space:]')
+else
+    VC_JWT="$VC_INPUT"
+fi
 
-    if [ -f "$VC_INPUT" ]; then
-        [ "$DEBUG" = true ] && echo "--- DEBUG: Reading VC from file $VC_INPUT ---" >&2
-        VC_JWT=$(cat "$VC_INPUT" | tr -d '[:space:]')
-    else
-        VC_JWT="$VC_INPUT"
-    fi
+# --- 2. Discovery & Identity Extraction ---
+token_endpoint=$(curl -s -X GET "${BASE_URL}/.well-known/openid-configuration" | jq -r '.token_endpoint')
+holder_did=$(jq '.id' -r < "$DID_FILE")
 
-    # --- 2. Discovery & Identity Extraction ---
-    token_endpoint=$(curl -s -X GET "${BASE_URL}/.well-known/openid-configuration" | jq -r '.token_endpoint')
-    holder_did=$(jq '.id' -r < "$DID_FILE")
+# --- 3. Construct Verifiable Presentation (VP) ---
+verifiable_presentation=$(jq -n \
+  --arg vc "$VC_JWT" \
+  --arg holder "$holder_did" \
+  '{
+    "@context": ["https://www.w3.org/2018/credentials/v1"],
+    "type": ["VerifiablePresentation"],
+    "verifiableCredential": [$vc],
+    "holder": $holder
+}')
 
-    # --- 3. Construct Verifiable Presentation (VP) ---
-    verifiable_presentation=$(jq -n \
-      --arg vc "$VC_JWT" \
-      --arg holder "$holder_did" \
-      '{
-        "@context": ["https://www.w3.org/2018/credentials/v1"],
-        "type": ["VerifiablePresentation"],
-        "verifiableCredential": [$vc],
-        "holder": $holder
-    }')
+# --- 4. JWT Helpers ---
+b64url() {
+  openssl base64 -A | tr '+/' '-_' | tr -d '='
+}
 
-    # --- 4. JWT Helpers ---
-    b64url() {
-      openssl base64 -A | tr '+/' '-_' | tr -d '='
-    }
+# --- 5. Create Signed VP Token (JWT) ---
+jwt_header=$(echo -n "{\"alg\":\"ES256\", \"typ\":\"JWT\", \"kid\":\"${holder_did}\"}" | b64url)
+payload=$(echo -n "{\"iss\": \"${holder_did}\", \"sub\": \"${holder_did}\", \"vp\": ${verifiable_presentation}}" | b64url)
+signature=$(echo -n "${jwt_header}.${payload}" | openssl dgst -sha256 -binary -sign "$KEY_FILE" | b64url)
+vp_jwt="${jwt_header}.${payload}.${signature}"
 
-    # --- 5. Create Signed VP Token (JWT) ---
-    jwt_header=$(echo -n "{\"alg\":\"ES256\", \"typ\":\"JWT\", \"kid\":\"${holder_did}\"}" | b64url)
-    payload=$(echo -n "{\"iss\": \"${holder_did}\", \"sub\": \"${holder_did}\", \"vp\": ${verifiable_presentation}}" | b64url)
-    signature=$(echo -n "${jwt_header}.${payload}" | openssl dgst -sha256 -binary -sign "$KEY_FILE" | b64url)
-    vp_jwt="${jwt_header}.${payload}.${signature}"
+# --- 6. Exchange VP for Access Token ---
+if [ "$DEBUG" = true ]; then
+    echo "--- DEBUG: CURL COMMAND ---" >&2
+    echo "curl -X POST $token_endpoint \\" >&2
+    echo "  --header 'Content-Type: application/x-www-form-urlencoded' \\" >&2
+    echo "  --data-urlencode \"grant_type=vp_token\" \\" >&2
+    echo "  --data-urlencode \"client_id=$CLIENT_ID\" \\" >&2
+    echo "  --data-urlencode \"vp_token=$vp_jwt\" \\" >&2
+    echo "  --data-urlencode \"scope=$SCOPE\"" >&2
+    echo "----------------------------" >&2
+fi
 
-    # --- 6. Exchange VP for Access Token ---
-    if [ "$DEBUG" = true ]; then
-        echo "--- DEBUG: CURL COMMAND ---" >&2
-        echo "curl -X POST $token_endpoint \\" >&2
-        echo "  --header 'Content-Type: application/x-www-form-urlencoded' \\" >&2
-        echo "  --data-urlencode \"grant_type=vp_token\" \\" >&2
-        echo "  --data-urlencode \"client_id=$CLIENT_ID\" \\" >&2
-        echo "  --data-urlencode \"vp_token=$vp_jwt\" \\" >&2
-        echo "  --data-urlencode \"scope=$SCOPE\"" >&2
-        echo "----------------------------" >&2
-    fi
+# Capture raw response to debug failures
+response=$(curl -s -X POST "$token_endpoint" \
+      --header 'Accept: */*' \
+      --header 'Content-Type: application/x-www-form-urlencoded' \
+      --data-urlencode "grant_type=vp_token" \
+      --data-urlencode "client_id=$CLIENT_ID" \
+      --data-urlencode "vp_token=${vp_jwt}" \
+      --data-urlencode "scope=$SCOPE")
 
-    # Capture raw response to debug failures
-    response=$(curl -s -X POST "$token_endpoint" \
-          --header 'Accept: */*' \
-          --header 'Content-Type: application/x-www-form-urlencoded' \
-          --data-urlencode "grant_type=vp_token" \
-          --data-urlencode "client_id=$CLIENT_ID" \
-          --data-urlencode "vp_token=${vp_jwt}" \
-          --data-urlencode "scope=$SCOPE")
+access_token=$(echo "$response" | jq '.access_token' -r)
 
-    access_token=$(echo "$response" | jq '.access_token' -r)
+if [ "$access_token" == "null" ] || [ -z "$access_token" ]; then
+    echo "Error: Failed to obtain access token." >&2
+    echo "Raw Response from Keycloak:" >&2
+    echo "$response" | jq . >&2
+    exit 1
+fi
 
-    if [ "$access_token" == "null" ] || [ -z "$access_token" ]; then
-        echo "Error: Failed to obtain access token." >&2
-        echo "Raw Response from Keycloak:" >&2
-        echo "$response" | jq . >&2
-        exit 1
-    fi
-
-    # --- 7. Output Handling ---
-    if [ -n "$OUTPUT_FILE" ]; then
-        echo "$access_token" > "$OUTPUT_FILE"
-        echo "Access token written to $OUTPUT_FILE" >&2
-    else
-        echo "$access_token"
-    fi
-    ```
+# --- 7. Output Handling ---
+if [ -n "$OUTPUT_FILE" ]; then
+    echo "$access_token" > "$OUTPUT_FILE"
+    echo "Access token written to $OUTPUT_FILE" >&2
+else
+    echo "$access_token"
+fi
+```
 
 Again, to run the script, the file must be created. This can be done by:
 
