@@ -19,7 +19,7 @@
       
       
       <link rel="icon" href="../../assets/images/logo_PGTEC.svg">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.3">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
   
@@ -1164,67 +1164,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#setup-instructions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Setup instructions
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Setup instructions">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#clone-the-repository_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Clone the repository
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#start-the-containers" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Start the containers
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#verify-running-services" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Verify running services
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#shut-down-the-environment" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Shut down the environment
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -1273,49 +1212,40 @@
 <h2 id="install-the-software"><strong>Install the software</strong></h2>
 <p>The following commands can be used to install some of the necessary software:</p>
 <h3 id="docker"><strong>Docker</strong></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>sudo apt update
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>sudo apt install -y apt-transport-https ca-certificates curl software-properties-common
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>echo &quot;deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable&quot; | sudo tee /etc/apt/sources.list.d/docker.list &gt; /dev/null
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>sudo apt update
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>sudo apt install -y docker-ce docker-ce-cli containerd.io
-</code></pre></div>
+<p>```
+sudo apt update
+sudo apt install -y apt-transport-https ca-certificates curl software-properties-common</p>
+<p>curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg</p>
+<p>echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list &gt; /dev/null</p>
+<p>sudo apt update
+sudo apt install -y docker-ce docker-ce-cli containerd.io
+```</p>
 <h3 id="docker-compose"><strong>Docker Compose</strong></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>sudo curl -L &quot;https://github.com/docker/compose/releases/download/v2.20.2/docker-compose-$(uname -s)-$(uname -m)&quot; -o /usr/local/bin/docker-compose
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>sudo chmod +x /usr/local/bin/docker-compose
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>docker-compose --version
-</code></pre></div>
+<p><code>sudo curl -L "https://github.com/docker/compose/releases/download/v2.20.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+docker-compose --version</code></p>
 <h3 id="clone-the-repository"><strong>Clone the repository</strong></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>git clone https://github.com/PGTEC-VRAIN/Entorno-AirFlow_IotAgent_OrionLD_QuantumLeap.git
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>cd Entorno-AirFlow_IotAgent_OrionLD_QuantumLeap
-</code></pre></div>
+<p><code>git clone https://github.com/PGTEC-VRAIN/Entorno-AirFlow_IotAgent_OrionLD_QuantumLeap.git
+cd Entorno-AirFlow_IotAgent_OrionLD_QuantumLeap</code></p>
 <h3 id="python-environment-from-anaconda-miniconda"><strong>Python (Environment from anaconda / miniconda)</strong></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a># Download Miniconda installer (Linux x86_64)
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda.sh
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a># Run the installer
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>bash ~/miniconda.sh
-<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
-<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a># Follow the prompts (accept license, choose install path, initialize conda)
-<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>
-<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a># Initialize conda for bash
-<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>source ~/.bashrc
-<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>
-<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a># Create a project environment (Python 3.12.3)
-<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>conda create -n pgtec_env python=3.12.3 -y
-<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>conda activate pgtec_env
-</code></pre></div>
+<p>```</p>
+<h1 id="download-miniconda-installer-linux-x86_64">Download Miniconda installer (Linux x86_64)</h1>
+<p>wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda.sh</p>
+<h1 id="run-the-installer">Run the installer</h1>
+<p>bash ~/miniconda.sh</p>
+<h1 id="follow-the-prompts-accept-license-choose-install-path-initialize-conda">Follow the prompts (accept license, choose install path, initialize conda)</h1>
+<h1 id="initialize-conda-for-bash">Initialize conda for bash</h1>
+<p>source ~/.bashrc</p>
+<h1 id="create-a-project-environment-python-3123">Create a project environment (Python 3.12.3)</h1>
+<p>conda create -n pgtec_env python=3.12.3 -y
+conda activate pgtec_env
+```</p>
 <h2 id="setup-instructions"><strong>Setup instructions</strong></h2>
 <h3 id="clone-the-repository_1"><strong>Clone the repository</strong></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>git clone https://github.com/PGTEC-VRAIN/Entorno-AirFlow_IotAgent_OrionLD_QuantumLeap.git
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>cd Entorno-AirFlow_IotAgent_OrionLD_QuantumLeap
-</code></pre></div>
+<p><code>git clone https://github.com/PGTEC-VRAIN/Entorno-AirFlow_IotAgent_OrionLD_QuantumLeap.git
+cd Entorno-AirFlow_IotAgent_OrionLD_QuantumLeap</code></p>
 <h3 id="start-the-containers"><strong>Start the containers</strong></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>docker-compose up -d --build
-</code></pre></div>
+<p><code>docker-compose up -d --build</code></p>
 <ul>
 <li>
 <p>Use --build only if changes were made to the docker-compose.yml.</p>
@@ -1325,13 +1255,11 @@
 </li>
 </ul>
 <h3 id="verify-running-services"><strong>Verify running services</strong></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>docker ps
-</code></pre></div>
+<p><code>docker ps</code></p>
 <h3 id="shut-down-the-environment"><strong>Shut down the environment</strong></h3>
 <ul>
 <li>From a new terminal:
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>docker-compose down
-</code></pre></div></li>
+<code>docker-compose down</code></li>
 <li>Or interrupt the current process with CTRL + C.</li>
 </ul>
 

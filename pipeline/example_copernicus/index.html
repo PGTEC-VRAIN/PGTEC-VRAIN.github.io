@@ -19,7 +19,7 @@
       
       
       <link rel="icon" href="../../assets/images/logo_PGTEC.svg">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.3">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
   
@@ -1137,31 +1137,24 @@
 </ol>
 <p><img alt="Copernicus web image" src="../images/copernicus.png" width="1000" />
 2. Clone the repository 
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>git clone https://github.com/PGTEC-VRAIN/Entorno-AirFlow_IotAgent_OrionLD_QuantumLeap.git
-</code></pre></div>
+<code>git clone https://github.com/PGTEC-VRAIN/Entorno-AirFlow_IotAgent_OrionLD_QuantumLeap.git</code>
 3. Run Docker service
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>sudo service docker start
-</code></pre></div>
+<code>sudo service docker start</code>
 4. Access to the correct repository with the environment Entorno-AirFlow_IotAgent_OrionLD_QuantumLeap
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>cd Entorno-AirFlow_IotAgent_OrionLD_QuantumLeap
-</code></pre></div>
+<code>cd Entorno-AirFlow_IotAgent_OrionLD_QuantumLeap</code>
 5. Change API Key at the script <strong>flujo_coperniocus_orion_quantumleap.py</strong>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a> c = cdsapi.Client(url=&quot;https://cds.climate.copernicus.eu/api&quot;,
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>                   key=&quot;PUT_YOUR_API_KEY_HERE&quot;)
-</code></pre></div>
+<code>c = cdsapi.Client(url="https://cds.climate.copernicus.eu/api",
+                   key="PUT_YOUR_API_KEY_HERE")</code>
 6. Run the docker compose yaml
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>docker compose up --build
-</code></pre></div>
+<code>docker compose up --build</code>
 7. Check the status of the containers in a new terminal
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>docker ps
-</code></pre></div>
+<code>docker ps</code>
 8. Access to <a href="http://localhost:8080/">Airflow</a> to see the DAG running (You may create an account first)
 <img alt="Airflow web image" src="../images/airflow.png" width="1000" />
 9. Check <a href="http://localhost:4200/">CreateDB</a> to get historical data You may create an account first
 <img alt="CreateDB web image" src="../images/cratedb.png" width="1000" />
 10. Shut down the docker
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>docker compose down
-</code></pre></div></p>
+<code>docker compose down</code></p>
 
 
 

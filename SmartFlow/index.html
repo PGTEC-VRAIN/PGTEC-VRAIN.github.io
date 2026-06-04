@@ -19,7 +19,7 @@
       
       
       <link rel="icon" href="../assets/images/logo_PGTEC.svg">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.3">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
   
@@ -1309,18 +1309,18 @@
 <ol>
 <li>Clone the repo and navigate to the project folder</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/PGTEC-VRAIN/SmartFlow
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nb">cd</span><span class="w"> </span>SmartFlow
-</code></pre></div>
+<p><code>sh
+   git clone https://github.com/PGTEC-VRAIN/SmartFlow
+   cd SmartFlow</code></p>
 <ol>
 <li>Initialize docker:</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>docker
-</code></pre></div>
+<p><code>sh
+   sudo systemctl start docker</code></p>
 <ol>
 <li>Initialize docker containers
-   <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> </span>--build<span class="w"> </span>-d
-</code></pre></div></li>
+   <code>sh
+   docker compose up --build -d</code></li>
 </ol>
 <h3 id="airflow-data-sources-overview">Airflow Data Sources Overview</h3>
 <p>This section contains links to detailed explanations of the Python scripts that programmatically download forecasts from different models using Airflow. Specifically, each script description includes:</p>
@@ -1389,21 +1389,22 @@ These are the necessary requirements to be able to execute the project:
 ### Cheatsheet
 
 * Python (Recommended to create an environment from anaconda / miniconda)
-  <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="w">  </span><span class="c1"># Download Miniconda installer (Linux x86_64)</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">  </span>wget<span class="w"> </span>https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh<span class="w"> </span>-O<span class="w"> </span>~/miniconda.sh
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">  </span><span class="c1"># Run the installer</span>
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">  </span>bash<span class="w"> </span>~/miniconda.sh
-<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
-<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">  </span><span class="c1"># Follow the prompts (accept license, choose install path, initialize conda)</span>
-<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>
-<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">  </span><span class="c1"># Initialize conda for bash</span>
-<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">  </span><span class="nb">source</span><span class="w"> </span>~/.bashrc
-<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>
-<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">  </span><span class="c1"># Create a project environment (Python 3.12.3)</span>
-<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="w">  </span>conda<span class="w"> </span>create<span class="w"> </span>-n<span class="w"> </span>pgtec_env<span class="w"> </span><span class="nv">python</span><span class="o">=</span><span class="m">3</span>.12.3<span class="w"> </span>-y
-<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="w">  </span>conda<span class="w"> </span>activate<span class="w"> </span>pgtec_env
-</code></pre></div>
+  ```bash
+    # Download Miniconda installer (Linux x86_64)
+    wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda.sh
+
+    # Run the installer
+    bash ~/miniconda.sh
+
+    # Follow the prompts (accept license, choose install path, initialize conda)
+
+    # Initialize conda for bash
+    source ~/.bashrc
+
+    # Create a project environment (Python 3.12.3)
+    conda create -n pgtec_env python=3.12.3 -y
+    conda activate pgtec_env
+  ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -1418,8 +1419,8 @@ These are the necessary requirements to be able to execute the project:
 <p>The Airflow DAGs automate the process of retrieving and transforming climate and hydrological data from different sources (AEMET, CHJ, Open-Meteo, Copernicus...).</p>
 <h4 id="steps">Steps</h4>
 <p>1.1 Start the containers:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>docker-compose<span class="w"> </span>up<span class="w"> </span>-d
-</code></pre></div>
+<p><code>sh
+docker-compose up -d</code></p>
 <p>The -d option runs the containers in detached mode, hiding Airflow logs and keeping the terminal clean.</p>
 <h6 id="11-access-the-airflow-web-interface">1.1. Access the Airflow web interface:</h6>
 <p>http://localhost:8080</p>
@@ -1435,15 +1436,15 @@ These are the necessary requirements to be able to execute the project:
 <p>Each service corresponds to a specific data source or Smart Data Model and can be easily extended to include new ones.</p>
 <h4 id="steps_1">Steps</h4>
 <h6 id="21-make-sure-the-docker-environment-is-running">2.1. Make sure the Docker environment is running:</h6>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>docker-compose<span class="w"> </span>up<span class="w"> </span>-d
-</code></pre></div>
+<p><code>sh
+docker-compose up -d</code></p>
 <h6 id="22-access-the-fastapi-documentation">2.2. Access the FastAPI documentation:</h6>
 <p>http://localhost:8000/docs</p>
 <p>This interface allows you to explore and test all available endpoints interactively.</p>
 <h6 id="23-test-an-endpoint">2.3. Test an endpoint:</h6>
 <p>For example, you can retrieve the latest weather forecast data by calling:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>GET<span class="w"> </span>/weather?source<span class="o">=</span>AEMET<span class="p">&amp;</span><span class="nv">variable</span><span class="o">=</span>temperature
-</code></pre></div>
+<p><code>sh
+GET /weather?source=AEMET&amp;variable=temperature</code></p>
 <h6 id="24-integration-with-the-tetis-dashboard">2.4 Integration with the TETIS dashboard:</h6>
 <p>The FastAPI services feed the TETIS dashboard, allowing users to select:</p>
 <ul>
@@ -1456,16 +1457,16 @@ These are the necessary requirements to be able to execute the project:
 </ul>
 <p>Once the user selects these options, TETIS automatically triggers the corresponding API calls — which execute the same Python scripts described in the SmartFlow section — to retrieve and process the forecast data used as inputs for hydrological simulations.</p>
 <h3 id="example-folder-structure">Example folder structure</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>SmartFlow/FastAPI/
-<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>├── main.py           # FastAPI entry point
-<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>├── routes/
-<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>│   ├── AEMET.py      # Endpoints for WeatherObserved / Forecast data
-<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>│   ├── DWD_ICON.py   # Endpoints for CHJ flow data
-<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>│   └── ...
-<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>└── models/
-<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>    ├── AEMET.py
-<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>    └── DWD_ICON.py
-</code></pre></div>
+<p><code>text
+SmartFlow/FastAPI/
+├── main.py           # FastAPI entry point
+├── routes/
+│   ├── AEMET.py      # Endpoints for WeatherObserved / Forecast data
+│   ├── DWD_ICON.py   # Endpoints for CHJ flow data
+│   └── ...
+└── models/
+    ├── AEMET.py
+    └── DWD_ICON.py</code></p>
 <div class="admonition tip">
 <p class="admonition-title">New endpoints</p>
 <p>You can add new endpoints easily by creating a new Python file in the routes/ folder and registering it in main.py.</p>
