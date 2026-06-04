@@ -18,7 +18,7 @@ Below is a step-by-step explanation of how to request membership for any partici
 The first step is to access the [Onboarding website](https://onboarding-dataspace.pgtec-vrain-dataspace.eu).
 
 <div style="text-align: center;">
-<img src="images/onboarding_portal.png" alt="Onboarding Landing Page" width="700" height="auto">
+<img src="../../assets/images/getting_started/onboarding_portal.png" alt="Onboarding Landing Page" width="700" height="auto">
 </div>
 
 ### 2. Start the Onboarding Process
@@ -35,7 +35,7 @@ After entering the website, click on the *Start Onboarding Process* button locat
 The following screenshot shows the fields to fill visually:
 
 <div style="text-align: center;">
-<img src="images/onboarding_start.png" alt="Onboarding Start" width="700" height="auto">
+<img src="../../assets/images/getting_started/onboarding_start.png" alt="Onboarding Start" width="700" height="auto">
 </div>
 
 After filling in the above fields, click the next button to access the next part of the form. In this section, you must add two fields:
@@ -44,19 +44,19 @@ After filling in the above fields, click the next button to access the next part
 - [Decentralized Identifier](../DataSpace/did.md): Only **did:web** type is accepted in the ecosystem
 
 <div style="text-align: center;">
-<img src="images/onboarding_did_web.png" alt="Onboarding Did" width="700" height="auto">
+<img src="../../assets/images/getting_started/onboarding_did_web.png" alt="Onboarding Did" width="700" height="auto">
 </div>
 
 Once you have filled in these fields, click the *next* button to access the final part of the form. It contains the data space membership agreement. Each participant must carefully read the terms and conditions before requesting access. If you agree, you must download the agreement and sign it digitally. Once done, you must upload the signed document. The following screenshot describes this section:
 
 <div style="text-align: center;">
-<img src="images/onboarding_document.png" alt="Onboarding Document" width="700" height="auto">
+<img src="../../assets/images/getting_started/onboarding_document.png" alt="Onboarding Document" width="700" height="auto">
 </div>
 
 By way of detail, the following screenshot shows the first page of the PGTEC membership agreement:
 
 <div style="text-align: center;">
-<img src="images/onboarding_doc_detailed.png" alt="Onboarding doc detailed" width="700" height="auto">
+<img src="../../assets/images/getting_started/onboarding_doc_detailed.png" alt="Onboarding doc detailed" width="700" height="auto">
 </div>
 
 After submitting the signed membership agreement, the Onboarding process is complete.
@@ -68,7 +68,7 @@ Once you have submitted your membership request, you must wait for the data spac
 At the end of the onboarding process, each participant receives an ID that identifies the request created. With it, you can check the status of your request in real-time by tracking it through the *Track Process* feature available in the form. To access the tracker, you can use the following [link](https://onboarding-dataspace.pgtec-vrain-dataspace.eu/submit#search). The following screenshot shows it:
 
 <div style="text-align: center;">
-<img src="images/onboarding_track.png" alt="Onboarding Track" width="700" height="auto">
+<img src="../../assets/images/getting_started/onboarding_track.png" alt="Onboarding Track" width="700" height="auto">
 </div>
 
 

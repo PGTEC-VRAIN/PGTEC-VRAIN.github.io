@@ -26,9 +26,8 @@ This section describes the process to follow in order to request data from the O
 
 To create DIDs and certificates, you can follow the code below, although we recommend reading the previous section to understand in detail how DIDs are used and created.
 
+```sh
 
-
-```bash
 mkdir wallet-identity
 
 chmod o+rw wallet-identity
@@ -36,6 +35,7 @@ chmod o+rw wallet-identity
 docker run -v $(pwd)/wallet-identity:/cert quay.io/wi_stefan/did-helper:0.1.1
 
 sudo chmod -R o+rw wallet-identity/private-key.pem
+
 ```
 
 ### 1º: VC creation
@@ -46,6 +46,7 @@ The first step is to create a VC using Keycloak. To do this, run the following p
 <summary>Click to expand VC creation script</summary>
 
 ```bash
+
 #!/bin/bash
 
 # --- Updated Default Values to match your working environment ---
@@ -194,9 +195,11 @@ fi
 The script is designed to be parameterizable to adapt to different use cases. You can choose the URL where Keycloak is located, the type of Keycloak client, the user, the configuration, and the format of the VC to be created. To create and run the script, execute the following line:
 
 ```bash
+
 nano get_credentials.sh #then copy and paste the script code
 
 ./get_credentials.sh #also can be used bash ./get_credentials.sh
+
 ```
 
 When executed, a VC issued by Keycloak will be created in the ``sh wallet-identity`` folder called ``sh vc.jwt`` . The credential format is JSON Web Token.
@@ -209,6 +212,7 @@ In this section, the Verifiable Presentation is created using the newly created 
 <summary>Click to expand Access Token script</summary>
 
 ```bash
+
 #!/bin/bash
 
 # --- Default Values ---
@@ -320,6 +324,7 @@ if [ -n "$OUTPUT_FILE" ]; then
 else
     echo "$access_token"
 fi
+
 ```
 
 </details>
@@ -327,9 +332,11 @@ fi
 Again, to run the script, the file must be created. This can be done by:
 
 ```bash
+
 nano get_access_token.sh #then copy and paste the script code
 
 ./get_access_token.sh #also can be used bash ./get_access_token.sh
+
 ```
 
 In this case, the steps taken are:
@@ -349,9 +356,11 @@ With the access token issued by the Verifier, data can be requested from the Ori
 This query to APISIX does not contain a token issued by the Verifier, which generates an authentication error:
 
 ```bash
+
 export TOKEN=1234
 
 curl -G 'https://mp-data-service.pgtec-vrain-dataspace.eu/ngsi-ld/v1/entities'   -H "Authorization: Bearer ${TOKEN}"   -H 'Accept: application/ld+json'   -H 'Link: <https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context-v1.8.jsonld>; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json"'   --data-urlencode 'type=WeatherStation'
+
 ```
 
 The answer is as follows:
@@ -369,9 +378,11 @@ The answer is as follows:
 This query to APISIX contains the token issued by the Verifier in section 2, so the response is successful:
 
 ```bash
+
 export TOKEN=$(cat ./wallet-identity/vp.jwt)
 
 curl -G 'https://mp-data-service.pgtec-vrain-dataspace.eu/ngsi-ld/v1/entities'   -H "Authorization: Bearer ${TOKEN}"   -H 'Accept: application/ld+json'   -H 'Link: <https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context-v1.8.jsonld>; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json"'   --data-urlencode 'type=WeatherStation' --data-urlencode 'limit=1' --data-urlencode 'attrs=precipitation,temperature,latitude,longitude' | jq
+
 ```
 
 The answer is as follows:
