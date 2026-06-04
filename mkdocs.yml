@@ -88,6 +88,7 @@ nav:
           - Overview: DataSpace/identities_and_credentials.md  
           - DID: DataSpace/did.md
           - VCs: DataSpace/verifiable_credentials.md
+          - Keycloak Admin Portal: DataSpace/admin_portal_onboarding.md
       
 
 # --- Extensiones de Markdown ---
