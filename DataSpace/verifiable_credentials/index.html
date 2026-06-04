@@ -1445,18 +1445,19 @@
 <p>This section describes the process to follow in order to request data from the Orion-LD context broker within the PGTEC data space.</p>
 <h3 id="0o-did-generator">0º: DID generator</h3>
 <p>To create DIDs and certificates, you can follow the code below, although we recommend reading the previous section to understand in detail how DIDs are used and created.</p>
-<p>```bash
-mkdir wallet-identity</p>
+<p>```sh</p>
+<p>mkdir wallet-identity</p>
 <p>chmod o+rw wallet-identity</p>
 <p>docker run -v $(pwd)/wallet-identity:/cert quay.io/wi_stefan/did-helper:0.1.1</p>
-<p>sudo chmod -R o+rw wallet-identity/private-key.pem
-```</p>
+<p>sudo chmod -R o+rw wallet-identity/private-key.pem</p>
+<p>```</p>
 <h3 id="1o-vc-creation">1º: VC creation</h3>
 <p>The first step is to create a VC using Keycloak. To do this, run the following parameterizable script:</p>
 <details>
 <summary>Click to expand VC creation script</summary>
 
 ```bash
+
 #!/bin/bash
 
 # --- Updated Default Values to match your working environment ---
@@ -1603,10 +1604,10 @@ fi
 </details>
 
 <p>The script is designed to be parameterizable to adapt to different use cases. You can choose the URL where Keycloak is located, the type of Keycloak client, the user, the configuration, and the format of the VC to be created. To create and run the script, execute the following line:</p>
-<p>```bash
-nano get_credentials.sh #then copy and paste the script code</p>
-<p>./get_credentials.sh #also can be used bash ./get_credentials.sh
-```</p>
+<p>```bash</p>
+<p>nano get_credentials.sh #then copy and paste the script code</p>
+<p>./get_credentials.sh #also can be used bash ./get_credentials.sh</p>
+<p>```</p>
 <p>When executed, a VC issued by Keycloak will be created in the <code>sh wallet-identity</code> folder called <code>sh vc.jwt</code> . The credential format is JSON Web Token.</p>
 <h3 id="2o-creation-of-the-vp-and-the-access-token">2º: Creation of the VP and the Access token.</h3>
 <p>In this section, the Verifiable Presentation is created using the newly created VC, the DID key, and did.json generated before. The script is configured so that the DIDs are located in the <code>sh wallet-identity</code> folder. The path can be configured in the scripts:</p>
@@ -1614,6 +1615,7 @@ nano get_credentials.sh #then copy and paste the script code</p>
 <summary>Click to expand Access Token script</summary>
 
 ```bash
+
 #!/bin/bash
 
 # --- Default Values ---
@@ -1725,15 +1727,16 @@ if [ -n "$OUTPUT_FILE" ]; then
 else
     echo "$access_token"
 fi
+
 ```
 
 </details>
 
 <p>Again, to run the script, the file must be created. This can be done by:</p>
-<p>```bash
-nano get_access_token.sh #then copy and paste the script code</p>
-<p>./get_access_token.sh #also can be used bash ./get_access_token.sh
-```</p>
+<p>```bash</p>
+<p>nano get_access_token.sh #then copy and paste the script code</p>
+<p>./get_access_token.sh #also can be used bash ./get_access_token.sh</p>
+<p>```</p>
 <p>In this case, the steps taken are:</p>
 <ul>
 <li>1: The VP is created with the VC and the user's did key.</li>
@@ -1746,10 +1749,10 @@ nano get_access_token.sh #then copy and paste the script code</p>
 <p>With the access token issued by the Verifier, data can be requested from the Orion-LD Broker through APISIX. This component is responsible for protecting the data space services to limit their use only to participants who can make use of them. Below is an example of a query to APISIX to request data from Orion-LD. Two sample queries have been created. The first does not have a valid token to access the service, and the second does. The APISIX responses are described below:</p>
 <h4 id="31o-invalid-query">3.1º: Invalid query</h4>
 <p>This query to APISIX does not contain a token issued by the Verifier, which generates an authentication error:</p>
-<p>```bash
-export TOKEN=1234</p>
-<p>curl -G 'https://mp-data-service.pgtec-vrain-dataspace.eu/ngsi-ld/v1/entities'   -H "Authorization: Bearer ${TOKEN}"   -H 'Accept: application/ld+json'   -H 'Link: <a href="https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context-v1.8.jsonld">https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context-v1.8.jsonld</a>; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json"'   --data-urlencode 'type=WeatherStation'
-```</p>
+<p>```bash</p>
+<p>export TOKEN=1234</p>
+<p>curl -G 'https://mp-data-service.pgtec-vrain-dataspace.eu/ngsi-ld/v1/entities'   -H "Authorization: Bearer ${TOKEN}"   -H 'Accept: application/ld+json'   -H 'Link: <a href="https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context-v1.8.jsonld">https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context-v1.8.jsonld</a>; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json"'   --data-urlencode 'type=WeatherStation'</p>
+<p>```</p>
 <p>The answer is as follows:</p>
 <html>
 <head><title>401 Authorization Required</title></head>
@@ -1761,10 +1764,10 @@ export TOKEN=1234</p>
 
 <h4 id="32o-valid-query">3.2º Valid query</h4>
 <p>This query to APISIX contains the token issued by the Verifier in section 2, so the response is successful:</p>
-<p>```bash
-export TOKEN=$(cat ./wallet-identity/vp.jwt)</p>
-<p>curl -G 'https://mp-data-service.pgtec-vrain-dataspace.eu/ngsi-ld/v1/entities'   -H "Authorization: Bearer ${TOKEN}"   -H 'Accept: application/ld+json'   -H 'Link: <a href="https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context-v1.8.jsonld">https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context-v1.8.jsonld</a>; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json"'   --data-urlencode 'type=WeatherStation' --data-urlencode 'limit=1' --data-urlencode 'attrs=precipitation,temperature,latitude,longitude' | jq
-```</p>
+<p>```bash</p>
+<p>export TOKEN=$(cat ./wallet-identity/vp.jwt)</p>
+<p>curl -G 'https://mp-data-service.pgtec-vrain-dataspace.eu/ngsi-ld/v1/entities'   -H "Authorization: Bearer ${TOKEN}"   -H 'Accept: application/ld+json'   -H 'Link: <a href="https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context-v1.8.jsonld">https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context-v1.8.jsonld</a>; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json"'   --data-urlencode 'type=WeatherStation' --data-urlencode 'limit=1' --data-urlencode 'attrs=precipitation,temperature,latitude,longitude' | jq</p>
+<p>```</p>
 <p>The answer is as follows:</p>
 <p><code>json
 [
@@ -1831,7 +1834,7 @@ export TOKEN=$(cat ./wallet-identity/vp.jwt)</p>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="June 4, 2026 12:12:51">June 4, 2026</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="June 4, 2026 12:31:55">June 4, 2026</span>
   </span>
 
     
