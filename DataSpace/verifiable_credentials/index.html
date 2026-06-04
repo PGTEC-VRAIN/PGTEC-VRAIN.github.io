@@ -1963,8 +1963,8 @@
 <h2 id="components">Components</h2>
 <p>The components that form part of the data transaction process in the data space are:</p>
 <ul>
-<li>DIDs: Decentralized Identifiers used to represent identities in a portable and cryptographically verifiable way.</li>
 <li>VCs: Verifiable Credentials</li>
+<li>DIDs: Decentralized Identifiers used to represent identities in a portable and cryptographically verifiable way.</li>
 <li>VPs: Verifiable Presentations</li>
 <li>Keycloak: Tool for user and role management (IAM)</li>
 <li>Verifier: Component of the data space Trust Anchor responsible for validating participants' credentials.</li>
@@ -1982,8 +1982,6 @@ docker run -v $(pwd)/wallet-identity:/cert quay.io/wi_stefan/did-helper:0.1.1
 sudo chmod -R o+rw wallet-identity/private-key.pem</code></p>
 <h3 id="1o-vc-creation">1º: VC creation</h3>
 <p>The first step is to create a VC using Keycloak. To do this, run the following parameterizable script:</p>
-<details class="note">
-<summary>Click to expand VC creation script</summary>
 <p>```sh</p>
 <h1 id="binbash">!/bin/bash</h1>
 <h1 id="-updated-default-values-to-match-your-working-environment-">--- Updated Default Values to match your working environment ---</h1>
@@ -2103,16 +2101,13 @@ else
     echo "--- END CREDENTIAL ---" &gt;&amp;2
 fi
 ```</p>
-</details>
 <p>The script is designed to be parameterizable to adapt to different use cases. You can choose the URL where Keycloak is located, the type of Keycloak client, the user, the configuration, and the format of the VC to be created. To create and run the script, execute the following line:</p>
 <p><code>bash
-    nano get_credentials.sh #then copy and paste the script code
-    ./get_credentials.sh #also can be used bash ./get_credentials.sh</code></p>
+nano get_credentials.sh #then copy and paste the script code
+./get_credentials.sh #also can be used bash ./get_credentials.sh</code></p>
 <p>When executed, a VC issued by Keycloak will be created in the <code>sh wallet-identity</code> folder called <code>sh vc.jwt</code> . The credential format is JSON Web Token.</p>
 <h3 id="2o-creation-of-the-vp-and-the-access-token">2º: Creation of the VP and the Access token.</h3>
 <p>In this section, the Verifiable Presentation is created using the newly created VC, the DID key, and did.json generated before. The script is configured so that the DIDs are located in the <code>sh wallet-identity</code> folder. The path can be configured in the scripts:</p>
-<details class="note">
-<summary>Click to expand VP creation script</summary>
 <p>```sh</p>
 <h1 id="binbash_1">!/bin/bash</h1>
 <h1 id="-default-values-">--- Default Values ---</h1>
@@ -2212,7 +2207,6 @@ else
     echo "$access_token"
 fi
 ```</p>
-</details>
 <p>Again, to run the script, the file must be created. This can be done by:</p>
 <p><code>sh
 nano get_access_token.sh #then copy and paste the script code
@@ -2312,7 +2306,7 @@ curl -G 'https://mp-data-service.pgtec-vrain-dataspace.eu/ngsi-ld/v1/entities'  
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="June 4, 2026 12:55:28">June 4, 2026</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="June 4, 2026 16:01:06">June 4, 2026</span>
   </span>
 
     
@@ -2378,40 +2372,30 @@ curl -G 'https://mp-data-service.pgtec-vrain-dataspace.eu/ngsi-ld/v1/entities'  
   </nav>
   
 
-   <div class="md-footer__inner md-grid pg-footer">
-    <div class="pg-col pg-org">
-      <h4 class="pg-h4">Organization</h4>
-      <div class="footer-logo">
-        <a href="https://pgtec-vrain.github.io/" target="_blank" rel="noopener">
-          <img class="pgtec-logo" src="../../assets/images/logo_letters_without_bg.png" alt="PGTEC VRAIN logo">
+  <footer class="main-footer">
+    <div class="container">
+      <div class="logo-group">
+        <a href="https://www.iiama.upv.es/" target="_blank" rel="noopener">
+          <img src="../../assets/images/footer/logo_iiama-removebg.png" alt="IIAMA logo" class="footer-img iiama-logo">
         </a>
         <a href="https://vrain.upv.es/" target="_blank" rel="noopener">
-          <img class="vrain-logo" src="../../assets/images/vrain_white.png" alt="VRAIN logo">
-        </a>    
-      </div>
-    </div>
-
-    <div class="pg-col pg-funded">
-      <h4 class="pg-h4">Co-funded by</h4>
-      <div class="logo-container">
-        <a target="_blank" rel="noopener" href="https://avance.digital.gob.es/es-es/Paginas/index.aspx">
-          <img class="gva-logo" src="../../assets/images/logo_MTDFP-SEDIA.png" alt="Ministerio de Asuntos Económicos y Transformación Digital. Secretaría de Estado de Digitalización e Inteligencia Artificial ">
+          <img src="../../assets/images/footer/vrain_white_1.png" alt="VRAIN logo" class="footer-img vrain-logo">
         </a>
-        <a target="_blank" rel="noopener"
-           href="https://next-generation-eu.europa.eu/index_es">
-          <img src="../../assets/images/logo_EU-NG_es.png" alt="Financiado por la Union Europea - NextGenerationEU">
+        <a href="https://pgtec-vrain.github.io/" target="_blank" rel="noopener">
+          <img src="../../assets/images/footer/logo_upv2.png" alt="PGTEC VRAIN logo" class="footer-img pgtec-logo">
         </a>
-        <a target="_blank" rel="noopener" href="https://cindi.gva.es/">
-          <img class="gva-logo" src="../../assets/images/gva.png" alt="GVA Logo">
+        <a href="https://avance.digital.gob.es/" target="_blank" rel="noopener">
+          <img src="../../assets/images/footer/logo_MTDFP-SEDIA.png" alt="SEDIA" class="footer-img sedia-logo">
+        </a>
+        <a href="https://next-generation-eu.europa.eu/" target="_blank" rel="noopener">
+          <img src="../../assets/images/footer/logo_eu.png" alt="NextGenerationEU" class="footer-img eu-logo">
+        </a>
+        <a href="https://cindi.gva.es/" target="_blank" rel="noopener">
+          <img src="../../assets/images/footer/logo_PRTR_3.png" alt="GVA Logo" class="footer-img gva-logo">
         </a>
       </div>
-      <p class="pg-disclaimer">
-        Views and opinions expressed are however those of the author(s) only and do not
-        necessarily reflect those of the European Union or the granting authority.
-        Neither the European Union nor the granting authority can be held responsible for them.
-      </p>
     </div>
-  </div>
+  </footer>
 </footer>
       
     </div>
