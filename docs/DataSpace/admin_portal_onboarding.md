@@ -69,6 +69,6 @@ Finally, once logged in with the newly created user and password, you can see th
 
     To do this, you can access the following link: [Trust Anchor](https://trustanchor-dev.pgtec-vrain-dataspace.eu/v4/issuers/). 
 
-    In addition, it alsocan be accessed via Linux terminal as follows:
+    In addition, it can also be accessed via Linux terminal as follows:
 
     curl -s "https://trustanchor-dev.pgtec-vrain-dataspace.eu/v4/issuers?page%5Bsize%5D=100" | jq '[.items[].did]' 
