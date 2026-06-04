@@ -26,27 +26,18 @@ This section describes the process to follow in order to request data from the O
 
 To create DIDs and certificates, you can follow the code below, although we recommend reading the previous section to understand in detail how DIDs are used and created.
 
-```sh
-
+```bash
 mkdir wallet-identity
-
 chmod o+rw wallet-identity
-
 docker run -v $(pwd)/wallet-identity:/cert quay.io/wi_stefan/did-helper:0.1.1
-
 sudo chmod -R o+rw wallet-identity/private-key.pem
-
 ```
 
 ### 1º: VC creation
 
 The first step is to create a VC using Keycloak. To do this, run the following parameterizable script:
 
-<details>
-<summary>Click to expand VC creation script</summary>
-
 ```bash
-
 #!/bin/bash
 
 # --- Updated Default Values to match your working environment ---
@@ -190,8 +181,6 @@ fi
 
 ```
 
-</details>
-
 The script is designed to be parameterizable to adapt to different use cases. You can choose the URL where Keycloak is located, the type of Keycloak client, the user, the configuration, and the format of the VC to be created. To create and run the script, execute the following line:
 
 ```bash
@@ -207,9 +196,6 @@ When executed, a VC issued by Keycloak will be created in the ``sh wallet-identi
 ### 2º: Creation of the VP and the Access token.
 
 In this section, the Verifiable Presentation is created using the newly created VC, the DID key, and did.json generated before. The script is configured so that the DIDs are located in the ``sh wallet-identity`` folder. The path can be configured in the scripts:
-
-<details>
-<summary>Click to expand Access Token script</summary>
 
 ```bash
 
@@ -327,8 +313,6 @@ fi
 
 ```
 
-</details>
-
 Again, to run the script, the file must be created. This can be done by:
 
 ```bash
@@ -365,6 +349,7 @@ curl -G 'https://mp-data-service.pgtec-vrain-dataspace.eu/ngsi-ld/v1/entities'  
 
 The answer is as follows:
 
+```html
 <html>
 <head><title>401 Authorization Required</title></head>
 <body>
@@ -372,6 +357,7 @@ The answer is as follows:
 <hr><center>openresty</center>
 <p><em>Powered by <a href="https://apisix.apache.org/">APISIX</a>.</em></p></body>
 </html>
+```
 
 #### 3.2º Valid query
 
