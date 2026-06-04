@@ -243,13 +243,14 @@ article > h1 {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 2.2rem;
-  flex-wrap: wrap;
+  gap: 1.8rem;
+  flex-wrap: nowrap;
 }
 
 .main-footer .logo-group a {
   display: inline-flex;
   align-items: center;
+  flex-shrink: 0;
   transition: opacity 0.2s ease;
 }
 
@@ -259,7 +260,7 @@ article > h1 {
 
 /* Shared base for all footer logos */
 .footer-img {
-  height: 50px;
+  height: 40px;
   width: auto;
   object-fit: contain;
   display: block;
@@ -267,39 +268,40 @@ article > h1 {
 
 /* Per-logo size overrides */
 .footer-img.iiama-logo {
-  height: 55px;
+  height: 45px;
 }
 
 .footer-img.vrain-logo {
-  height: 30px;
+  height: 24px;
   filter: none !important;
 }
 
 .footer-img.pgtec-logo {
-  height: 55px;
+  height: 45px;
 }
 
 .footer-img.sedia-logo {
-  height: 70px;
-}
-
-.footer-img.eu-logo {
-  height: 50px;
-}
-
-.footer-img.gva-logo {
   height: 55px;
 }
 
-@media (max-width: 600px) {
+.footer-img.eu-logo {
+  height: 40px;
+}
+
+.footer-img.gva-logo {
+  height: 45px;
+}
+
+@media (max-width: 500px) {
   .main-footer .logo-group {
-    gap: 1.2rem;
+    flex-wrap: wrap;
+    gap: 1rem;
   }
   .footer-img {
-    height: 38px;
+    height: 32px;
   }
   .footer-img.sedia-logo {
-    height: 52px;
+    height: 42px;
   }
 }
 
