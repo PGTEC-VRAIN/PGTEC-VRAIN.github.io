@@ -42,6 +42,7 @@ nav:
       - getting_started/what_is_pgtec.md
       - getting_started/data_and_services.md
       - getting_started/join_data_space.md
+      - getting_started/onboarding.md
   - Data Sources:
       - data_sources/index.md 
       # - data_sources/metadata_datasources/siah_datasource.md
