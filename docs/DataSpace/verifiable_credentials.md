@@ -187,11 +187,11 @@ nano get_credentials.sh #then copy and paste the script code
 ./get_credentials.sh #also can be used bash ./get_credentials.sh
 ```
 
-When executed, a VC issued by Keycloak will be created in the ``sh wallet-identity`` folder called ``sh vc.jwt`` . The credential format is JSON Web Token.
+When executed, a VC issued by Keycloak will be created in the `wallet-identity` folder called `vc.jwt` . The credential format is JSON Web Token.
 
 ### 2º: Creation of the VP and the Access token.
 
-In this section, the Verifiable Presentation is created using the newly created VC, the DID key, and did.json generated before. The script is configured so that the DIDs are located in the ``sh wallet-identity`` folder. The path can be configured in the scripts:
+In this section, the Verifiable Presentation is created using the newly created VC, the DID key, and did.json generated before. The script is configured so that the DIDs are located in the `wallet-identity` folder. The path can be configured in the scripts:
 
 ```sh
 #!/bin/bash
@@ -337,6 +337,7 @@ curl -G 'https://mp-data-service.pgtec-vrain-dataspace.eu/ngsi-ld/v1/entities'  
 
 The answer is as follows:
 
+```html
 <html>
 <head><title>401 Authorization Required</title></head>
 <body>
@@ -344,6 +345,7 @@ The answer is as follows:
 <hr><center>openresty</center>
 <p><em>Powered by <a href="https://apisix.apache.org/">APISIX</a>.</em></p></body>
 </html>
+```
 
 #### 3.2º Valid query
 
