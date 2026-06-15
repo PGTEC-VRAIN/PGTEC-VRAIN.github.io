@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(curl -s \"https://pgtec-vrain.github.io/DataSpace/verifiable_credentials/\")",
+      "Bash(curl -s \"https://raw.githubusercontent.com/PGTEC-VRAIN/PGTEC-VRAIN.github.io/main/docs/DataSpace/verifiable_credentials.md\")",
+      "Bash(gh run *)"
+    ]
+  }
+}
